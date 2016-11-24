@@ -28,114 +28,127 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.playButton = new System.Windows.Forms.Button();
+            this.PlayButton = new System.Windows.Forms.Button();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.plotButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.PlotButton = new System.Windows.Forms.Button();
+            this.NITextBox = new System.Windows.Forms.TextBox();
+            this.HMCRTextBox = new System.Windows.Forms.TextBox();
+            this.PARTextBox = new System.Windows.Forms.TextBox();
+            this.BwTextBox = new System.Windows.Forms.TextBox();
+            this.ECRTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.MaxRadioBtn = new System.Windows.Forms.RadioButton();
+            this.MinRadioBtn = new System.Windows.Forms.RadioButton();
+            this.HMSTextBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.TotalNotesTextBox = new System.Windows.Forms.TextBox();
+            this.MaxValueTextBox = new System.Windows.Forms.TextBox();
+            this.MinValueTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.EditButton = new System.Windows.Forms.Button();
+            this.ResetButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 217);
+            this.richTextBox1.Location = new System.Drawing.Point(1050, 21);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(293, 392);
+            this.richTextBox1.Size = new System.Drawing.Size(276, 108);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // playButton
+            // PlayButton
             // 
-            this.playButton.Location = new System.Drawing.Point(320, 217);
-            this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(75, 23);
-            this.playButton.TabIndex = 1;
-            this.playButton.Text = "Play";
-            this.playButton.UseVisualStyleBackColor = true;
-            this.playButton.Click += new System.EventHandler(this.playButton_Click);
+            this.PlayButton.Location = new System.Drawing.Point(955, 19);
+            this.PlayButton.Name = "PlayButton";
+            this.PlayButton.Size = new System.Drawing.Size(75, 23);
+            this.PlayButton.TabIndex = 1;
+            this.PlayButton.Text = "Play";
+            this.PlayButton.UseVisualStyleBackColor = true;
+            this.PlayButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // chart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chart.Legends.Add(legend1);
-            this.chart.Location = new System.Drawing.Point(851, 217);
+            chartArea3.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chart.Legends.Add(legend3);
+            this.chart.Location = new System.Drawing.Point(12, 191);
             this.chart.Name = "chart";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chart.Series.Add(series3);
             this.chart.Size = new System.Drawing.Size(487, 392);
             this.chart.TabIndex = 4;
             this.chart.Text = "chart1";
             // 
-            // plotButton
+            // PlotButton
             // 
-            this.plotButton.Location = new System.Drawing.Point(751, 217);
-            this.plotButton.Name = "plotButton";
-            this.plotButton.Size = new System.Drawing.Size(75, 23);
-            this.plotButton.TabIndex = 5;
-            this.plotButton.Text = "Plot";
-            this.plotButton.UseVisualStyleBackColor = true;
-            this.plotButton.Click += new System.EventHandler(this.plotButton_Click);
+            this.PlotButton.Location = new System.Drawing.Point(514, 191);
+            this.PlotButton.Name = "PlotButton";
+            this.PlotButton.Size = new System.Drawing.Size(81, 40);
+            this.PlotButton.TabIndex = 5;
+            this.PlotButton.Text = "Plot";
+            this.PlotButton.UseVisualStyleBackColor = true;
+            this.PlotButton.Click += new System.EventHandler(this.plotButton_Click);
             // 
-            // textBox1
+            // NITextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(72, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(57, 20);
-            this.textBox1.TabIndex = 6;
+            this.NITextBox.Enabled = false;
+            this.NITextBox.Location = new System.Drawing.Point(72, 31);
+            this.NITextBox.Name = "NITextBox";
+            this.NITextBox.Size = new System.Drawing.Size(57, 20);
+            this.NITextBox.TabIndex = 6;
+            this.NITextBox.Text = "250";
+            this.NITextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // textBox2
+            // HMCRTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(72, 57);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(57, 20);
-            this.textBox2.TabIndex = 7;
+            this.HMCRTextBox.Enabled = false;
+            this.HMCRTextBox.Location = new System.Drawing.Point(72, 57);
+            this.HMCRTextBox.Name = "HMCRTextBox";
+            this.HMCRTextBox.Size = new System.Drawing.Size(57, 20);
+            this.HMCRTextBox.TabIndex = 7;
+            this.HMCRTextBox.Text = "0.80";
+            this.HMCRTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // textBox3
+            // PARTextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(72, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(57, 20);
-            this.textBox3.TabIndex = 8;
+            this.PARTextBox.Enabled = false;
+            this.PARTextBox.Location = new System.Drawing.Point(72, 83);
+            this.PARTextBox.Name = "PARTextBox";
+            this.PARTextBox.Size = new System.Drawing.Size(57, 20);
+            this.PARTextBox.TabIndex = 8;
+            this.PARTextBox.Text = "0.15";
+            this.PARTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // textBox4
+            // BwTextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(72, 109);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(57, 20);
-            this.textBox4.TabIndex = 9;
+            this.BwTextBox.Enabled = false;
+            this.BwTextBox.Location = new System.Drawing.Point(72, 109);
+            this.BwTextBox.Name = "BwTextBox";
+            this.BwTextBox.Size = new System.Drawing.Size(57, 20);
+            this.BwTextBox.TabIndex = 9;
             // 
-            // textBox5
+            // ECRTextBox
             // 
-            this.textBox5.Location = new System.Drawing.Point(72, 135);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(57, 20);
-            this.textBox5.TabIndex = 10;
+            this.ECRTextBox.Enabled = false;
+            this.ECRTextBox.Location = new System.Drawing.Point(72, 135);
+            this.ECRTextBox.Name = "ECRTextBox";
+            this.ECRTextBox.Size = new System.Drawing.Size(57, 20);
+            this.ECRTextBox.TabIndex = 10;
             // 
             // label1
             // 
@@ -182,34 +195,39 @@
             this.label5.TabIndex = 15;
             this.label5.Text = "ECR";
             // 
-            // radioButton1
+            // MaxRadioBtn
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(157, 138);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(68, 17);
-            this.radioButton1.TabIndex = 16;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Maximize";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.MaxRadioBtn.AutoSize = true;
+            this.MaxRadioBtn.Enabled = false;
+            this.MaxRadioBtn.Location = new System.Drawing.Point(157, 138);
+            this.MaxRadioBtn.Name = "MaxRadioBtn";
+            this.MaxRadioBtn.Size = new System.Drawing.Size(68, 17);
+            this.MaxRadioBtn.TabIndex = 16;
+            this.MaxRadioBtn.TabStop = true;
+            this.MaxRadioBtn.Text = "Maximize";
+            this.MaxRadioBtn.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // MinRadioBtn
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(231, 138);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(65, 17);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Minimize";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.MinRadioBtn.AutoSize = true;
+            this.MinRadioBtn.Enabled = false;
+            this.MinRadioBtn.Location = new System.Drawing.Point(231, 138);
+            this.MinRadioBtn.Name = "MinRadioBtn";
+            this.MinRadioBtn.Size = new System.Drawing.Size(65, 17);
+            this.MinRadioBtn.TabIndex = 17;
+            this.MinRadioBtn.TabStop = true;
+            this.MinRadioBtn.Text = "Minimize";
+            this.MinRadioBtn.UseVisualStyleBackColor = true;
             // 
-            // textBox6
+            // HMSTextBox
             // 
-            this.textBox6.Location = new System.Drawing.Point(231, 31);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(57, 20);
-            this.textBox6.TabIndex = 18;
+            this.HMSTextBox.Enabled = false;
+            this.HMSTextBox.Location = new System.Drawing.Point(231, 31);
+            this.HMSTextBox.Name = "HMSTextBox";
+            this.HMSTextBox.Size = new System.Drawing.Size(57, 20);
+            this.HMSTextBox.TabIndex = 18;
+            this.HMSTextBox.Text = "30";
+            this.HMSTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label6
             // 
@@ -229,26 +247,35 @@
             this.label7.TabIndex = 20;
             this.label7.Text = "Total Notes";
             // 
-            // textBox7
+            // TotalNotesTextBox
             // 
-            this.textBox7.Location = new System.Drawing.Point(231, 57);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(57, 20);
-            this.textBox7.TabIndex = 21;
+            this.TotalNotesTextBox.Enabled = false;
+            this.TotalNotesTextBox.Location = new System.Drawing.Point(231, 57);
+            this.TotalNotesTextBox.Name = "TotalNotesTextBox";
+            this.TotalNotesTextBox.Size = new System.Drawing.Size(57, 20);
+            this.TotalNotesTextBox.TabIndex = 21;
+            this.TotalNotesTextBox.Text = "2";
+            this.TotalNotesTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // textBox8
+            // MaxValueTextBox
             // 
-            this.textBox8.Location = new System.Drawing.Point(231, 83);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(57, 20);
-            this.textBox8.TabIndex = 22;
+            this.MaxValueTextBox.Enabled = false;
+            this.MaxValueTextBox.Location = new System.Drawing.Point(231, 83);
+            this.MaxValueTextBox.Name = "MaxValueTextBox";
+            this.MaxValueTextBox.Size = new System.Drawing.Size(57, 20);
+            this.MaxValueTextBox.TabIndex = 22;
+            this.MaxValueTextBox.Text = "2.048";
+            this.MaxValueTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
-            // textBox9
+            // MinValueTextBox
             // 
-            this.textBox9.Location = new System.Drawing.Point(231, 109);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(57, 20);
-            this.textBox9.TabIndex = 23;
+            this.MinValueTextBox.Enabled = false;
+            this.MinValueTextBox.Location = new System.Drawing.Point(231, 109);
+            this.MinValueTextBox.Name = "MinValueTextBox";
+            this.MinValueTextBox.Size = new System.Drawing.Size(57, 20);
+            this.MinValueTextBox.TabIndex = 23;
+            this.MinValueTextBox.Text = "-2.048";
+            this.MinValueTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label8
             // 
@@ -268,34 +295,57 @@
             this.label9.TabIndex = 25;
             this.label9.Text = "Min Value";
             // 
+            // EditButton
+            // 
+            this.EditButton.Location = new System.Drawing.Point(356, 29);
+            this.EditButton.Name = "EditButton";
+            this.EditButton.Size = new System.Drawing.Size(75, 23);
+            this.EditButton.TabIndex = 26;
+            this.EditButton.Text = "EDIT";
+            this.EditButton.UseVisualStyleBackColor = true;
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
+            // 
+            // ResetButton
+            // 
+            this.ResetButton.Enabled = false;
+            this.ResetButton.Location = new System.Drawing.Point(356, 60);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(75, 23);
+            this.ResetButton.TabIndex = 27;
+            this.ResetButton.Text = "RESET";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ResetButton_Click);
+            // 
             // HarmonyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1350, 621);
+            this.Controls.Add(this.ResetButton);
+            this.Controls.Add(this.EditButton);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.MinValueTextBox);
+            this.Controls.Add(this.MaxValueTextBox);
+            this.Controls.Add(this.TotalNotesTextBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.HMSTextBox);
+            this.Controls.Add(this.MinRadioBtn);
+            this.Controls.Add(this.MaxRadioBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.plotButton);
+            this.Controls.Add(this.ECRTextBox);
+            this.Controls.Add(this.BwTextBox);
+            this.Controls.Add(this.PARTextBox);
+            this.Controls.Add(this.HMCRTextBox);
+            this.Controls.Add(this.NITextBox);
+            this.Controls.Add(this.PlotButton);
             this.Controls.Add(this.chart);
-            this.Controls.Add(this.playButton);
+            this.Controls.Add(this.PlayButton);
             this.Controls.Add(this.richTextBox1);
             this.Name = "HarmonyForm";
             this.Text = "Studio";
@@ -308,29 +358,31 @@
         #endregion
 
         private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
-        private System.Windows.Forms.Button plotButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Button PlotButton;
+        private System.Windows.Forms.TextBox NITextBox;
+        private System.Windows.Forms.TextBox HMCRTextBox;
+        private System.Windows.Forms.TextBox PARTextBox;
+        private System.Windows.Forms.TextBox BwTextBox;
+        private System.Windows.Forms.TextBox ECRTextBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.RadioButton MaxRadioBtn;
+        private System.Windows.Forms.RadioButton MinRadioBtn;
+        private System.Windows.Forms.TextBox HMSTextBox;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox TotalNotesTextBox;
+        private System.Windows.Forms.TextBox MaxValueTextBox;
+        private System.Windows.Forms.TextBox MinValueTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button EditButton;
+        private System.Windows.Forms.Button ResetButton;
     }
 }
 
