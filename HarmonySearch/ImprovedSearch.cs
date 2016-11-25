@@ -9,37 +9,24 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HarmonySearch
 {
-    public class Search
+    public class ImprovedSearch
     {
-        //public double MinimumNote { get; set; };
-        private static readonly double MinimumNote = -2.048;
-        //public double MaximumNote { get; set; };
-        private static readonly double MaximumNote = 2.048;
-        //private static readonly double MinimumNote = 0.0;
-        //private static readonly double MaximumNote = 2 * Math.PI;
-        //private static readonly double MinimumNote = -5.12;
-        //private static readonly double MaximumNote = 5.12;
-        //private static readonly double MinimumNote = -100.00;
-        //private static readonly double MaximumNote = 100.00;
-        private static readonly int TotalNotes = 2;
-        //public int TotalNotes { get; set; }
-        private static readonly int HMSize = 30;
-        //public int HMSize { get; set; }
-        private static readonly int NI = 2500; //Number of Improvisations
-        //public int NI { get; set; }
-        private static readonly double HMCR = 0.90;
-        //public double HMCR { get; set; }
-        private static readonly double PAR = 0.09;
-        //public double PAR { get; set; }
+        public double MinimumNote { get; set; }
+        public double MaximumNote { get; set; }
+        public int TotalNotes { get; set; }
+        public int HMSize { get; set; }
+        public int NI { get; set; } //Number of Improvisations
+        public float HMCR { get; set; }
 
-        public double BW { get; set; }
+        public float PARmin { get; set; }
+        public float PARmax { get; set; }
+        public double BWmin { get; set; }
+        public double BWmax { get; set; }
         
         private string output = "";
         public List<double> bestHarmonies = new List<double>();
-        public RichTextBox richTextBox { get; set; }
-        public Chart chart { get; set; }
 
-        public Search()
+        public ImprovedSearch()
         {
             initializeMemory();
         }
@@ -58,6 +45,15 @@ namespace HarmonySearch
         //        return random.Next(min, max);
         //    }
         //}
+
+        public static float getRandomFloat(float min, float max)
+        {
+            lock (syncLock)
+            {
+                return (float)random.NextDouble() * (max - min) + min;
+            }
+        }
+
         public static double getRandomDouble(double min, double max)
         {
             lock (syncLock)
@@ -76,7 +72,7 @@ namespace HarmonySearch
             return hrm;
         }
 
-        private void initializeMemory()
+        public void initializeMemory()
         {
             for (int i = 0; i < HMSize; i++)
                 memory.Add(getRandomHarmony());
@@ -96,49 +92,48 @@ namespace HarmonySearch
 
         public void Run()
         {
-            for (int currentIteration = 0; currentIteration < NI; currentIteration++)
+            for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
                 Harmony newHarmony = new Harmony();
                 newHarmony.note = new List<double>();
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
-                    double randomDouble = getRandomDouble(0.0, 1.0);
-                    if (randomDouble <= HMCR)
+                    float randomFloat = getRandomFloat(0.0f, 1.0f);
+                    if (randomFloat <= HMCR)
                     {
                         Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(getRandomDouble(0, HMSize - 1));
                         newHarmony.note.Add(memory[randomHarmony].note[currentNote]);
-                        adjustPitch(newHarmony, currentNote);
+                        adjustPitch(newHarmony, currentNote, currentImprovisation);
                     }
                     else
                     {
                         newHarmony.note.Add(getRandomDouble(MinimumNote, MaximumNote));
                     }
                 }
-                updateMemory(newHarmony, currentIteration);
+                updateMemory(newHarmony, currentImprovisation);
                 bestHarmonies.Add(getHarmonyAesthetics(memory[0]));
                 //writeResults(currentIteration);
             }
         }
 
-        private void adjustPitch(Harmony newHarmony, int index)
+        private void adjustPitch(Harmony newHarmony, int index, int currentImprovisation)
         {
-            double randomDouble = getRandomDouble(0.0, 1.0);
-            if (randomDouble <= PAR)
+            float randomFloat = getRandomFloat(0.0f, 1.0f);
+            if (randomFloat <= getPAR(currentImprovisation))
             {
                 Debug.WriteLine("PAR");
                 if (getRandomDouble(-10.0, 10.0) < 0)
                 {
-                    newHarmony.note[index] += getRandomDouble(MinimumNote, MaximumNote);
+                    newHarmony.note[index] += getRandomDouble(0, getBandwidth(currentImprovisation));
                     restrictNote(newHarmony.note[index]);
                 }
                 else if (getRandomDouble(-10.0, 10.0) >= 0)
                 {
-                    newHarmony.note[index] -= getRandomDouble(MinimumNote, MaximumNote);
+                    newHarmony.note[index] -= getRandomDouble(0, getBandwidth(currentImprovisation));
                     restrictNote(newHarmony.note[index]);
                 }
             }
-            //return 0;
         }
 
         private double restrictNote(double note)
@@ -158,7 +153,7 @@ namespace HarmonySearch
             {
                 for (int j = i + 1; j < memory.Count; j++)
                 {
-                    if (getHarmonyAesthetics(memory[i]) > getHarmonyAesthetics(memory[j]))
+                    if (Math.Abs(getHarmonyAesthetics(memory[i])) > Math.Abs(getHarmonyAesthetics(memory[j])))
                     {
                         tempHar = memory[i];
                         memory[i] = memory[j];
@@ -171,11 +166,21 @@ namespace HarmonySearch
         private void updateMemory(Harmony newHar, int currentIteration)
         {
             //int duplicatesCount = 0;
-            if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(memory[HMSize - 1]))
+            if (Math.Abs(getHarmonyAesthetics(newHar)) < Math.Abs(getHarmonyAesthetics(memory[HMSize - 1])))
             {
                 memory[HMSize - 1] = newHar;
                 sortMemory();
             }
+        }
+
+        private float getPAR(int currentImprovisation)
+        {
+            return PARmin + ((PARmax - PARmin)/NI) * currentImprovisation;
+        }
+
+        private double getBandwidth(int currentImprovisation)
+        {
+            return (Math.Log(BWmax / BWmin)/NI) * currentImprovisation;
         }
 
         public void writeResults(int currentIteration)
@@ -194,34 +199,6 @@ namespace HarmonySearch
                 output += "\n\t Aesthetics: " + getHarmonyAesthetics(memory[i]);
                 output += "\n";
             }
-            if(richTextBox != null)
-            {
-                richTextBox.Text = "";
-                richTextBox.Text += output;
-            }
-            //if(chart != null)
-                //plotChart(currentIteration);
-            //return output;
-            //Console.Write(output);
-            //Debug.WriteLine(output);
-        }
-
-        public void plotChart()
-        {
-            chart.Series.Clear();
-            chart.Series.Add("Harmony Improvisation");
-            chart.Series[0].ChartType = SeriesChartType.Line;
-            chart.Series[0].Color = System.Drawing.Color.Red;
-            chart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.Gray;
-            chart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-            chart.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.Gray;
-            chart.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-            chart.Legends.Clear();
-            for(int i=0; i<bestHarmonies.Count; i++)
-            {
-                chart.Series[0].Points.AddXY(i, bestHarmonies[i]);
-            }
-            chart.ChartAreas[0].AxisX.Interval = 150;
         }
     }
 }

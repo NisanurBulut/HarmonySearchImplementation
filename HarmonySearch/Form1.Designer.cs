@@ -28,11 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.PlayButton = new System.Windows.Forms.Button();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.PlotButton = new System.Windows.Forms.Button();
             this.NITextBox = new System.Windows.Forms.TextBox();
@@ -60,43 +58,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(1050, 21);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(276, 108);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
-            // 
-            // PlayButton
-            // 
-            this.PlayButton.Location = new System.Drawing.Point(955, 19);
-            this.PlayButton.Name = "PlayButton";
-            this.PlayButton.Size = new System.Drawing.Size(75, 23);
-            this.PlayButton.TabIndex = 1;
-            this.PlayButton.Text = "Play";
-            this.PlayButton.UseVisualStyleBackColor = true;
-            this.PlayButton.Click += new System.EventHandler(this.playButton_Click);
-            // 
             // chart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart.ChartAreas.Add(chartArea3);
-            legend3.Name = "Legend1";
-            this.chart.Legends.Add(legend3);
+            chartArea1.Name = "ChartArea1";
+            this.chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart.Legends.Add(legend1);
             this.chart.Location = new System.Drawing.Point(12, 191);
             this.chart.Name = "chart";
-            series3.ChartArea = "ChartArea1";
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chart.Series.Add(series3);
-            this.chart.Size = new System.Drawing.Size(487, 392);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chart.Series.Add(series1);
+            this.chart.Size = new System.Drawing.Size(1054, 418);
             this.chart.TabIndex = 4;
             this.chart.Text = "chart1";
             // 
             // PlotButton
             // 
-            this.PlotButton.Location = new System.Drawing.Point(514, 191);
+            this.PlotButton.Location = new System.Drawing.Point(1072, 191);
             this.PlotButton.Name = "PlotButton";
             this.PlotButton.Size = new System.Drawing.Size(81, 40);
             this.PlotButton.TabIndex = 5;
@@ -141,6 +121,7 @@
             this.BwTextBox.Name = "BwTextBox";
             this.BwTextBox.Size = new System.Drawing.Size(57, 20);
             this.BwTextBox.TabIndex = 9;
+            this.BwTextBox.Text = "2.048";
             // 
             // ECRTextBox
             // 
@@ -345,8 +326,6 @@
             this.Controls.Add(this.NITextBox);
             this.Controls.Add(this.PlotButton);
             this.Controls.Add(this.chart);
-            this.Controls.Add(this.PlayButton);
-            this.Controls.Add(this.richTextBox1);
             this.Name = "HarmonyForm";
             this.Text = "Studio";
             ((System.ComponentModel.ISupportInitialize)(this.chart)).EndInit();
@@ -356,9 +335,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Button PlayButton;
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Button PlotButton;
         private System.Windows.Forms.TextBox NITextBox;

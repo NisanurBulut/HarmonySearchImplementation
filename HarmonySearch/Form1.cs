@@ -9,18 +9,11 @@ namespace HarmonySearch
     public partial class HarmonyForm : Form
     {
         ClassicSearch classicHS;
+        ImprovedSearch improvedHS;
 
         public HarmonyForm()
         {
             InitializeComponent();
-            classicHS = new ClassicSearch();
-        }
-
-        private void playButton_Click(object sender, System.EventArgs e)
-        {
-            classicHS = new ClassicSearch();
-            classicHS.Run();
-            richTextBox1.Text = classicHS.output;
         }
 
         private void plotButton_Click(object sender, EventArgs e)
@@ -28,40 +21,61 @@ namespace HarmonySearch
             setHarmonySearch();
             classicHS.initializeMemory();
             classicHS.Run();
-            plotChart(classicHS.bestHarmonies);
+            improvedHS.initializeMemory();
+            improvedHS.Run();
+            plotChart();
         }
 
-        private void plotChart(List<double> bestHarmonies)
+        private void plotChart()
         {
             chart.Series.Clear();
+
             chart.Series.Add("Classic Harmony Search");
             chart.Series[0].ChartType = SeriesChartType.Line;
             chart.Series[0].Color = System.Drawing.Color.Red;
+            chart.Series.Add("Improved Harmony Search");
+            chart.Series[1].ChartType = SeriesChartType.Line;
+            chart.Series[1].Color = System.Drawing.Color.Blue;
+
             chart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.Gray;
             chart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
             chart.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.Gray;
             chart.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-            //chart.Legends.Clear();
-            for (int i = 0; i < bestHarmonies.Count; i++)
+
+            for (int i = 0; i < classicHS.NI; i++)
             {
-                chart.Series[0].Points.AddXY(i, bestHarmonies[i]);
+                chart.Series[0].Points.AddXY(i, classicHS.bestHarmonies[i]);
+                chart.Series[1].Points.AddXY(i, improvedHS.bestHarmonies[i]);
             }
-            chart.ChartAreas[0].AxisX.Interval = bestHarmonies.Count / 10;
         }
 
         private void setHarmonySearch()
         {
             if (isInputOk())
             {
+                classicHS = new ClassicSearch();
+                improvedHS = new ImprovedSearch();
+
                 classicHS.NI = Convert.ToInt32(NITextBox.Text);
                 classicHS.HMCR = double.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
                 classicHS.PAR = double.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
-                //chs.BW = Convert.ToDouble(textBox4.Text);
-                //chs.ECR = Convert.ToDouble(textBox5.Text);
+                //TODO: Some more parameters
                 classicHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
                 classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                 classicHS.MaximumNote = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                 classicHS.MinimumNote = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                classicHS.BW = 2.048;
+                improvedHS.NI = Convert.ToInt32(NITextBox.Text);
+                improvedHS.HMCR = 0.95f;
+                improvedHS.PARmin = 0.1f;
+                improvedHS.PARmax = 0.85f;
+                improvedHS.BWmin = 0.001;
+                improvedHS.BWmax = 0.8;
+                //TODO: 
+                improvedHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                improvedHS.MaximumNote = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.MinimumNote = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
             }
         }
 
@@ -146,6 +160,7 @@ namespace HarmonySearch
             TotalNotesTextBox.Text = "2";
             MaxValueTextBox.Text = "2.048";
             MinValueTextBox.Text = "-2.048";
+            BwTextBox.Text = "2.048";
             EditButton.Enabled = true;
             ResetButton.Enabled = false;
             NITextBox.Enabled = false;

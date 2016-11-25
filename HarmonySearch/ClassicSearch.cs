@@ -12,31 +12,17 @@ namespace HarmonySearch
     public class ClassicSearch
     {
         public double MinimumNote { get; set; }
-        //private static readonly double MinimumNote = -2.048;
         public double MaximumNote { get; set; }
-        //private static readonly double MaximumNote = 2.048;
-        //private static readonly double MinimumNote = 0.0;
-        //private static readonly double MaximumNote = 2 * Math.PI;
-        //private static readonly double MinimumNote = -5.12;
-        //private static readonly double MaximumNote = 5.12;
-        //private static readonly double MinimumNote = -100.00;
-        //private static readonly double MaximumNote = 100.00;
-        //private static readonly int TotalNotes = 2;
         public int TotalNotes { get; set; }
-        //private static readonly int HMSize = 30;
         public int HMSize { get; set; }
-        //private static readonly int NI = 500; //Number of Improvisations
-        public int NI { get; set; }
-        //private static readonly float HMCR = 0.85f;
+        public int NI { get; set; } //Number of Improvisations
         public double HMCR { get; set; }
-        //private static readonly float PAR = 0.15f;
         public double PAR { get; set; }
 
         public double BW { get; set; }
 
         public string output { get; set; }
         public List<double> bestHarmonies = new List<double>();
-        public RichTextBox richTextBox { get; set; }
 
         public ClassicSearch()
         {
@@ -45,7 +31,7 @@ namespace HarmonySearch
 
         //List<double> harmony = new List<double>(TotalVars);
         //int randomIntNumber = 0;
-        List<Harmony> memory = new List<Harmony>();
+        private List<Harmony> memory = new List<Harmony>();
 
         private static readonly Random random = new Random();
         private static readonly object syncLock = new object();
@@ -136,16 +122,15 @@ namespace HarmonySearch
                 Debug.WriteLine("PAR");
                 if (getRandomDouble(-10.0, 10.0) < 0)
                 {
-                    newHarmony.note[index] += getRandomDouble(MinimumNote, MaximumNote);
+                    newHarmony.note[index] += getRandomDouble(0, BW);
                     restrictNote(newHarmony.note[index]);
                 }
                 else if (getRandomDouble(-10.0, 10.0) >= 0)
                 {
-                    newHarmony.note[index] -= getRandomDouble(MinimumNote, MaximumNote);
+                    newHarmony.note[index] -= getRandomDouble(0, BW);
                     restrictNote(newHarmony.note[index]);
                 }
             }
-            //return 0;
         }
 
         private double restrictNote(double note)
@@ -165,7 +150,7 @@ namespace HarmonySearch
             {
                 for (int j = i + 1; j < memory.Count; j++)
                 {
-                    if (getHarmonyAesthetics(memory[i]) > getHarmonyAesthetics(memory[j]))
+                    if (Math.Abs(getHarmonyAesthetics(memory[i])) > Math.Abs(getHarmonyAesthetics(memory[j])))
                     {
                         tempHar = memory[i];
                         memory[i] = memory[j];
@@ -177,8 +162,7 @@ namespace HarmonySearch
 
         private void updateMemory(Harmony newHar, int currentIteration)
         {
-            //int duplicatesCount = 0;
-            if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(memory[HMSize - 1]))
+            if (Math.Abs(getHarmonyAesthetics(newHar)) < Math.Abs(getHarmonyAesthetics(memory[HMSize - 1])))
             {
                 memory[HMSize - 1] = newHar;
                 sortMemory();
