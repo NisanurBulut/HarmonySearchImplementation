@@ -10,6 +10,8 @@ namespace HarmonySearch
     {
         ClassicSearch classicHS;
         ImprovedSearch improvedHS;
+        GlobalBestSearch globalHS;
+        SelfAdaptiveSearch adaptiveHS;
 
         public HarmonyForm()
         {
@@ -23,6 +25,10 @@ namespace HarmonySearch
             classicHS.Run();
             improvedHS.initializeMemory();
             improvedHS.Run();
+            globalHS.initializeMemory();
+            globalHS.Run();
+            adaptiveHS.initializeMemory();
+            adaptiveHS.Run();
             plotChart();
         }
 
@@ -32,10 +38,16 @@ namespace HarmonySearch
 
             chart.Series.Add("Classic Harmony Search");
             chart.Series[0].ChartType = SeriesChartType.Line;
-            chart.Series[0].Color = System.Drawing.Color.Red;
+            chart.Series[0].Color = System.Drawing.Color.DarkRed;
             chart.Series.Add("Improved Harmony Search");
             chart.Series[1].ChartType = SeriesChartType.Line;
-            chart.Series[1].Color = System.Drawing.Color.Blue;
+            chart.Series[1].Color = System.Drawing.Color.DarkBlue;
+            chart.Series.Add("Global Best Harmony Search");
+            chart.Series[2].ChartType = SeriesChartType.Line;
+            chart.Series[2].Color = System.Drawing.Color.SkyBlue;
+            chart.Series.Add("Self Adaptive Harmony Search");
+            chart.Series[3].ChartType = SeriesChartType.Line;
+            chart.Series[3].Color = System.Drawing.Color.Orange;
 
             chart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.Gray;
             chart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
@@ -46,6 +58,8 @@ namespace HarmonySearch
             {
                 chart.Series[0].Points.AddXY(i, classicHS.bestHarmonies[i]);
                 chart.Series[1].Points.AddXY(i, improvedHS.bestHarmonies[i]);
+                chart.Series[2].Points.AddXY(i, globalHS.bestHarmonies[i]);
+                chart.Series[3].Points.AddXY(i, adaptiveHS.bestHarmonies[i]);
             }
         }
 
@@ -55,6 +69,8 @@ namespace HarmonySearch
             {
                 classicHS = new ClassicSearch();
                 improvedHS = new ImprovedSearch();
+                globalHS = new GlobalBestSearch();
+                adaptiveHS = new SelfAdaptiveSearch();
 
                 classicHS.NI = Convert.ToInt32(NITextBox.Text);
                 classicHS.HMCR = double.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
@@ -62,8 +78,8 @@ namespace HarmonySearch
                 //TODO: Some more parameters
                 classicHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
                 classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                classicHS.MaximumNote = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
-                classicHS.MinimumNote = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                classicHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                classicHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
                 classicHS.BW = 2.048;
                 improvedHS.NI = Convert.ToInt32(NITextBox.Text);
                 improvedHS.HMCR = 0.95f;
@@ -76,6 +92,22 @@ namespace HarmonySearch
                 improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                 improvedHS.MaximumNote = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                 improvedHS.MinimumNote = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+
+                globalHS.NI = Convert.ToInt32(NITextBox.Text);
+                globalHS.HMCR = double.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                globalHS.PAR = double.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+                globalHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                globalHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                globalHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                globalHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+
+                adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
+                adaptiveHS.HMCR = double.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                adaptiveHS.PAR = double.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+                adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                adaptiveHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                adaptiveHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                adaptiveHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
             }
         }
 

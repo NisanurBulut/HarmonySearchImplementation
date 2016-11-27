@@ -11,8 +11,8 @@ namespace HarmonySearch
 {
     public class ClassicSearch
     {
-        public double MinimumNote { get; set; }
-        public double MaximumNote { get; set; }
+        public double MinimumValue { get; set; }
+        public double MaximumValue { get; set; }
         public int TotalNotes { get; set; }
         public int HMSize { get; set; }
         public int NI { get; set; } //Number of Improvisations
@@ -33,38 +33,12 @@ namespace HarmonySearch
         //int randomIntNumber = 0;
         private List<Harmony> memory = new List<Harmony>();
 
-        private static readonly Random random = new Random();
-        private static readonly object syncLock = new object();
-
-        //public static int getRandomInteger(int min, int max)
-        //{
-        //    lock (syncLock)
-        //    {
-        //        return random.Next(min, max);
-        //    }
-        //}
-        public static double getRandomDouble(double min, double max)
-        {
-            lock (syncLock)
-            {
-                return random.NextDouble() * (max - min) + min;
-            }
-        }
-
-        public static float getRandomFloat(float min, float max)
-        {
-            lock (syncLock)
-            {
-                return (float) random.NextDouble() * (max - min) + min;
-            }
-        }
-
         private Harmony getRandomHarmony()
         {
             Harmony hrm = new Harmony();
             hrm.note = new List<double>();
             for (int i = 0; i < TotalNotes; i++)
-                hrm.note.Add(getRandomDouble(MinimumNote, MaximumNote));
+                hrm.note.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
 
             return hrm;
         }
@@ -72,7 +46,9 @@ namespace HarmonySearch
         public void initializeMemory()
         {
             for (int i = 0; i < HMSize; i++)
+            {
                 memory.Add(getRandomHarmony());
+            }
 
             sortMemory();
         }
@@ -95,17 +71,17 @@ namespace HarmonySearch
                 newHarmony.note = new List<double>();
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
-                    float randomFloat = getRandomFloat(0.0f, 1.0f);
+                    float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
                         Debug.WriteLine("HMCR");
-                        int randomHarmony = Convert.ToInt32(getRandomDouble(0, HMSize - 1));
+                        int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
                         newHarmony.note.Add(memory[randomHarmony].note[currentNote]);
                         adjustPitch(newHarmony, currentNote);
                     }
                     else
                     {
-                        newHarmony.note.Add(getRandomDouble(MinimumNote, MaximumNote));
+                        newHarmony.note.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -116,29 +92,26 @@ namespace HarmonySearch
 
         private void adjustPitch(Harmony newHarmony, int index)
         {
-            float randomFloat = getRandomFloat(0.0f, 1.0f);
+            float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= PAR)
             {
                 Debug.WriteLine("PAR");
-                if (getRandomDouble(-10.0, 10.0) < 0)
-                {
-                    newHarmony.note[index] += getRandomDouble(0, BW);
-                    restrictNote(newHarmony.note[index]);
-                }
-                else if (getRandomDouble(-10.0, 10.0) >= 0)
-                {
-                    newHarmony.note[index] -= getRandomDouble(0, BW);
-                    restrictNote(newHarmony.note[index]);
-                }
+                randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
+                if (randomFloat < 0)
+                    newHarmony.note[index] += Statics.getRandomDouble(0, BW);
+                else if (randomFloat >= 0)
+                    newHarmony.note[index] -= Statics.getRandomDouble(0, BW);
+
+                restrictNote(newHarmony.note[index]);
             }
         }
 
         private double restrictNote(double note)
         {
-            if (note > MaximumNote)
-                return MaximumNote;
-            else if (note < MinimumNote)
-                return MinimumNote;
+            if (note > MaximumValue)
+                return MaximumValue;
+            else if (note < MinimumValue)
+                return MinimumValue;
             else
                 return note;
         }

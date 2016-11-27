@@ -35,39 +35,12 @@ namespace HarmonySearch
         //int randomIntNumber = 0;
         List<Harmony> memory = new List<Harmony>();
 
-        private static readonly Random random = new Random();
-        private static readonly object syncLock = new object();
-
-        //public static int getRandomInteger(int min, int max)
-        //{
-        //    lock (syncLock)
-        //    {
-        //        return random.Next(min, max);
-        //    }
-        //}
-
-        public static float getRandomFloat(float min, float max)
-        {
-            lock (syncLock)
-            {
-                return (float)random.NextDouble() * (max - min) + min;
-            }
-        }
-
-        public static double getRandomDouble(double min, double max)
-        {
-            lock (syncLock)
-            {
-                return random.NextDouble() * (max - min) + min;
-            }
-        }
-
         private Harmony getRandomHarmony()
         {
             Harmony hrm = new Harmony();
             hrm.note = new List<double>();
             for (int i = 0; i < TotalNotes; i++)
-                hrm.note.Add(getRandomDouble(MinimumNote, MaximumNote));
+                hrm.note.Add(Statics.getRandomDouble(MinimumNote, MaximumNote));
 
             return hrm;
         }
@@ -98,17 +71,17 @@ namespace HarmonySearch
                 newHarmony.note = new List<double>();
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
-                    float randomFloat = getRandomFloat(0.0f, 1.0f);
+                    float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
                         Debug.WriteLine("HMCR");
-                        int randomHarmony = Convert.ToInt32(getRandomDouble(0, HMSize - 1));
+                        int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
                         newHarmony.note.Add(memory[randomHarmony].note[currentNote]);
                         adjustPitch(newHarmony, currentNote, currentImprovisation);
                     }
                     else
                     {
-                        newHarmony.note.Add(getRandomDouble(MinimumNote, MaximumNote));
+                        newHarmony.note.Add(Statics.getRandomDouble(MinimumNote, MaximumNote));
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -119,18 +92,19 @@ namespace HarmonySearch
 
         private void adjustPitch(Harmony newHarmony, int index, int currentImprovisation)
         {
-            float randomFloat = getRandomFloat(0.0f, 1.0f);
+            float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= getPAR(currentImprovisation))
             {
                 Debug.WriteLine("PAR");
-                if (getRandomDouble(-10.0, 10.0) < 0)
+                randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
+                if (randomFloat < 0)
                 {
-                    newHarmony.note[index] += getRandomDouble(0, getBandwidth(currentImprovisation));
+                    newHarmony.note[index] += Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
                     restrictNote(newHarmony.note[index]);
                 }
-                else if (getRandomDouble(-10.0, 10.0) >= 0)
+                else if (randomFloat >= 0)
                 {
-                    newHarmony.note[index] -= getRandomDouble(0, getBandwidth(currentImprovisation));
+                    newHarmony.note[index] -= Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
                     restrictNote(newHarmony.note[index]);
                 }
             }
@@ -180,7 +154,7 @@ namespace HarmonySearch
 
         private double getBandwidth(int currentImprovisation)
         {
-            return (Math.Log(BWmax / BWmin)/NI) * currentImprovisation;
+            return BWmax + Math.Exp((Math.Log(BWmax / BWmin)/NI) * currentImprovisation);
         }
 
         public void writeResults(int currentIteration)
