@@ -69,10 +69,13 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GlobalBestSearch.cs" />
     <Compile Include="Harmony.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ImprovedSearch.cs" />
+    <Compile Include="SelfAdaptiveSearch.cs" />
+    <Compile Include="Statics.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
