@@ -16,8 +16,8 @@ namespace HarmonySearch
         public int TotalNotes { get; set; }
         public int HMSize { get; set; }
         public int NI { get; set; } //Number of Improvisations
-        public double HMCR { get; set; }
-        public double PAR { get; set; }
+        public float HMCR { get; set; }
+        public float PAR { get; set; }
 
         public double BW { get; set; }
 

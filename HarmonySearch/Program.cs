@@ -16,7 +16,7 @@ namespace HarmonySearch
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HarmonyForm());
+            Application.Run(new ConfigurationForm());
         }
     }
 }
