@@ -24,7 +24,8 @@ namespace HarmonySearch
         public double BWmax { get; set; }
         
         private string output = "";
-        public List<double> bestHarmonies = new List<double>();
+        public List<double> bestHarmonies;
+        List<Harmony> memory;
 
         public ImprovedSearch()
         {
@@ -33,7 +34,6 @@ namespace HarmonySearch
 
         //List<double> harmony = new List<double>(TotalVars);
         //int randomIntNumber = 0;
-        List<Harmony> memory = new List<Harmony>();
 
         private Harmony getRandomHarmony()
         {
@@ -47,6 +47,8 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
+            bestHarmonies = new List<double>();
+            memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
                 memory.Add(getRandomHarmony());
 

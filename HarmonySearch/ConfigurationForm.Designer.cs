@@ -67,10 +67,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.ImprovedMinValue = new System.Windows.Forms.TextBox();
-            this.ImprovedMaxValue = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.ImprovedHMCR = new System.Windows.Forms.TextBox();
@@ -78,20 +74,12 @@
             this.ImprovedPARmax = new System.Windows.Forms.TextBox();
             this.ImprovedBWmax = new System.Windows.Forms.TextBox();
             this.ImprovedBWmin = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.globalHMS = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.globalPAR = new System.Windows.Forms.TextBox();
             this.globalHMCR = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.adaptiveHMS = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -103,7 +91,6 @@
             // 
             // NITextBox
             // 
-            this.NITextBox.Enabled = false;
             this.NITextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.NITextBox.Location = new System.Drawing.Point(57, 118);
             this.NITextBox.Name = "NITextBox";
@@ -111,7 +98,6 @@
             this.NITextBox.TabIndex = 6;
             this.NITextBox.Text = "250";
             this.NITextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.NITextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ClassicHMCR
             // 
@@ -120,6 +106,7 @@
             this.ClassicHMCR.Name = "ClassicHMCR";
             this.ClassicHMCR.Size = new System.Drawing.Size(57, 20);
             this.ClassicHMCR.TabIndex = 7;
+            this.ClassicHMCR.Tag = "ClassicHS";
             this.ClassicHMCR.Text = "0.80";
             this.ClassicHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ClassicHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
@@ -131,6 +118,7 @@
             this.ClassicPAR.Name = "ClassicPAR";
             this.ClassicPAR.Size = new System.Drawing.Size(57, 20);
             this.ClassicPAR.TabIndex = 8;
+            this.ClassicPAR.Tag = "ClassicHS";
             this.ClassicPAR.Text = "0.15";
             this.ClassicPAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.ClassicPAR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
@@ -138,10 +126,11 @@
             // ClassicBW
             // 
             this.ClassicBW.Enabled = false;
-            this.ClassicBW.Location = new System.Drawing.Point(182, 480);
+            this.ClassicBW.Location = new System.Drawing.Point(182, 398);
             this.ClassicBW.Name = "ClassicBW";
             this.ClassicBW.Size = new System.Drawing.Size(57, 20);
             this.ClassicBW.TabIndex = 9;
+            this.ClassicBW.Tag = "ClassicHS";
             this.ClassicBW.Text = "2.048";
             this.ClassicBW.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -179,7 +168,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label4.Location = new System.Drawing.Point(39, 483);
+            this.label4.Location = new System.Drawing.Point(39, 401);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 18);
             this.label4.TabIndex = 14;
@@ -188,9 +177,8 @@
             // MaxRadioBtn
             // 
             this.MaxRadioBtn.AutoSize = true;
-            this.MaxRadioBtn.Enabled = false;
             this.MaxRadioBtn.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MaxRadioBtn.Location = new System.Drawing.Point(1023, 82);
+            this.MaxRadioBtn.Location = new System.Drawing.Point(1069, 82);
             this.MaxRadioBtn.Name = "MaxRadioBtn";
             this.MaxRadioBtn.Size = new System.Drawing.Size(106, 22);
             this.MaxRadioBtn.TabIndex = 16;
@@ -201,9 +189,8 @@
             // MinRadioBtn
             // 
             this.MinRadioBtn.AutoSize = true;
-            this.MinRadioBtn.Enabled = false;
             this.MinRadioBtn.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MinRadioBtn.Location = new System.Drawing.Point(1023, 122);
+            this.MinRadioBtn.Location = new System.Drawing.Point(1069, 122);
             this.MinRadioBtn.Name = "MinRadioBtn";
             this.MinRadioBtn.Size = new System.Drawing.Size(106, 22);
             this.MinRadioBtn.TabIndex = 17;
@@ -219,6 +206,7 @@
             this.classicHMS.Name = "classicHMS";
             this.classicHMS.Size = new System.Drawing.Size(57, 22);
             this.classicHMS.TabIndex = 18;
+            this.classicHMS.Tag = "ClassicHS";
             this.classicHMS.Text = "30";
             this.classicHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.classicHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
@@ -237,15 +225,15 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label7.Location = new System.Drawing.Point(181, 82);
+            this.label7.Location = new System.Drawing.Point(132, 82);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(118, 18);
+            this.label7.Size = new System.Drawing.Size(248, 18);
             this.label7.TabIndex = 20;
-            this.label7.Text = "Total Notes";
+            this.label7.Text = "Total Decision Variables";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TotalNotesTextBox
             // 
-            this.TotalNotesTextBox.Enabled = false;
             this.TotalNotesTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.TotalNotesTextBox.Location = new System.Drawing.Point(208, 118);
             this.TotalNotesTextBox.Name = "TotalNotesTextBox";
@@ -253,37 +241,34 @@
             this.TotalNotesTextBox.TabIndex = 21;
             this.TotalNotesTextBox.Text = "2";
             this.TotalNotesTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.TotalNotesTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // MaxValueTextBox
             // 
-            this.MaxValueTextBox.Enabled = false;
             this.MaxValueTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MaxValueTextBox.Location = new System.Drawing.Point(182, 404);
+            this.MaxValueTextBox.Location = new System.Drawing.Point(921, 86);
             this.MaxValueTextBox.Name = "MaxValueTextBox";
             this.MaxValueTextBox.Size = new System.Drawing.Size(57, 22);
             this.MaxValueTextBox.TabIndex = 22;
+            this.MaxValueTextBox.Tag = "";
             this.MaxValueTextBox.Text = "2.048";
             this.MaxValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.MaxValueTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // MinValueTextBox
             // 
-            this.MinValueTextBox.Enabled = false;
             this.MinValueTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MinValueTextBox.Location = new System.Drawing.Point(182, 441);
+            this.MinValueTextBox.Location = new System.Drawing.Point(921, 123);
             this.MinValueTextBox.Name = "MinValueTextBox";
             this.MinValueTextBox.Size = new System.Drawing.Size(57, 22);
             this.MinValueTextBox.TabIndex = 23;
+            this.MinValueTextBox.Tag = "";
             this.MinValueTextBox.Text = "-2.048";
             this.MinValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.MinValueTextBox.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label8.Location = new System.Drawing.Point(39, 404);
+            this.label8.Location = new System.Drawing.Point(778, 86);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 18);
             this.label8.TabIndex = 24;
@@ -293,7 +278,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label9.Location = new System.Drawing.Point(39, 445);
+            this.label9.Location = new System.Drawing.Point(778, 127);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 18);
             this.label9.TabIndex = 25;
@@ -302,7 +287,7 @@
             // EditCHSButton
             // 
             this.EditCHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditCHSButton.Location = new System.Drawing.Point(42, 516);
+            this.EditCHSButton.Location = new System.Drawing.Point(42, 442);
             this.EditCHSButton.Name = "EditCHSButton";
             this.EditCHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditCHSButton.TabIndex = 26;
@@ -314,7 +299,7 @@
             // 
             this.ResetCHSButton.Enabled = false;
             this.ResetCHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetCHSButton.Location = new System.Drawing.Point(151, 516);
+            this.ResetCHSButton.Location = new System.Drawing.Point(151, 442);
             this.ResetCHSButton.Name = "ResetCHSButton";
             this.ResetCHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetCHSButton.TabIndex = 27;
@@ -378,7 +363,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label15.Location = new System.Drawing.Point(464, 240);
+            this.label15.Location = new System.Drawing.Point(462, 240);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(131, 21);
             this.label15.TabIndex = 34;
@@ -387,7 +372,7 @@
             // EditIHSButton
             // 
             this.EditIHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditIHSButton.Location = new System.Drawing.Point(430, 569);
+            this.EditIHSButton.Location = new System.Drawing.Point(430, 479);
             this.EditIHSButton.Name = "EditIHSButton";
             this.EditIHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditIHSButton.TabIndex = 35;
@@ -398,7 +383,7 @@
             // EditGBHSButton
             // 
             this.EditGBHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditGBHSButton.Location = new System.Drawing.Point(788, 474);
+            this.EditGBHSButton.Location = new System.Drawing.Point(779, 392);
             this.EditGBHSButton.Name = "EditGBHSButton";
             this.EditGBHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditGBHSButton.TabIndex = 36;
@@ -409,7 +394,7 @@
             // EditSAHSButton
             // 
             this.EditSAHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditSAHSButton.Location = new System.Drawing.Point(1069, 480);
+            this.EditSAHSButton.Location = new System.Drawing.Point(1069, 392);
             this.EditSAHSButton.Name = "EditSAHSButton";
             this.EditSAHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditSAHSButton.TabIndex = 37;
@@ -421,7 +406,7 @@
             // 
             this.ResetGBHSButton.Enabled = false;
             this.ResetGBHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetGBHSButton.Location = new System.Drawing.Point(893, 471);
+            this.ResetGBHSButton.Location = new System.Drawing.Point(890, 392);
             this.ResetGBHSButton.Name = "ResetGBHSButton";
             this.ResetGBHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetGBHSButton.TabIndex = 39;
@@ -433,7 +418,7 @@
             // 
             this.ResetSAHSButton.Enabled = false;
             this.ResetSAHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetSAHSButton.Location = new System.Drawing.Point(1163, 480);
+            this.ResetSAHSButton.Location = new System.Drawing.Point(1163, 392);
             this.ResetSAHSButton.Name = "ResetSAHSButton";
             this.ResetSAHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetSAHSButton.TabIndex = 40;
@@ -445,7 +430,7 @@
             // 
             this.ResetIHSButton.Enabled = false;
             this.ResetIHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetIHSButton.Location = new System.Drawing.Point(537, 569);
+            this.ResetIHSButton.Location = new System.Drawing.Point(537, 479);
             this.ResetIHSButton.Name = "ResetIHSButton";
             this.ResetIHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetIHSButton.TabIndex = 42;
@@ -457,7 +442,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label16.Location = new System.Drawing.Point(427, 536);
+            this.label16.Location = new System.Drawing.Point(427, 447);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(58, 18);
             this.label16.TabIndex = 43;
@@ -467,7 +452,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label17.Location = new System.Drawing.Point(427, 501);
+            this.label17.Location = new System.Drawing.Point(427, 412);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 18);
             this.label17.TabIndex = 44;
@@ -505,55 +490,12 @@
             // 
             // textBox1
             // 
-            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.textBox1.Location = new System.Drawing.Point(424, 118);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(185, 26);
             this.textBox1.TabIndex = 48;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label20.Location = new System.Drawing.Point(427, 455);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(98, 18);
-            this.label20.TabIndex = 62;
-            this.label20.Text = "Min Value";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label21.Location = new System.Drawing.Point(427, 417);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(98, 18);
-            this.label21.TabIndex = 61;
-            this.label21.Text = "Max Value";
-            // 
-            // ImprovedMinValue
-            // 
-            this.ImprovedMinValue.Enabled = false;
-            this.ImprovedMinValue.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ImprovedMinValue.Location = new System.Drawing.Point(568, 454);
-            this.ImprovedMinValue.Name = "ImprovedMinValue";
-            this.ImprovedMinValue.Size = new System.Drawing.Size(57, 22);
-            this.ImprovedMinValue.TabIndex = 60;
-            this.ImprovedMinValue.Text = "-2.048";
-            this.ImprovedMinValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // ImprovedMaxValue
-            // 
-            this.ImprovedMaxValue.Enabled = false;
-            this.ImprovedMaxValue.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ImprovedMaxValue.Location = new System.Drawing.Point(568, 417);
-            this.ImprovedMaxValue.Name = "ImprovedMaxValue";
-            this.ImprovedMaxValue.Size = new System.Drawing.Size(57, 22);
-            this.ImprovedMaxValue.TabIndex = 59;
-            this.ImprovedMaxValue.Text = "2.048";
-            this.ImprovedMaxValue.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label22
             // 
@@ -582,8 +524,10 @@
             this.ImprovedHMCR.Name = "ImprovedHMCR";
             this.ImprovedHMCR.Size = new System.Drawing.Size(57, 20);
             this.ImprovedHMCR.TabIndex = 50;
+            this.ImprovedHMCR.Tag = "ImprovedHS";
             this.ImprovedHMCR.Text = "0.95";
             this.ImprovedHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedPARmin
             // 
@@ -592,8 +536,10 @@
             this.ImprovedPARmin.Name = "ImprovedPARmin";
             this.ImprovedPARmin.Size = new System.Drawing.Size(57, 20);
             this.ImprovedPARmin.TabIndex = 63;
+            this.ImprovedPARmin.Tag = "ImprovedHS";
             this.ImprovedPARmin.Text = "0.1";
             this.ImprovedPARmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedPARmin.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedPARmax
             // 
@@ -602,70 +548,34 @@
             this.ImprovedPARmax.Name = "ImprovedPARmax";
             this.ImprovedPARmax.Size = new System.Drawing.Size(57, 20);
             this.ImprovedPARmax.TabIndex = 64;
+            this.ImprovedPARmax.Tag = "ImprovedHS";
             this.ImprovedPARmax.Text = "0.85";
             this.ImprovedPARmax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedPARmax.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedBWmax
             // 
             this.ImprovedBWmax.Enabled = false;
-            this.ImprovedBWmax.Location = new System.Drawing.Point(568, 536);
+            this.ImprovedBWmax.Location = new System.Drawing.Point(568, 447);
             this.ImprovedBWmax.Name = "ImprovedBWmax";
             this.ImprovedBWmax.Size = new System.Drawing.Size(57, 20);
             this.ImprovedBWmax.TabIndex = 65;
+            this.ImprovedBWmax.Tag = "ImprovedHS";
             this.ImprovedBWmax.Text = "0.8";
             this.ImprovedBWmax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedBWmax.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedBWmin
             // 
             this.ImprovedBWmin.Enabled = false;
-            this.ImprovedBWmin.Location = new System.Drawing.Point(568, 501);
+            this.ImprovedBWmin.Location = new System.Drawing.Point(568, 412);
             this.ImprovedBWmin.Name = "ImprovedBWmin";
             this.ImprovedBWmin.Size = new System.Drawing.Size(57, 20);
             this.ImprovedBWmin.TabIndex = 66;
+            this.ImprovedBWmin.Tag = "ImprovedHS";
             this.ImprovedBWmin.Text = "0.001";
             this.ImprovedBWmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label5.Location = new System.Drawing.Point(785, 445);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 18);
-            this.label5.TabIndex = 78;
-            this.label5.Text = "Min Value";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label23.Location = new System.Drawing.Point(785, 404);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(98, 18);
-            this.label23.TabIndex = 77;
-            this.label23.Text = "Max Value";
-            // 
-            // textBox10
-            // 
-            this.textBox10.Enabled = false;
-            this.textBox10.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.textBox10.Location = new System.Drawing.Point(904, 441);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(57, 22);
-            this.textBox10.TabIndex = 76;
-            this.textBox10.Text = "-2.048";
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Enabled = false;
-            this.textBox11.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.textBox11.Location = new System.Drawing.Point(904, 404);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(57, 22);
-            this.textBox11.TabIndex = 75;
-            this.textBox11.Text = "2.048";
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedBWmin.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label24
             // 
@@ -685,8 +595,10 @@
             this.globalHMS.Name = "globalHMS";
             this.globalHMS.Size = new System.Drawing.Size(57, 22);
             this.globalHMS.TabIndex = 73;
+            this.globalHMS.Tag = "GlobalBestHS";
             this.globalHMS.Text = "30";
             this.globalHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.globalHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label27
             // 
@@ -715,8 +627,10 @@
             this.globalPAR.Name = "globalPAR";
             this.globalPAR.Size = new System.Drawing.Size(57, 20);
             this.globalPAR.TabIndex = 68;
+            this.globalPAR.Tag = "GlobalBestHS";
             this.globalPAR.Text = "0.15";
             this.globalPAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.globalPAR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // globalHMCR
             // 
@@ -725,50 +639,10 @@
             this.globalHMCR.Name = "globalHMCR";
             this.globalHMCR.Size = new System.Drawing.Size(57, 20);
             this.globalHMCR.TabIndex = 67;
+            this.globalHMCR.Tag = "GlobalBestHS";
             this.globalHMCR.Text = "0.80";
             this.globalHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label29.Location = new System.Drawing.Point(1066, 442);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(98, 18);
-            this.label29.TabIndex = 90;
-            this.label29.Text = "Min Value";
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label30.Location = new System.Drawing.Point(1066, 401);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(98, 18);
-            this.label30.TabIndex = 89;
-            this.label30.Text = "Max Value";
-            // 
-            // textBox16
-            // 
-            this.textBox16.Enabled = false;
-            this.textBox16.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.textBox16.Location = new System.Drawing.Point(1194, 438);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(57, 22);
-            this.textBox16.TabIndex = 88;
-            this.textBox16.Text = "-2.048";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Enabled = false;
-            this.textBox17.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.textBox17.Location = new System.Drawing.Point(1194, 401);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(57, 22);
-            this.textBox17.TabIndex = 87;
-            this.textBox17.Text = "2.048";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.globalHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label31
             // 
@@ -788,8 +662,10 @@
             this.adaptiveHMS.Name = "adaptiveHMS";
             this.adaptiveHMS.Size = new System.Drawing.Size(57, 22);
             this.adaptiveHMS.TabIndex = 85;
+            this.adaptiveHMS.Tag = "SelfAdaptiveHS";
             this.adaptiveHMS.Text = "30";
             this.adaptiveHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adaptiveHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label33
             // 
@@ -818,8 +694,10 @@
             this.adaptivePAR.Name = "adaptivePAR";
             this.adaptivePAR.Size = new System.Drawing.Size(57, 20);
             this.adaptivePAR.TabIndex = 80;
+            this.adaptivePAR.Tag = "SelfAdaptiveHS";
             this.adaptivePAR.Text = "0.15";
             this.adaptivePAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adaptivePAR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // adaptiveHMCR
             // 
@@ -828,8 +706,10 @@
             this.adaptiveHMCR.Name = "adaptiveHMCR";
             this.adaptiveHMCR.Size = new System.Drawing.Size(57, 20);
             this.adaptiveHMCR.TabIndex = 79;
+            this.adaptiveHMCR.Tag = "SelfAdaptiveHS";
             this.adaptiveHMCR.Text = "0.80";
             this.adaptiveHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adaptiveHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedHMS
             // 
@@ -839,8 +719,10 @@
             this.ImprovedHMS.Name = "ImprovedHMS";
             this.ImprovedHMS.Size = new System.Drawing.Size(57, 22);
             this.ImprovedHMS.TabIndex = 91;
+            this.ImprovedHMS.Tag = "ImprovedHS";
             this.ImprovedHMS.Text = "30";
             this.ImprovedHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ConfigurationForm
             // 
@@ -848,20 +730,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1374, 818);
             this.Controls.Add(this.ImprovedHMS);
-            this.Controls.Add(this.label29);
-            this.Controls.Add(this.label30);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox17);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.adaptiveHMS);
             this.Controls.Add(this.label33);
             this.Controls.Add(this.label34);
             this.Controls.Add(this.adaptivePAR);
             this.Controls.Add(this.adaptiveHMCR);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox11);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.globalHMS);
             this.Controls.Add(this.label27);
@@ -872,10 +746,6 @@
             this.Controls.Add(this.ImprovedBWmax);
             this.Controls.Add(this.ImprovedPARmax);
             this.Controls.Add(this.ImprovedPARmin);
-            this.Controls.Add(this.label20);
-            this.Controls.Add(this.label21);
-            this.Controls.Add(this.ImprovedMinValue);
-            this.Controls.Add(this.ImprovedMaxValue);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.ImprovedHMCR);
@@ -963,10 +833,6 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox ImprovedMinValue;
-        private System.Windows.Forms.TextBox ImprovedMaxValue;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox ImprovedHMCR;
@@ -974,20 +840,12 @@
         private System.Windows.Forms.TextBox ImprovedPARmax;
         private System.Windows.Forms.TextBox ImprovedBWmax;
         private System.Windows.Forms.TextBox ImprovedBWmin;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox globalHMS;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.TextBox globalPAR;
         private System.Windows.Forms.TextBox globalHMCR;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.TextBox adaptiveHMS;
         private System.Windows.Forms.Label label33;

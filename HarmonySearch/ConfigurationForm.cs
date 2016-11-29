@@ -140,7 +140,7 @@ namespace HarmonySearch
             ImprovedBWmin.Enabled = true;
             ImprovedBWmax.Enabled = true;
             ImprovedHMS.Enabled = true;
-            EditCHSButton.Enabled = false;
+            EditIHSButton.Enabled = false;
         }
 
         private void EditGBHSButton_Click(object sender, EventArgs e)
@@ -228,7 +228,16 @@ namespace HarmonySearch
 
         private void TextBox_TextChanged(Object sender, EventArgs e)
         {
-            ResetCHSButton.Enabled = true;
+            TextBox textBox = sender as TextBox;
+
+            if(textBox.Tag.Equals("ClassicHS"))
+                ResetCHSButton.Enabled = true;
+            if (textBox.Tag.Equals("ImprovedHS"))
+                ResetIHSButton.Enabled = true;
+            if (textBox.Tag.Equals("GlobalBestHS"))
+                ResetGBHSButton.Enabled = true;
+            if (textBox.Tag.Equals("SelfAdaptiveHS"))
+                ResetSAHSButton.Enabled = true;
         }
 
     }

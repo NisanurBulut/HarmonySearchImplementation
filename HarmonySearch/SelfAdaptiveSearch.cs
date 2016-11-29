@@ -24,7 +24,8 @@ namespace HarmonySearch
         public double BW { get; set; }
 
         public string output { get; set; }
-        public List<double> bestHarmonies = new List<double>();
+        public List<double> bestHarmonies;
+        private List<Harmony> memory;
 
         public SelfAdaptiveSearch()
         {
@@ -33,7 +34,7 @@ namespace HarmonySearch
 
         //List<double> harmony = new List<double>(TotalVars);
         //int randomIntNumber = 0;
-        private List<Harmony> memory = new List<Harmony>();
+        
 
         private Harmony getRandomHarmony()
         {
@@ -49,6 +50,8 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
+            bestHarmonies = new List<double>();
+            memory = new List<Harmony>();
             //TODO:
             initializeExtremeVariables();
             for (int i = 0; i < HMSize; i++)
