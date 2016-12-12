@@ -50,8 +50,8 @@ namespace HarmonySearch
                 classicHS.BW = double.Parse(ClassicBW.Text, CultureInfo.InvariantCulture);
                 improvedHS.NI = Convert.ToInt32(NITextBox.Text);
                 improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                improvedHS.MaximumNote = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
-                improvedHS.MinimumNote = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
                 improvedHS.HMSize = Convert.ToInt32(classicHMS.Text);
                 improvedHS.HMCR = float.Parse(ImprovedHMCR.Text, CultureInfo.InvariantCulture);
                 improvedHS.PARmin = float.Parse(ImprovedPARmin.Text, CultureInfo.InvariantCulture);

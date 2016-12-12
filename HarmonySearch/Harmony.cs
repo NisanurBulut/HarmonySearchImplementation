@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HarmonySearch
 {
-    class Harmony
+    public class Harmony
     {
         public List<double> note { get; set; }
     }

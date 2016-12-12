@@ -9,13 +9,8 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace HarmonySearch
 {
-    public class ImprovedSearch
+    public class ImprovedSearch : Search
     {
-        public double MinimumNote { get; set; }
-        public double MaximumNote { get; set; }
-        public int TotalNotes { get; set; }
-        public int HMSize { get; set; }
-        public int NI { get; set; } //Number of Improvisations
         public float HMCR { get; set; }
 
         public float PARmin { get; set; }
@@ -25,7 +20,6 @@ namespace HarmonySearch
         
         private string output = "";
         public List<double> bestHarmonies;
-        List<Harmony> memory;
 
         public ImprovedSearch()
         {
@@ -35,16 +29,6 @@ namespace HarmonySearch
         //List<double> harmony = new List<double>(TotalVars);
         //int randomIntNumber = 0;
 
-        private Harmony getRandomHarmony()
-        {
-            Harmony hrm = new Harmony();
-            hrm.note = new List<double>();
-            for (int i = 0; i < TotalNotes; i++)
-                hrm.note.Add(Statics.getRandomDouble(MinimumNote, MaximumNote));
-
-            return hrm;
-        }
-
         public void initializeMemory()
         {
             bestHarmonies = new List<double>();
@@ -53,16 +37,6 @@ namespace HarmonySearch
                 memory.Add(getRandomHarmony());
 
             sortMemory();
-        }
-
-        private double getHarmonyAesthetics(Harmony harmony)
-        {
-            //double aesthetics = Math.Sin(harmony.note[0]) + Math.Cos(harmony.note[1]) + Math.Sin(harmony.note[2]) + Math.Cos(harmony.note[3]) + Math.Sin(harmony.note[4]);
-            double aesthetics = 100*(harmony.note[1] - Math.Pow(harmony.note[0], 2)) + Math.Pow(1 - harmony.note[0], 2); //Rosenbrock Function
-
-            //double aesthetics = Math.Pow(harmony.note[0], 2) + Math.Pow(harmony.note[1], 2);// + Math.Pow(harmony.note[2], 2) + Math.Pow(harmony.note[3], 2) + Math.Pow(harmony.note[4], 2); //Sphere Function
-
-            return aesthetics;
         }
 
         public void Run()
@@ -83,7 +57,7 @@ namespace HarmonySearch
                     }
                     else
                     {
-                        newHarmony.note.Add(Statics.getRandomDouble(MinimumNote, MaximumNote));
+                        newHarmony.note.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -109,43 +83,6 @@ namespace HarmonySearch
                     newHarmony.note[index] -= Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
                     restrictNote(newHarmony.note[index]);
                 }
-            }
-        }
-
-        private double restrictNote(double note)
-        {
-            if (note > MaximumNote)
-                return MaximumNote;
-            else if (note < MinimumNote)
-                return MinimumNote;
-            else
-                return note;
-        }
-
-        private void sortMemory()
-        {
-            Harmony tempHar = new Harmony();
-            for (int i = 0; i < memory.Count; i++)
-            {
-                for (int j = i + 1; j < memory.Count; j++)
-                {
-                    if (Math.Abs(getHarmonyAesthetics(memory[i])) > Math.Abs(getHarmonyAesthetics(memory[j])))
-                    {
-                        tempHar = memory[i];
-                        memory[i] = memory[j];
-                        memory[j] = tempHar;
-                    }
-                }
-            }
-        }
-
-        private void updateMemory(Harmony newHar, int currentIteration)
-        {
-            //int duplicatesCount = 0;
-            if (Math.Abs(getHarmonyAesthetics(newHar)) < Math.Abs(getHarmonyAesthetics(memory[HMSize - 1])))
-            {
-                memory[HMSize - 1] = newHar;
-                sortMemory();
             }
         }
 
