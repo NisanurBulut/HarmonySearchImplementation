@@ -1,4 +1,5 @@
-﻿using System;
+﻿using muParserNET;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Windows.Forms;
@@ -36,44 +37,67 @@ namespace HarmonySearch
         {
             if (isInputOk())
             {
-                classicHS = new ClassicSearch();
-                improvedHS = new ImprovedSearch();
-                globalHS = new GlobalBestSearch();
-                adaptiveHS = new SelfAdaptiveSearch();
-                classicHS.NI = Convert.ToInt32(NITextBox.Text);
-                classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                classicHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
-                classicHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                classicHS.HMSize = Convert.ToInt32(classicHMS.Text);
-                classicHS.HMCR = float.Parse(ClassicHMCR.Text, CultureInfo.InvariantCulture);
-                classicHS.PAR = float.Parse(ClassicPAR.Text, CultureInfo.InvariantCulture);
-                classicHS.BW = double.Parse(ClassicBW.Text, CultureInfo.InvariantCulture);
-                improvedHS.NI = Convert.ToInt32(NITextBox.Text);
-                improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                improvedHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
-                improvedHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                improvedHS.HMSize = Convert.ToInt32(classicHMS.Text);
-                improvedHS.HMCR = float.Parse(ImprovedHMCR.Text, CultureInfo.InvariantCulture);
-                improvedHS.PARmin = float.Parse(ImprovedPARmin.Text, CultureInfo.InvariantCulture);
-                improvedHS.PARmax = float.Parse(ImprovedPARmax.Text, CultureInfo.InvariantCulture);
-                improvedHS.BWmin = float.Parse(ImprovedBWmin.Text, CultureInfo.InvariantCulture);
-                improvedHS.BWmax = float.Parse(ImprovedBWmax.Text, CultureInfo.InvariantCulture);
-                globalHS.NI = Convert.ToInt32(NITextBox.Text);
-                globalHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                globalHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
-                globalHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                globalHS.HMSize = Convert.ToInt32(globalHMS.Text);
-                globalHS.HMCR = float.Parse(globalHMCR.Text, CultureInfo.InvariantCulture);
-                globalHS.PAR = float.Parse(globalPAR.Text, CultureInfo.InvariantCulture);
-                adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
-                adaptiveHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                adaptiveHS.HMSize = Convert.ToInt32(classicHMS.Text);
-                adaptiveHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
-                adaptiveHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                adaptiveHS.HMCR = float.Parse(adaptiveHMCR.Text, CultureInfo.InvariantCulture);
-                adaptiveHS.PAR = float.Parse(adaptivePAR.Text, CultureInfo.InvariantCulture);
+                if(ClassicRadioButton.Checked == true)
+                {
+                    classicHS = new ClassicSearch();
+                    classicHS.NI = Convert.ToInt32(NITextBox.Text);
+                    classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                    classicHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                    classicHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                    classicHS.HMSize = Convert.ToInt32(classicHMS.Text);
+                    classicHS.HMCR = float.Parse(ClassicHMCR.Text, CultureInfo.InvariantCulture);
+                    classicHS.PAR = float.Parse(ClassicPAR.Text, CultureInfo.InvariantCulture);
+                    classicHS.BW = double.Parse(ClassicBW.Text, CultureInfo.InvariantCulture);
+                }
+                if (ImprovedRadioButton.Checked == true)
+                {
+                    improvedHS = new ImprovedSearch();
+                    improvedHS.NI = Convert.ToInt32(NITextBox.Text);
+                    improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                    improvedHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                    improvedHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                    improvedHS.HMSize = Convert.ToInt32(classicHMS.Text);
+                    improvedHS.HMCR = float.Parse(ImprovedHMCR.Text, CultureInfo.InvariantCulture);
+                    improvedHS.PARmin = float.Parse(ImprovedPARmin.Text, CultureInfo.InvariantCulture);
+                    improvedHS.PARmax = float.Parse(ImprovedPARmax.Text, CultureInfo.InvariantCulture);
+                    improvedHS.BWmin = float.Parse(ImprovedBWmin.Text, CultureInfo.InvariantCulture);
+                    improvedHS.BWmax = float.Parse(ImprovedBWmax.Text, CultureInfo.InvariantCulture);
+                }
+                if (GlobalRadioButton.Checked == true)
+                {
+                    globalHS = new GlobalBestSearch();
+                    globalHS.NI = Convert.ToInt32(NITextBox.Text);
+                    globalHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                    globalHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                    globalHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                    globalHS.HMSize = Convert.ToInt32(globalHMS.Text);
+                    globalHS.HMCR = float.Parse(globalHMCR.Text, CultureInfo.InvariantCulture);
+                    globalHS.PAR = float.Parse(globalPAR.Text, CultureInfo.InvariantCulture);
+                }
+                if (AdaptiveRadioButton.Checked == true)
+                {
+                    adaptiveHS = new SelfAdaptiveSearch();
+                    adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
+                    adaptiveHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
+                    adaptiveHS.HMSize = Convert.ToInt32(classicHMS.Text);
+                    adaptiveHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
+                    adaptiveHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
+                    adaptiveHS.HMCR = float.Parse(adaptiveHMCR.Text, CultureInfo.InvariantCulture);
+                    adaptiveHS.PAR = float.Parse(adaptivePAR.Text, CultureInfo.InvariantCulture);
+                }
             }
+            //Parser mathParser = new Parser();
+            //mathParser.Expr = ObjectiveTextBox.Text.ToString();
+            //mathParser.DefineVar("x1", Math.PI/2);
+            //mathParser.DefineVar("x2", Math.PI/2);
+            ////mathParser.SetVarFactory(Func<string, double> AddVariable);
+            //double res = mathParser.Eval();
         }
+
+        //ParserVariable AddVariable(string decisionVariable, double value)
+        //{
+        //    return new ParserVariable(decisionVariable, value);
+        //}
 
         private Boolean isInputOk()
         {
@@ -240,5 +264,15 @@ namespace HarmonySearch
                 ResetSAHSButton.Enabled = true;
         }
 
+        private void RadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton senderRadioButton = sender as RadioButton;
+            foreach (Control c in this.Controls)
+                if (c.Tag != null)
+                    if (c.Tag != senderRadioButton.Tag && c.GetType() != typeof(RadioButton))
+                        c.Visible = false;
+                    else
+                        c.Visible = true;
+        }
     }
 }

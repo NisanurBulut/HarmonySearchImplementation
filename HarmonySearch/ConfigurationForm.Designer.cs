@@ -66,7 +66,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ObjectiveTextBox = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.ImprovedHMCR = new System.Windows.Forms.TextBox();
@@ -87,6 +87,10 @@
             this.adaptivePAR = new System.Windows.Forms.TextBox();
             this.adaptiveHMCR = new System.Windows.Forms.TextBox();
             this.ImprovedHMS = new System.Windows.Forms.TextBox();
+            this.ClassicRadioButton = new System.Windows.Forms.RadioButton();
+            this.ImprovedRadioButton = new System.Windows.Forms.RadioButton();
+            this.GlobalRadioButton = new System.Windows.Forms.RadioButton();
+            this.AdaptiveRadioButton = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // NITextBox
@@ -102,7 +106,7 @@
             // ClassicHMCR
             // 
             this.ClassicHMCR.Enabled = false;
-            this.ClassicHMCR.Location = new System.Drawing.Point(182, 320);
+            this.ClassicHMCR.Location = new System.Drawing.Point(183, 369);
             this.ClassicHMCR.Name = "ClassicHMCR";
             this.ClassicHMCR.Size = new System.Drawing.Size(57, 20);
             this.ClassicHMCR.TabIndex = 7;
@@ -114,7 +118,7 @@
             // ClassicPAR
             // 
             this.ClassicPAR.Enabled = false;
-            this.ClassicPAR.Location = new System.Drawing.Point(182, 360);
+            this.ClassicPAR.Location = new System.Drawing.Point(183, 409);
             this.ClassicPAR.Name = "ClassicPAR";
             this.ClassicPAR.Size = new System.Drawing.Size(57, 20);
             this.ClassicPAR.TabIndex = 8;
@@ -126,7 +130,7 @@
             // ClassicBW
             // 
             this.ClassicBW.Enabled = false;
-            this.ClassicBW.Location = new System.Drawing.Point(182, 398);
+            this.ClassicBW.Location = new System.Drawing.Point(183, 447);
             this.ClassicBW.Name = "ClassicBW";
             this.ClassicBW.Size = new System.Drawing.Size(57, 20);
             this.ClassicBW.TabIndex = 9;
@@ -148,30 +152,33 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(39, 323);
+            this.label2.Location = new System.Drawing.Point(40, 372);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 18);
             this.label2.TabIndex = 12;
+            this.label2.Tag = "ClassicHS";
             this.label2.Text = "HMCR";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.Location = new System.Drawing.Point(39, 362);
+            this.label3.Location = new System.Drawing.Point(40, 411);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 18);
             this.label3.TabIndex = 13;
+            this.label3.Tag = "ClassicHS";
             this.label3.Text = "PAR";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label4.Location = new System.Drawing.Point(39, 401);
+            this.label4.Location = new System.Drawing.Point(40, 450);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(28, 18);
             this.label4.TabIndex = 14;
+            this.label4.Tag = "ClassicHS";
             this.label4.Text = "BW";
             // 
             // MaxRadioBtn
@@ -182,7 +189,6 @@
             this.MaxRadioBtn.Name = "MaxRadioBtn";
             this.MaxRadioBtn.Size = new System.Drawing.Size(106, 22);
             this.MaxRadioBtn.TabIndex = 16;
-            this.MaxRadioBtn.TabStop = true;
             this.MaxRadioBtn.Text = "Maximize";
             this.MaxRadioBtn.UseVisualStyleBackColor = true;
             // 
@@ -194,7 +200,6 @@
             this.MinRadioBtn.Name = "MinRadioBtn";
             this.MinRadioBtn.Size = new System.Drawing.Size(106, 22);
             this.MinRadioBtn.TabIndex = 17;
-            this.MinRadioBtn.TabStop = true;
             this.MinRadioBtn.Text = "Minimize";
             this.MinRadioBtn.UseVisualStyleBackColor = true;
             // 
@@ -202,7 +207,7 @@
             // 
             this.classicHMS.Enabled = false;
             this.classicHMS.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.classicHMS.Location = new System.Drawing.Point(182, 282);
+            this.classicHMS.Location = new System.Drawing.Point(183, 331);
             this.classicHMS.Name = "classicHMS";
             this.classicHMS.Size = new System.Drawing.Size(57, 22);
             this.classicHMS.TabIndex = 18;
@@ -215,10 +220,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label6.Location = new System.Drawing.Point(39, 282);
+            this.label6.Location = new System.Drawing.Point(40, 331);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 18);
             this.label6.TabIndex = 19;
+            this.label6.Tag = "ClassicHS";
             this.label6.Text = "HMS";
             // 
             // label7
@@ -250,7 +256,7 @@
             this.MaxValueTextBox.Size = new System.Drawing.Size(57, 22);
             this.MaxValueTextBox.TabIndex = 22;
             this.MaxValueTextBox.Tag = "";
-            this.MaxValueTextBox.Text = "2.048";
+            this.MaxValueTextBox.Text = "6.28318530718";
             this.MaxValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MinValueTextBox
@@ -261,7 +267,7 @@
             this.MinValueTextBox.Size = new System.Drawing.Size(57, 22);
             this.MinValueTextBox.TabIndex = 23;
             this.MinValueTextBox.Tag = "";
-            this.MinValueTextBox.Text = "-2.048";
+            this.MinValueTextBox.Text = "0.000";
             this.MinValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
@@ -287,10 +293,11 @@
             // EditCHSButton
             // 
             this.EditCHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditCHSButton.Location = new System.Drawing.Point(42, 442);
+            this.EditCHSButton.Location = new System.Drawing.Point(43, 491);
             this.EditCHSButton.Name = "EditCHSButton";
             this.EditCHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditCHSButton.TabIndex = 26;
+            this.EditCHSButton.Tag = "ClassicHS";
             this.EditCHSButton.Text = "EDIT";
             this.EditCHSButton.UseVisualStyleBackColor = true;
             this.EditCHSButton.Click += new System.EventHandler(this.EditCHSButton_Click);
@@ -299,10 +306,11 @@
             // 
             this.ResetCHSButton.Enabled = false;
             this.ResetCHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetCHSButton.Location = new System.Drawing.Point(151, 442);
+            this.ResetCHSButton.Location = new System.Drawing.Point(152, 491);
             this.ResetCHSButton.Name = "ResetCHSButton";
             this.ResetCHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetCHSButton.TabIndex = 27;
+            this.ResetCHSButton.Tag = "ClassicHS";
             this.ResetCHSButton.Text = "RESET";
             this.ResetCHSButton.UseVisualStyleBackColor = true;
             this.ResetCHSButton.Click += new System.EventHandler(this.ResetCHSButton_Click);
@@ -312,7 +320,7 @@
             this.playButton.BackColor = System.Drawing.Color.Transparent;
             this.playButton.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
-            this.playButton.Location = new System.Drawing.Point(594, 743);
+            this.playButton.Location = new System.Drawing.Point(579, 594);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(160, 63);
             this.playButton.TabIndex = 28;
@@ -333,150 +341,177 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label12.Location = new System.Drawing.Point(65, 240);
+            this.label12.Location = new System.Drawing.Point(66, 289);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(120, 21);
             this.label12.TabIndex = 31;
+            this.label12.Tag = "ClassicHS";
             this.label12.Text = "Classic HS";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label13.Location = new System.Drawing.Point(797, 240);
+            this.label13.Location = new System.Drawing.Point(798, 289);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(164, 21);
             this.label13.TabIndex = 32;
+            this.label13.Tag = "GlobalBestHS";
             this.label13.Text = "Global Best HS";
+            this.label13.Visible = false;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label14.Location = new System.Drawing.Point(1065, 240);
+            this.label14.Location = new System.Drawing.Point(1066, 289);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(186, 21);
             this.label14.TabIndex = 33;
+            this.label14.Tag = "SelfAdaptiveHS";
             this.label14.Text = "Self Adaptive HS";
+            this.label14.Visible = false;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label15.Location = new System.Drawing.Point(462, 240);
+            this.label15.Location = new System.Drawing.Point(463, 289);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(131, 21);
             this.label15.TabIndex = 34;
+            this.label15.Tag = "ImprovedHS";
             this.label15.Text = "Improved HS";
+            this.label15.Visible = false;
             // 
             // EditIHSButton
             // 
             this.EditIHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditIHSButton.Location = new System.Drawing.Point(430, 479);
+            this.EditIHSButton.Location = new System.Drawing.Point(431, 528);
             this.EditIHSButton.Name = "EditIHSButton";
             this.EditIHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditIHSButton.TabIndex = 35;
+            this.EditIHSButton.Tag = "ImprovedHS";
             this.EditIHSButton.Text = "EDIT";
             this.EditIHSButton.UseVisualStyleBackColor = true;
+            this.EditIHSButton.Visible = false;
             this.EditIHSButton.Click += new System.EventHandler(this.EditIHSButton_Click);
             // 
             // EditGBHSButton
             // 
             this.EditGBHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditGBHSButton.Location = new System.Drawing.Point(779, 392);
+            this.EditGBHSButton.Location = new System.Drawing.Point(780, 441);
             this.EditGBHSButton.Name = "EditGBHSButton";
             this.EditGBHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditGBHSButton.TabIndex = 36;
+            this.EditGBHSButton.Tag = "GlobalBestHS";
             this.EditGBHSButton.Text = "EDIT";
             this.EditGBHSButton.UseVisualStyleBackColor = true;
+            this.EditGBHSButton.Visible = false;
             this.EditGBHSButton.Click += new System.EventHandler(this.EditGBHSButton_Click);
             // 
             // EditSAHSButton
             // 
             this.EditSAHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.EditSAHSButton.Location = new System.Drawing.Point(1069, 392);
+            this.EditSAHSButton.Location = new System.Drawing.Point(1070, 441);
             this.EditSAHSButton.Name = "EditSAHSButton";
             this.EditSAHSButton.Size = new System.Drawing.Size(88, 38);
             this.EditSAHSButton.TabIndex = 37;
+            this.EditSAHSButton.Tag = "SelfAdaptiveHS";
             this.EditSAHSButton.Text = "EDIT";
             this.EditSAHSButton.UseVisualStyleBackColor = true;
+            this.EditSAHSButton.Visible = false;
             this.EditSAHSButton.Click += new System.EventHandler(this.EditSAHSButton_Click);
             // 
             // ResetGBHSButton
             // 
             this.ResetGBHSButton.Enabled = false;
             this.ResetGBHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetGBHSButton.Location = new System.Drawing.Point(890, 392);
+            this.ResetGBHSButton.Location = new System.Drawing.Point(891, 441);
             this.ResetGBHSButton.Name = "ResetGBHSButton";
             this.ResetGBHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetGBHSButton.TabIndex = 39;
+            this.ResetGBHSButton.Tag = "GlobalBestHS";
             this.ResetGBHSButton.Text = "RESET";
             this.ResetGBHSButton.UseVisualStyleBackColor = true;
+            this.ResetGBHSButton.Visible = false;
             this.ResetGBHSButton.Click += new System.EventHandler(this.ResetGBHSButton_Click);
             // 
             // ResetSAHSButton
             // 
             this.ResetSAHSButton.Enabled = false;
             this.ResetSAHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetSAHSButton.Location = new System.Drawing.Point(1163, 392);
+            this.ResetSAHSButton.Location = new System.Drawing.Point(1164, 441);
             this.ResetSAHSButton.Name = "ResetSAHSButton";
             this.ResetSAHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetSAHSButton.TabIndex = 40;
+            this.ResetSAHSButton.Tag = "SelfAdaptiveHS";
             this.ResetSAHSButton.Text = "RESET";
             this.ResetSAHSButton.UseVisualStyleBackColor = true;
+            this.ResetSAHSButton.Visible = false;
             this.ResetSAHSButton.Click += new System.EventHandler(this.ResetSAHSButton_Click);
             // 
             // ResetIHSButton
             // 
             this.ResetIHSButton.Enabled = false;
             this.ResetIHSButton.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ResetIHSButton.Location = new System.Drawing.Point(537, 479);
+            this.ResetIHSButton.Location = new System.Drawing.Point(538, 528);
             this.ResetIHSButton.Name = "ResetIHSButton";
             this.ResetIHSButton.Size = new System.Drawing.Size(88, 38);
             this.ResetIHSButton.TabIndex = 42;
+            this.ResetIHSButton.Tag = "ImprovedHS";
             this.ResetIHSButton.Text = "RESET";
             this.ResetIHSButton.UseVisualStyleBackColor = true;
+            this.ResetIHSButton.Visible = false;
             this.ResetIHSButton.Click += new System.EventHandler(this.ResetIHSButton_Click);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label16.Location = new System.Drawing.Point(427, 447);
+            this.label16.Location = new System.Drawing.Point(428, 496);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(58, 18);
             this.label16.TabIndex = 43;
+            this.label16.Tag = "ImprovedHS";
             this.label16.Text = "BWmax";
+            this.label16.Visible = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label17.Location = new System.Drawing.Point(427, 412);
+            this.label17.Location = new System.Drawing.Point(428, 461);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(58, 18);
             this.label17.TabIndex = 44;
+            this.label17.Tag = "ImprovedHS";
             this.label17.Text = "BWmin";
+            this.label17.Visible = false;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label18.Location = new System.Drawing.Point(427, 350);
+            this.label18.Location = new System.Drawing.Point(428, 399);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 18);
             this.label18.TabIndex = 45;
+            this.label18.Tag = "ImprovedHS";
             this.label18.Text = "PARmin";
+            this.label18.Visible = false;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label19.Location = new System.Drawing.Point(427, 379);
+            this.label19.Location = new System.Drawing.Point(428, 428);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(68, 18);
             this.label19.TabIndex = 46;
+            this.label19.Tag = "ImprovedHS";
             this.label19.Text = "PARmax";
+            this.label19.Visible = false;
             // 
             // label11
             // 
@@ -488,247 +523,329 @@
             this.label11.TabIndex = 47;
             this.label11.Text = "Objective Function";
             // 
-            // textBox1
+            // ObjectiveTextBox
             // 
-            this.textBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.textBox1.Location = new System.Drawing.Point(424, 118);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 26);
-            this.textBox1.TabIndex = 48;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ObjectiveTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ObjectiveTextBox.Location = new System.Drawing.Point(424, 118);
+            this.ObjectiveTextBox.Name = "ObjectiveTextBox";
+            this.ObjectiveTextBox.Size = new System.Drawing.Size(185, 26);
+            this.ObjectiveTextBox.TabIndex = 48;
+            this.ObjectiveTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label22.Location = new System.Drawing.Point(427, 278);
+            this.label22.Location = new System.Drawing.Point(428, 327);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(38, 18);
             this.label22.TabIndex = 58;
+            this.label22.Tag = "ImprovedHS";
             this.label22.Text = "HMS";
+            this.label22.Visible = false;
             // 
             // label26
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label26.Location = new System.Drawing.Point(427, 319);
+            this.label26.Location = new System.Drawing.Point(428, 368);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(48, 18);
             this.label26.TabIndex = 54;
+            this.label26.Tag = "ImprovedHS";
             this.label26.Text = "HMCR";
+            this.label26.Visible = false;
             // 
             // ImprovedHMCR
             // 
             this.ImprovedHMCR.Enabled = false;
-            this.ImprovedHMCR.Location = new System.Drawing.Point(568, 317);
+            this.ImprovedHMCR.Location = new System.Drawing.Point(569, 366);
             this.ImprovedHMCR.Name = "ImprovedHMCR";
             this.ImprovedHMCR.Size = new System.Drawing.Size(57, 20);
             this.ImprovedHMCR.TabIndex = 50;
             this.ImprovedHMCR.Tag = "ImprovedHS";
             this.ImprovedHMCR.Text = "0.95";
             this.ImprovedHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedHMCR.Visible = false;
             this.ImprovedHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedPARmin
             // 
             this.ImprovedPARmin.Enabled = false;
-            this.ImprovedPARmin.Location = new System.Drawing.Point(568, 348);
+            this.ImprovedPARmin.Location = new System.Drawing.Point(569, 397);
             this.ImprovedPARmin.Name = "ImprovedPARmin";
             this.ImprovedPARmin.Size = new System.Drawing.Size(57, 20);
             this.ImprovedPARmin.TabIndex = 63;
             this.ImprovedPARmin.Tag = "ImprovedHS";
             this.ImprovedPARmin.Text = "0.1";
             this.ImprovedPARmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedPARmin.Visible = false;
             this.ImprovedPARmin.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedPARmax
             // 
             this.ImprovedPARmax.Enabled = false;
-            this.ImprovedPARmax.Location = new System.Drawing.Point(568, 379);
+            this.ImprovedPARmax.Location = new System.Drawing.Point(569, 428);
             this.ImprovedPARmax.Name = "ImprovedPARmax";
             this.ImprovedPARmax.Size = new System.Drawing.Size(57, 20);
             this.ImprovedPARmax.TabIndex = 64;
             this.ImprovedPARmax.Tag = "ImprovedHS";
             this.ImprovedPARmax.Text = "0.85";
             this.ImprovedPARmax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedPARmax.Visible = false;
             this.ImprovedPARmax.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedBWmax
             // 
             this.ImprovedBWmax.Enabled = false;
-            this.ImprovedBWmax.Location = new System.Drawing.Point(568, 447);
+            this.ImprovedBWmax.Location = new System.Drawing.Point(569, 496);
             this.ImprovedBWmax.Name = "ImprovedBWmax";
             this.ImprovedBWmax.Size = new System.Drawing.Size(57, 20);
             this.ImprovedBWmax.TabIndex = 65;
             this.ImprovedBWmax.Tag = "ImprovedHS";
             this.ImprovedBWmax.Text = "0.8";
             this.ImprovedBWmax.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedBWmax.Visible = false;
             this.ImprovedBWmax.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedBWmin
             // 
             this.ImprovedBWmin.Enabled = false;
-            this.ImprovedBWmin.Location = new System.Drawing.Point(568, 412);
+            this.ImprovedBWmin.Location = new System.Drawing.Point(569, 461);
             this.ImprovedBWmin.Name = "ImprovedBWmin";
             this.ImprovedBWmin.Size = new System.Drawing.Size(57, 20);
             this.ImprovedBWmin.TabIndex = 66;
             this.ImprovedBWmin.Tag = "ImprovedHS";
             this.ImprovedBWmin.Text = "0.001";
             this.ImprovedBWmin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedBWmin.Visible = false;
             this.ImprovedBWmin.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label24.Location = new System.Drawing.Point(785, 282);
+            this.label24.Location = new System.Drawing.Point(786, 331);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(38, 18);
             this.label24.TabIndex = 74;
+            this.label24.Tag = "GlobalBestHS";
             this.label24.Text = "HMS";
+            this.label24.Visible = false;
             // 
             // globalHMS
             // 
             this.globalHMS.Enabled = false;
             this.globalHMS.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.globalHMS.Location = new System.Drawing.Point(904, 278);
+            this.globalHMS.Location = new System.Drawing.Point(905, 327);
             this.globalHMS.Name = "globalHMS";
             this.globalHMS.Size = new System.Drawing.Size(57, 22);
             this.globalHMS.TabIndex = 73;
             this.globalHMS.Tag = "GlobalBestHS";
             this.globalHMS.Text = "30";
             this.globalHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.globalHMS.Visible = false;
             this.globalHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label27
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label27.Location = new System.Drawing.Point(785, 362);
+            this.label27.Location = new System.Drawing.Point(786, 411);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(38, 18);
             this.label27.TabIndex = 71;
+            this.label27.Tag = "GlobalBestHS";
             this.label27.Text = "PAR";
+            this.label27.Visible = false;
             // 
             // label28
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label28.Location = new System.Drawing.Point(785, 323);
+            this.label28.Location = new System.Drawing.Point(786, 372);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(48, 18);
             this.label28.TabIndex = 70;
+            this.label28.Tag = "GlobalBestHS";
             this.label28.Text = "HMCR";
+            this.label28.Visible = false;
             // 
             // globalPAR
             // 
             this.globalPAR.Enabled = false;
-            this.globalPAR.Location = new System.Drawing.Point(904, 360);
+            this.globalPAR.Location = new System.Drawing.Point(905, 409);
             this.globalPAR.Name = "globalPAR";
             this.globalPAR.Size = new System.Drawing.Size(57, 20);
             this.globalPAR.TabIndex = 68;
             this.globalPAR.Tag = "GlobalBestHS";
             this.globalPAR.Text = "0.15";
             this.globalPAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.globalPAR.Visible = false;
             this.globalPAR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // globalHMCR
             // 
             this.globalHMCR.Enabled = false;
-            this.globalHMCR.Location = new System.Drawing.Point(904, 321);
+            this.globalHMCR.Location = new System.Drawing.Point(905, 370);
             this.globalHMCR.Name = "globalHMCR";
             this.globalHMCR.Size = new System.Drawing.Size(57, 20);
             this.globalHMCR.TabIndex = 67;
             this.globalHMCR.Tag = "GlobalBestHS";
             this.globalHMCR.Text = "0.80";
             this.globalHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.globalHMCR.Visible = false;
             this.globalHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label31.Location = new System.Drawing.Point(1066, 279);
+            this.label31.Location = new System.Drawing.Point(1067, 328);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(38, 18);
             this.label31.TabIndex = 86;
+            this.label31.Tag = "SelfAdaptiveHS";
             this.label31.Text = "HMS";
+            this.label31.Visible = false;
             // 
             // adaptiveHMS
             // 
             this.adaptiveHMS.Enabled = false;
             this.adaptiveHMS.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.adaptiveHMS.Location = new System.Drawing.Point(1194, 277);
+            this.adaptiveHMS.Location = new System.Drawing.Point(1195, 326);
             this.adaptiveHMS.Name = "adaptiveHMS";
             this.adaptiveHMS.Size = new System.Drawing.Size(57, 22);
             this.adaptiveHMS.TabIndex = 85;
             this.adaptiveHMS.Tag = "SelfAdaptiveHS";
             this.adaptiveHMS.Text = "30";
             this.adaptiveHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adaptiveHMS.Visible = false;
             this.adaptiveHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // label33
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label33.Location = new System.Drawing.Point(1066, 359);
+            this.label33.Location = new System.Drawing.Point(1067, 408);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(38, 18);
             this.label33.TabIndex = 83;
+            this.label33.Tag = "SelfAdaptiveHS";
             this.label33.Text = "PAR";
+            this.label33.Visible = false;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label34.Location = new System.Drawing.Point(1066, 320);
+            this.label34.Location = new System.Drawing.Point(1067, 369);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(48, 18);
             this.label34.TabIndex = 82;
+            this.label34.Tag = "SelfAdaptiveHS";
             this.label34.Text = "HMCR";
+            this.label34.Visible = false;
             // 
             // adaptivePAR
             // 
             this.adaptivePAR.Enabled = false;
-            this.adaptivePAR.Location = new System.Drawing.Point(1194, 357);
+            this.adaptivePAR.Location = new System.Drawing.Point(1195, 406);
             this.adaptivePAR.Name = "adaptivePAR";
             this.adaptivePAR.Size = new System.Drawing.Size(57, 20);
             this.adaptivePAR.TabIndex = 80;
             this.adaptivePAR.Tag = "SelfAdaptiveHS";
             this.adaptivePAR.Text = "0.15";
             this.adaptivePAR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adaptivePAR.Visible = false;
             this.adaptivePAR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // adaptiveHMCR
             // 
             this.adaptiveHMCR.Enabled = false;
-            this.adaptiveHMCR.Location = new System.Drawing.Point(1194, 318);
+            this.adaptiveHMCR.Location = new System.Drawing.Point(1195, 367);
             this.adaptiveHMCR.Name = "adaptiveHMCR";
             this.adaptiveHMCR.Size = new System.Drawing.Size(57, 20);
             this.adaptiveHMCR.TabIndex = 79;
             this.adaptiveHMCR.Tag = "SelfAdaptiveHS";
             this.adaptiveHMCR.Text = "0.80";
             this.adaptiveHMCR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.adaptiveHMCR.Visible = false;
             this.adaptiveHMCR.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
             // 
             // ImprovedHMS
             // 
             this.ImprovedHMS.Enabled = false;
             this.ImprovedHMS.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ImprovedHMS.Location = new System.Drawing.Point(568, 274);
+            this.ImprovedHMS.Location = new System.Drawing.Point(569, 323);
             this.ImprovedHMS.Name = "ImprovedHMS";
             this.ImprovedHMS.Size = new System.Drawing.Size(57, 22);
             this.ImprovedHMS.TabIndex = 91;
             this.ImprovedHMS.Tag = "ImprovedHS";
             this.ImprovedHMS.Text = "30";
             this.ImprovedHMS.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.ImprovedHMS.Visible = false;
             this.ImprovedHMS.TextChanged += new System.EventHandler(this.TextBox_TextChanged);
+            // 
+            // ClassicRadioButton
+            // 
+            this.ClassicRadioButton.AutoSize = true;
+            this.ClassicRadioButton.Checked = true;
+            this.ClassicRadioButton.Location = new System.Drawing.Point(57, 163);
+            this.ClassicRadioButton.Name = "ClassicRadioButton";
+            this.ClassicRadioButton.Size = new System.Drawing.Size(76, 17);
+            this.ClassicRadioButton.TabIndex = 92;
+            this.ClassicRadioButton.TabStop = true;
+            this.ClassicRadioButton.Tag = "ClassicHS";
+            this.ClassicRadioButton.Text = "Classic HS";
+            this.ClassicRadioButton.UseVisualStyleBackColor = true;
+            this.ClassicRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            // 
+            // ImprovedRadioButton
+            // 
+            this.ImprovedRadioButton.AutoSize = true;
+            this.ImprovedRadioButton.Location = new System.Drawing.Point(57, 186);
+            this.ImprovedRadioButton.Name = "ImprovedRadioButton";
+            this.ImprovedRadioButton.Size = new System.Drawing.Size(87, 17);
+            this.ImprovedRadioButton.TabIndex = 93;
+            this.ImprovedRadioButton.Tag = "ImprovedHS";
+            this.ImprovedRadioButton.Text = "Improved HS";
+            this.ImprovedRadioButton.UseVisualStyleBackColor = true;
+            this.ImprovedRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            // 
+            // GlobalRadioButton
+            // 
+            this.GlobalRadioButton.AutoSize = true;
+            this.GlobalRadioButton.Location = new System.Drawing.Point(57, 209);
+            this.GlobalRadioButton.Name = "GlobalRadioButton";
+            this.GlobalRadioButton.Size = new System.Drawing.Size(97, 17);
+            this.GlobalRadioButton.TabIndex = 94;
+            this.GlobalRadioButton.Tag = "GlobalBestHS";
+            this.GlobalRadioButton.Text = "Global Best HS";
+            this.GlobalRadioButton.UseVisualStyleBackColor = true;
+            this.GlobalRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
+            // 
+            // AdaptiveRadioButton
+            // 
+            this.AdaptiveRadioButton.AutoSize = true;
+            this.AdaptiveRadioButton.Location = new System.Drawing.Point(57, 232);
+            this.AdaptiveRadioButton.Name = "AdaptiveRadioButton";
+            this.AdaptiveRadioButton.Size = new System.Drawing.Size(106, 17);
+            this.AdaptiveRadioButton.TabIndex = 95;
+            this.AdaptiveRadioButton.Tag = "SelfAdaptiveHS";
+            this.AdaptiveRadioButton.Text = "Self Adaptive HS";
+            this.AdaptiveRadioButton.UseVisualStyleBackColor = true;
+            this.AdaptiveRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
             // ConfigurationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1374, 818);
+            this.ClientSize = new System.Drawing.Size(1374, 669);
+            this.Controls.Add(this.AdaptiveRadioButton);
+            this.Controls.Add(this.GlobalRadioButton);
+            this.Controls.Add(this.ImprovedRadioButton);
+            this.Controls.Add(this.ClassicRadioButton);
             this.Controls.Add(this.ImprovedHMS);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.adaptiveHMS);
@@ -749,7 +866,7 @@
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.ImprovedHMCR);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ObjectiveTextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -788,6 +905,7 @@
             this.Controls.Add(this.ClassicHMCR);
             this.Controls.Add(this.NITextBox);
             this.Name = "ConfigurationForm";
+            this.Tag = "";
             this.Text = "HARMONY SEARCH";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -832,7 +950,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ObjectiveTextBox;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.TextBox ImprovedHMCR;
@@ -853,6 +971,10 @@
         private System.Windows.Forms.TextBox adaptivePAR;
         private System.Windows.Forms.TextBox adaptiveHMCR;
         private System.Windows.Forms.TextBox ImprovedHMS;
+        private System.Windows.Forms.RadioButton ClassicRadioButton;
+        private System.Windows.Forms.RadioButton ImprovedRadioButton;
+        private System.Windows.Forms.RadioButton GlobalRadioButton;
+        private System.Windows.Forms.RadioButton AdaptiveRadioButton;
     }
 }
 

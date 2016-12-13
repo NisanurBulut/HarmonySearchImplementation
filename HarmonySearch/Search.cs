@@ -19,9 +19,9 @@ namespace HarmonySearch
         protected virtual Harmony getRandomHarmony()
         {
             Harmony hrm = new Harmony();
-            hrm.note = new List<double>();
+            hrm.notes = new List<double>();
             for (int i = 0; i < TotalNotes; i++)
-                hrm.note.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
+                hrm.notes.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
 
             return hrm;
         }
@@ -29,8 +29,8 @@ namespace HarmonySearch
         protected double getHarmonyAesthetics(Harmony harmony)
         {
             //double aesthetics = Math.Sin(harmony.note[0]) + Math.Cos(harmony.note[1]) + Math.Sin(harmony.note[2]) + Math.Cos(harmony.note[3]) + Math.Sin(harmony.note[4]);
-            double aesthetics = 100 * (harmony.note[1] - Math.Pow(harmony.note[0], 2)) + Math.Pow(1 - harmony.note[0], 2); //Rosenbrock Function
-
+            //double aesthetics = 100 * (harmony.note[1] - Math.Pow(harmony.note[0], 2)) + Math.Pow(1 - harmony.note[0], 2); //Rosenbrock Function
+            double aesthetics = Math.Sin(harmony.notes[0]) * Math.Sin(harmony.notes[1]);
             //double aesthetics = Math.Pow(harmony.note[0], 2) + Math.Pow(harmony.note[1], 2);// + Math.Pow(harmony.note[2], 2) + Math.Pow(harmony.note[3], 2) + Math.Pow(harmony.note[4], 2); //Sphere Function
 
             return aesthetics;
@@ -43,7 +43,7 @@ namespace HarmonySearch
             {
                 for (int j = i + 1; j < memory.Count; j++)
                 {
-                    if (Math.Abs(getHarmonyAesthetics(memory[i])) > Math.Abs(getHarmonyAesthetics(memory[j])))
+                    if (getHarmonyAesthetics(memory[i]) < getHarmonyAesthetics(memory[j]))
                     {
                         tempHar = memory[i];
                         memory[i] = memory[j];
@@ -55,7 +55,7 @@ namespace HarmonySearch
 
         protected void updateMemory(Harmony newHar, int currentIteration)
         {
-            if (Math.Abs(getHarmonyAesthetics(newHar)) < Math.Abs(getHarmonyAesthetics(memory[HMSize - 1])))
+            if (getHarmonyAesthetics(newHar) > getHarmonyAesthetics(memory[HMSize - 1]))
             {
                 memory[HMSize - 1] = newHar;
                 sortMemory();

@@ -8,6 +8,6 @@ namespace HarmonySearch
 {
     public class Harmony
     {
-        public List<double> note { get; set; }
+        public List<double> notes { get; set; }
     }
 }

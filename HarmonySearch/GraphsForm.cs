@@ -25,27 +25,51 @@ namespace HarmonySearch
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            classicHS.initializeMemory();
-            classicHS.Run();
-            improvedHS.initializeMemory();
-            improvedHS.Run();
-            globalHS.initializeMemory();
-            globalHS.Run();
-            adaptiveHS.initializeMemory();
-            adaptiveHS.Run();
+            if (classicHS != null)
+            {
+                classicHS.initializeMemory();
+                classicHS.Run();
+            }
+            if (improvedHS != null)
+            {
+                improvedHS.initializeMemory();
+                improvedHS.Run();
+            }
+            if(globalHS != null)
+            {
+                globalHS.initializeMemory();
+                globalHS.Run();
+            }
+            if(adaptiveHS != null)
+            {
+                adaptiveHS.initializeMemory();
+                adaptiveHS.Run();
+            }
             plotChart();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            classicHS.initializeMemory();
-            classicHS.Run();
-            improvedHS.initializeMemory();
-            improvedHS.Run();
-            globalHS.initializeMemory();
-            globalHS.Run();
-            adaptiveHS.initializeMemory();
-            adaptiveHS.Run();
+            if (classicHS != null)
+            {
+                classicHS.initializeMemory();
+                classicHS.Run();
+            }
+            if (improvedHS != null)
+            {
+                improvedHS.initializeMemory();
+                improvedHS.Run();
+            }
+            if (globalHS != null)
+            {
+                globalHS.initializeMemory();
+                globalHS.Run();
+            }
+            if (adaptiveHS != null)
+            {
+                adaptiveHS.initializeMemory();
+                adaptiveHS.Run();
+            }
             plotChart();
         }
 
@@ -53,31 +77,50 @@ namespace HarmonySearch
         {
             chart.Series.Clear();
 
-            chart.Series.Add("Classic Harmony Search");
-            chart.Series[0].ChartType = SeriesChartType.Line;
-            chart.Series[0].Color = System.Drawing.Color.DarkRed;
-            chart.Series.Add("Improved Harmony Search");
-            chart.Series[1].ChartType = SeriesChartType.Line;
-            chart.Series[1].Color = System.Drawing.Color.DarkBlue;
-            chart.Series.Add("Global Best Harmony Search");
-            chart.Series[2].ChartType = SeriesChartType.Line;
-            chart.Series[2].Color = System.Drawing.Color.SkyBlue;
-            chart.Series.Add("Self Adaptive Harmony Search");
-            chart.Series[3].ChartType = SeriesChartType.Line;
-            chart.Series[3].Color = System.Drawing.Color.Orange;
-
+            if (classicHS != null)
+            {
+                chart.Series.Add("Classic Harmony Search");
+                chart.Series[0].ChartType = SeriesChartType.Line;
+                chart.Series[0].Color = System.Drawing.Color.DarkRed;
+                for (int i = 0; i < classicHS.NI; i++)
+                {
+                    chart.Series[0].Points.AddXY(i, classicHS.bestHarmonies[i]);
+                }
+            }
+            if (improvedHS != null)
+            {
+                chart.Series.Add("Improved Harmony Search");
+                chart.Series[0].ChartType = SeriesChartType.Line;
+                chart.Series[0].Color = System.Drawing.Color.DarkBlue;
+                for (int i = 0; i < improvedHS.NI; i++)
+                {
+                    chart.Series[0].Points.AddXY(i, improvedHS.bestHarmonies[i]);
+                }
+            }
+            if (globalHS != null)
+            {
+                chart.Series.Add("Global Best Harmony Search");
+                chart.Series[0].ChartType = SeriesChartType.Line;
+                chart.Series[0].Color = System.Drawing.Color.SkyBlue;
+                for (int i = 0; i < globalHS.NI; i++)
+                {
+                    chart.Series[0].Points.AddXY(i, globalHS.bestHarmonies[i]);
+                }
+            }
+            if (adaptiveHS != null)
+            {
+                chart.Series.Add("Self Adaptive Harmony Search");
+                chart.Series[0].ChartType = SeriesChartType.Line;
+                chart.Series[0].Color = System.Drawing.Color.Orange;
+                for (int i = 0; i < adaptiveHS.NI; i++)
+                {
+                    chart.Series[0].Points.AddXY(i, adaptiveHS.bestHarmonies[i]);
+                }
+            }
             chart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
             chart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
             chart.ChartAreas[0].AxisY.MajorGrid.LineColor = System.Drawing.Color.LightGray;
             chart.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
-
-            for (int i = 0; i < classicHS.NI; i++)
-            {
-                chart.Series[0].Points.AddXY(i, classicHS.bestHarmonies[i]);
-                chart.Series[1].Points.AddXY(i, improvedHS.bestHarmonies[i]);
-                chart.Series[2].Points.AddXY(i, globalHS.bestHarmonies[i]);
-                chart.Series[3].Points.AddXY(i, adaptiveHS.bestHarmonies[i]);
-            }
         }
 
     }

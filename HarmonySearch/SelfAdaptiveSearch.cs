@@ -32,9 +32,9 @@ namespace HarmonySearch
         protected override Harmony getRandomHarmony()
         {
             Harmony hrm = new Harmony();
-            hrm.note = new List<double>();
+            hrm.notes = new List<double>();
             for (int i = 0; i < TotalNotes; i++)
-                hrm.note.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
+                hrm.notes.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
 
             checkMaxVariables(hrm);
             checkMinVariables(hrm);
@@ -59,7 +59,7 @@ namespace HarmonySearch
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
                 Harmony newHarmony = new Harmony();
-                newHarmony.note = new List<double>();
+                newHarmony.notes = new List<double>();
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
@@ -67,12 +67,12 @@ namespace HarmonySearch
                     {
                         Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
-                        newHarmony.note.Add(memory[randomHarmony].note[currentNote]);
+                        newHarmony.notes.Add(memory[randomHarmony].notes[currentNote]);
                         adjustPitch(newHarmony, currentNote);
                     }
                     else
                     {
-                        newHarmony.note.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
+                        newHarmony.notes.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -89,11 +89,11 @@ namespace HarmonySearch
             {
                 randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
                 if (randomFloat < 0)
-                    newHarmony.note[index] += (MaxVariables[index] - newHarmony.note[index]) * Statics.getRandomDouble(0.0, 1.0);
+                    newHarmony.notes[index] += (MaxVariables[index] - newHarmony.notes[index]) * Statics.getRandomDouble(0.0, 1.0);
                 else if (randomFloat >= 0)
-                    newHarmony.note[index] -= (newHarmony.note[index] - MinVariables[index] ) * Statics.getRandomDouble(0.0, 1.0);
+                    newHarmony.notes[index] -= (newHarmony.notes[index] - MinVariables[index] ) * Statics.getRandomDouble(0.0, 1.0);
 
-                restrictNote(newHarmony.note[index]);
+                restrictNote(newHarmony.notes[index]);
             }
         }
 
@@ -108,7 +108,7 @@ namespace HarmonySearch
                 for (int j = 0; j < TotalNotes; j++)
                 {
                     output += "\n\t";
-                    output += "Note " + j + ": " + memory.ElementAt(i).note[j];
+                    output += "Note " + j + ": " + memory.ElementAt(i).notes[j];
                 }
                 output += "\n\t Aesthetics: " + getHarmonyAesthetics(memory[i]);
                 output += "\n";
@@ -119,8 +119,8 @@ namespace HarmonySearch
         {
             for(int i = 0; i < TotalNotes; i++)
             {
-                if (newHarmony.note[i] > MaxVariables[i])
-                    MaxVariables[i] = newHarmony.note[i];
+                if (newHarmony.notes[i] > MaxVariables[i])
+                    MaxVariables[i] = newHarmony.notes[i];
             }
         }
 
@@ -128,8 +128,8 @@ namespace HarmonySearch
         {
             for (int i = 0; i < TotalNotes; i++)
             {
-                if (newHarmony.note[i] < MinVariables[i])
-                    MinVariables[i] = newHarmony.note[i];
+                if (newHarmony.notes[i] < MinVariables[i])
+                    MinVariables[i] = newHarmony.notes[i];
             }
         }
 
