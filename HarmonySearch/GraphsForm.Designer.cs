@@ -35,6 +35,7 @@
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
+            this.BackButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +51,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.chart.Series.Add(series1);
-            this.chart.Size = new System.Drawing.Size(1334, 497);
+            this.chart.Size = new System.Drawing.Size(602, 361);
             this.chart.TabIndex = 5;
             this.chart.Text = "chart1";
             // 
@@ -74,11 +75,22 @@
             this.label10.TabIndex = 30;
             this.label10.Text = "HARMONY SEARCH LAB";
             // 
+            // BackButton
+            // 
+            this.BackButton.Location = new System.Drawing.Point(23, 53);
+            this.BackButton.Name = "BackButton";
+            this.BackButton.Size = new System.Drawing.Size(114, 27);
+            this.BackButton.TabIndex = 32;
+            this.BackButton.Text = "Back";
+            this.BackButton.UseVisualStyleBackColor = true;
+            this.BackButton.Click += new System.EventHandler(this.BackButton_Click);
+            // 
             // GraphsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1369, 806);
+            this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.chart);
@@ -96,5 +108,6 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button BackButton;
     }
 }

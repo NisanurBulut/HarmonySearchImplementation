@@ -1,4 +1,5 @@
-﻿using System;
+﻿using org.mariuszgromada.math.mxparser;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -13,11 +14,7 @@ namespace HarmonySearch
     {
         public float HMCR { get; set; }
         public float PAR { get; set; }
-
         public double BW { get; set; }
-
-        public string output { get; set; }
-        public List<double> bestHarmonies;
 
         public ClassicSearch()
         {
@@ -29,17 +26,22 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            bestHarmonies = new List<double>();
+            Argument[] arguments = new Argument[TotalNotes];
+            for (int i = 1; i <= TotalNotes; i++)
+            {
+                arguments[i - 1] = new Argument("x" + i, 0.0);
+            }
+            base.bestHarmonies = new double[NI];
+            base.bestHarmoniesNotes = new double[NI, TotalNotes];
             base.memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
             {
                 memory.Add(getRandomHarmony());
             }
-
             sortMemory();
         }
 
-        public void Run()
+        public void Run(bool showAll)
         {
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
@@ -50,7 +52,7 @@ namespace HarmonySearch
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        Debug.WriteLine("HMCR");
+                        //Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
                         newHarmony.notes.Add(base.memory[randomHarmony].notes[currentNote]);
                         adjustPitch(newHarmony, currentNote);
@@ -61,8 +63,11 @@ namespace HarmonySearch
                     }
                 }
                 base.updateMemory(newHarmony, currentImprovisation);
-                bestHarmonies.Add(getHarmonyAesthetics(memory[0]));
-                //writeResults(currentImprovisation);
+                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
+                base.bestHarmoniesNotes[currentImprovisation, 0] = memory[0].notes.ElementAt(0);
+                base.bestHarmoniesNotes[currentImprovisation, 1] = memory[0].notes.ElementAt(1);
+                if (showAll == true)
+                    writeResults(currentImprovisation);
             }
         }
 
@@ -71,7 +76,7 @@ namespace HarmonySearch
             float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= PAR)
             {
-                Debug.WriteLine("PAR");
+                //Debug.WriteLine("PAR");
                 randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
                 if (randomFloat < 0)
                     newHarmony.notes[index] += Statics.getRandomDouble(0, BW);

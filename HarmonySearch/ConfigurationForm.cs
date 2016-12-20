@@ -1,4 +1,4 @@
-﻿using muParserNET;
+﻿using org.mariuszgromada.math.mxparser;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -28,6 +28,7 @@ namespace HarmonySearch
             graphs.improvedHS = improvedHS;
             graphs.globalHS = globalHS;
             graphs.adaptiveHS = adaptiveHS;
+            graphs.showAll = showAllCheckBox.Checked;
             graphs.Show();
 
             this.Hide();
@@ -41,13 +42,14 @@ namespace HarmonySearch
                 {
                     classicHS = new ClassicSearch();
                     classicHS.NI = Convert.ToInt32(NITextBox.Text);
+                    classicHS.Objective = new Expression(ObjectiveTextBox.Text);
                     classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     classicHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                     classicHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                    classicHS.HMSize = Convert.ToInt32(classicHMS.Text);
-                    classicHS.HMCR = float.Parse(ClassicHMCR.Text, CultureInfo.InvariantCulture);
-                    classicHS.PAR = float.Parse(ClassicPAR.Text, CultureInfo.InvariantCulture);
-                    classicHS.BW = double.Parse(ClassicBW.Text, CultureInfo.InvariantCulture);
+                    classicHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                    classicHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                    classicHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+                    classicHS.BW = double.Parse(BWTextBox.Text, CultureInfo.InvariantCulture);
                 }
                 if (ImprovedRadioButton.Checked == true)
                 {
@@ -56,12 +58,12 @@ namespace HarmonySearch
                     improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     improvedHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                     improvedHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                    improvedHS.HMSize = Convert.ToInt32(classicHMS.Text);
-                    improvedHS.HMCR = float.Parse(ImprovedHMCR.Text, CultureInfo.InvariantCulture);
-                    improvedHS.PARmin = float.Parse(ImprovedPARmin.Text, CultureInfo.InvariantCulture);
-                    improvedHS.PARmax = float.Parse(ImprovedPARmax.Text, CultureInfo.InvariantCulture);
-                    improvedHS.BWmin = float.Parse(ImprovedBWmin.Text, CultureInfo.InvariantCulture);
-                    improvedHS.BWmax = float.Parse(ImprovedBWmax.Text, CultureInfo.InvariantCulture);
+                    improvedHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                    improvedHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                    improvedHS.PARmin = float.Parse(PARMinTextBox.Text, CultureInfo.InvariantCulture);
+                    improvedHS.PARmax = float.Parse(PARMaxTextBox.Text, CultureInfo.InvariantCulture);
+                    improvedHS.BWmin = float.Parse(BWMinTextBox.Text, CultureInfo.InvariantCulture);
+                    improvedHS.BWmax = float.Parse(BWMaxTextBox.Text, CultureInfo.InvariantCulture);
                 }
                 if (GlobalRadioButton.Checked == true)
                 {
@@ -70,34 +72,34 @@ namespace HarmonySearch
                     globalHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     globalHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                     globalHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                    globalHS.HMSize = Convert.ToInt32(globalHMS.Text);
-                    globalHS.HMCR = float.Parse(globalHMCR.Text, CultureInfo.InvariantCulture);
-                    globalHS.PAR = float.Parse(globalPAR.Text, CultureInfo.InvariantCulture);
+                    globalHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                    globalHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                    globalHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
                 }
                 if (AdaptiveRadioButton.Checked == true)
                 {
                     adaptiveHS = new SelfAdaptiveSearch();
                     adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
                     adaptiveHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
-                    adaptiveHS.HMSize = Convert.ToInt32(classicHMS.Text);
+                    adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
                     adaptiveHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                     adaptiveHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
-                    adaptiveHS.HMCR = float.Parse(adaptiveHMCR.Text, CultureInfo.InvariantCulture);
-                    adaptiveHS.PAR = float.Parse(adaptivePAR.Text, CultureInfo.InvariantCulture);
+                    adaptiveHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                    adaptiveHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
                 }
             }
-            //Parser mathParser = new Parser();
-            //mathParser.Expr = ObjectiveTextBox.Text.ToString();
-            //mathParser.DefineVar("x1", Math.PI/2);
-            //mathParser.DefineVar("x2", Math.PI/2);
-            ////mathParser.SetVarFactory(Func<string, double> AddVariable);
-            //double res = mathParser.Eval();
+            //int i = 1;
+            //string strarg = "x" + i;
+            //Argument arg1 = new Argument(strarg, Math.PI/2);
+            
+            //Argument arg2 = new Argument("x2", Math.PI / 2);
+            //Expression expr = new Expression(ObjectiveTextBox.Text);
+            //expr.addArguments(arg1, arg2);
+            //expr.calculate();
+            //double res;
+            //res = expr.calculate();
+            //res = 0;
         }
-
-        //ParserVariable AddVariable(string decisionVariable, double value)
-        //{
-        //    return new ParserVariable(decisionVariable, value);
-        //}
 
         private Boolean isInputOk()
         {
@@ -105,35 +107,19 @@ namespace HarmonySearch
                 return false;
             if (!ConfigurationRules.areTotalVariablesValid(TotalNotesTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMSValid(classicHMS.Text))
+            if (!ConfigurationRules.isHMSValid(HMSTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMSValid(ImprovedHMS.Text))
+            if (!ConfigurationRules.isHMCRValid(HMCRTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMSValid(globalHMS.Text))
+            if (!ConfigurationRules.isPARValid(PARTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMSValid(adaptiveHMS.Text))
+            if (!ConfigurationRules.arePARExtremesValid(PARMinTextBox.Text, PARMaxTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMCRValid(ClassicHMCR.Text))
+            if (!ConfigurationRules.isBWValid(BWTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMCRValid(ImprovedHMCR.Text))
+            if (!ConfigurationRules.isBWValid(BWMinTextBox.Text))
                 return false;
-            if (!ConfigurationRules.isHMCRValid(globalHMCR.Text))
-                return false;
-            if (!ConfigurationRules.isHMCRValid(adaptiveHMCR.Text))
-                return false;
-            if (!ConfigurationRules.isPARValid(ClassicPAR.Text))
-                return false;
-            if (!ConfigurationRules.arePARExtremesValid(ImprovedPARmin.Text, ImprovedPARmax.Text))
-                return false;
-            if (!ConfigurationRules.isPARValid(globalPAR.Text))
-                return false;
-            if (!ConfigurationRules.isPARValid(adaptivePAR.Text))
-                return false;
-            if (!ConfigurationRules.isBWValid(ClassicBW.Text))
-                return false;
-            if (!ConfigurationRules.isBWValid(ImprovedBWmin.Text))
-                return false;
-            if (!ConfigurationRules.isBWValid(ImprovedBWmax.Text))
+            if (!ConfigurationRules.isBWValid(BWMaxTextBox.Text))
                 return false;
             if (!ConfigurationRules.areExtremeValuesValid(MinValueTextBox.Text, MaxValueTextBox.Text))
                 return false;
@@ -141,138 +127,73 @@ namespace HarmonySearch
             return true;
         }
 
-        private void EditCHSButton_Click(object sender, EventArgs e)
-        {
-            NITextBox.Enabled = true;
-            ClassicHMCR.Enabled = true;
-            ClassicPAR.Enabled = true;
-            ClassicBW.Enabled = true;
-            classicHMS.Enabled = true;
-            TotalNotesTextBox.Enabled = true;
-            MaxValueTextBox.Enabled = true;
-            MinValueTextBox.Enabled = true;
-            MaxRadioBtn.Enabled = true;
-            MinRadioBtn.Enabled = true;
-            EditCHSButton.Enabled = false;
-        }
-
-        private void EditIHSButton_Click(object sender, EventArgs e)
-        {
-            ImprovedHMCR.Enabled = true;
-            ImprovedPARmin.Enabled = true;
-            ImprovedPARmax.Enabled = true;
-            ImprovedBWmin.Enabled = true;
-            ImprovedBWmax.Enabled = true;
-            ImprovedHMS.Enabled = true;
-            EditIHSButton.Enabled = false;
-        }
-
-        private void EditGBHSButton_Click(object sender, EventArgs e)
-        {
-            globalHMCR.Enabled = true;
-            globalPAR.Enabled = true;
-            globalPAR.Enabled = true;
-            globalHMS.Enabled = true;
-            EditGBHSButton.Enabled = false;
-        }
-
-        private void EditSAHSButton_Click(object sender, EventArgs e)
-        {
-            adaptiveHMCR.Enabled = true;
-            adaptivePAR.Enabled = true;
-            adaptiveHMS.Enabled = true;
-            EditSAHSButton.Enabled = false;
-        }
-
-        private void ResetCHSButton_Click(object sender, EventArgs e)
-        {
-            NITextBox.Text = "250";
-            ClassicHMCR.Text = "0.85";
-            ClassicPAR.Text = "0.15";
-            ClassicBW.Text = "2.048";
-            classicHMS.Text = "30";
-            TotalNotesTextBox.Text = "2";
-            MaxValueTextBox.Text = "2.048";
-            MinValueTextBox.Text = "-2.048";
-            EditCHSButton.Enabled = true;
-            ResetCHSButton.Enabled = false;
-            NITextBox.Enabled = false;
-            ClassicHMCR.Enabled = false;
-            ClassicPAR.Enabled = false;
-            ClassicBW.Enabled = false;
-            classicHMS.Enabled = false;
-            TotalNotesTextBox.Enabled = false;
-            MaxValueTextBox.Enabled = false;
-            MinValueTextBox.Enabled = false;
-            MaxRadioBtn.Enabled = false;
-            MinRadioBtn.Enabled = false;
-        }
-
-        private void ResetIHSButton_Click(object sender, EventArgs e)
-        {
-            ImprovedHMCR.Text = "0.90";
-            ImprovedPARmin.Text = "0.1";
-            ImprovedPARmax.Text = "0.85";
-            ImprovedBWmin.Text = "0.001";
-            ImprovedBWmax.Text = "0.8";
-            ImprovedHMS.Text = "30";
-            EditIHSButton.Enabled = true;
-            ResetIHSButton.Enabled = false;
-            ImprovedHMCR.Enabled = false;
-            ImprovedPARmin.Enabled = false;
-            ImprovedPARmax.Enabled = false;
-            ImprovedBWmin.Enabled = false;
-            ImprovedBWmax.Enabled = false;
-            ImprovedHMS.Enabled = false;
-        }
-
-        private void ResetGBHSButton_Click(object sender, EventArgs e)
-        {
-            globalHMCR.Text = "0.85";
-            globalPAR.Text = "0.15";
-            globalHMS.Text = "30";
-            EditGBHSButton.Enabled = true;
-            ResetGBHSButton.Enabled = false;
-            globalHMCR.Enabled = false;
-            globalPAR.Enabled = false;
-            globalHMS.Enabled = false;
-        }
-
-        private void ResetSAHSButton_Click(object sender, EventArgs e)
-        {
-            adaptiveHMCR.Text = "0.85";
-            adaptivePAR.Text = "0.15";
-            adaptiveHMS.Text = "30";
-            EditSAHSButton.Enabled = true;
-            ResetSAHSButton.Enabled = false;
-            adaptiveHMCR.Enabled = false;
-            adaptivePAR.Enabled = false;
-            adaptiveHMS.Enabled = false;
-        }
-
-        private void TextBox_TextChanged(Object sender, EventArgs e)
-        {
-            TextBox textBox = sender as TextBox;
-
-            if(textBox.Tag.Equals("ClassicHS"))
-                ResetCHSButton.Enabled = true;
-            if (textBox.Tag.Equals("ImprovedHS"))
-                ResetIHSButton.Enabled = true;
-            if (textBox.Tag.Equals("GlobalBestHS"))
-                ResetGBHSButton.Enabled = true;
-            if (textBox.Tag.Equals("SelfAdaptiveHS"))
-                ResetSAHSButton.Enabled = true;
-        }
-
         private void RadioButton_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton senderRadioButton = sender as RadioButton;
-            foreach (Control c in this.Controls)
-                if (c.Tag != null)
-                    if (c.Tag != senderRadioButton.Tag && c.GetType() != typeof(RadioButton))
-                        c.Visible = false;
-                    else
-                        c.Visible = true;
+            if(senderRadioButton.Tag.Equals("ClassicHS"))
+            {
+                PARTextBox.Visible = true;
+                PARMinTextBox.Visible = false;
+                PARMaxTextBox.Visible = false;
+                BWTextBox.Visible = true;
+                BWMaxTextBox.Visible = false;
+                BWMinTextBox.Visible = false;
+                PARLabel.Visible = true;
+                PARMinLabel.Visible = false;
+                PARMaxLabel.Visible = false;
+                BWLabel.Visible = true;
+                BWMaxLabel.Visible = false;
+                BWMinLabel.Visible = false;
+                parametersLabel.Text = "Parameters of the Classic Harmony Search:";
+            }
+            if (senderRadioButton.Tag.Equals("ImprovedHS"))
+            {
+                PARTextBox.Visible = false;
+                PARMinTextBox.Visible = true;
+                PARMaxTextBox.Visible = true;
+                BWTextBox.Visible = false;
+                BWMaxTextBox.Visible = true;
+                BWMinTextBox.Visible = true;
+                PARLabel.Visible = false;
+                PARMinLabel.Visible = true;
+                PARMaxLabel.Visible = true;
+                BWLabel.Visible = false;
+                BWMaxLabel.Visible = true;
+                BWMinLabel.Visible = true;
+                parametersLabel.Text = "Parameters of the Improved Harmony Search:";
+            }
+            if (senderRadioButton.Tag.Equals("GlobalBestHS"))
+            {
+                PARTextBox.Visible = true;
+                PARMinTextBox.Visible = false;
+                PARMaxTextBox.Visible = false;
+                BWTextBox.Visible = false;
+                BWMaxTextBox.Visible = false;
+                BWMinTextBox.Visible = false;
+                PARLabel.Visible = true;
+                PARMinLabel.Visible = false;
+                PARMaxLabel.Visible = false;
+                BWLabel.Visible = false;
+                BWMaxLabel.Visible = false;
+                BWMinLabel.Visible = false;
+                parametersLabel.Text = "Parameters of the Global Best Harmony Search:";
+            }
+            if (senderRadioButton.Tag.Equals("SelfAdaptiveHS"))
+            {
+                PARTextBox.Visible = true;
+                PARMinTextBox.Visible = false;
+                PARMaxTextBox.Visible = false;
+                BWTextBox.Visible = false;
+                BWMaxTextBox.Visible = false;
+                BWMinTextBox.Visible = false;
+                PARLabel.Visible = true;
+                PARMinLabel.Visible = false;
+                PARMaxLabel.Visible = false;
+                BWLabel.Visible = false;
+                BWMaxLabel.Visible = false;
+                BWMinLabel.Visible = false;
+                parametersLabel.Text = "Parameters of the Self Adaptive Harmony Search:";
+            }
         }
     }
 }

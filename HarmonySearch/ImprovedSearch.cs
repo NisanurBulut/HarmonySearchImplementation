@@ -17,9 +17,6 @@ namespace HarmonySearch
         public float PARmax { get; set; }
         public double BWmin { get; set; }
         public double BWmax { get; set; }
-        
-        private string output = "";
-        public List<double> bestHarmonies;
 
         public ImprovedSearch()
         {
@@ -31,7 +28,8 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            bestHarmonies = new List<double>();
+            base.bestHarmonies = new double[NI];
+            base.bestHarmoniesNotes = new double[NI, TotalNotes];
             memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
                 memory.Add(getRandomHarmony());
@@ -39,7 +37,7 @@ namespace HarmonySearch
             sortMemory();
         }
 
-        public void Run()
+        public void Run(bool showAll)
         {
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
@@ -61,8 +59,11 @@ namespace HarmonySearch
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
-                bestHarmonies.Add(getHarmonyAesthetics(memory[0]));
-                //writeResults(currentIteration);
+                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
+                base.bestHarmoniesNotes[currentImprovisation, 0] = memory[0].notes.ElementAt(0);
+                base.bestHarmoniesNotes[currentImprovisation, 1] = memory[0].notes.ElementAt(1);
+                if (showAll == true)
+                    writeResults(currentImprovisation);
             }
         }
 
@@ -100,7 +101,7 @@ namespace HarmonySearch
         {
             //string output = "";
             output += "\n\n";
-            output += currentIteration + " Iteration: \n";
+            output += currentIteration + " Improvisation: \n";
             for (int i = 0; i < HMSize; i++)
             {
                 output += i + " Harmony: ";

@@ -13,11 +13,7 @@ namespace HarmonySearch
     {
         public float HMCR { get; set; }
         public float PAR { get; set; }
-
         public double BW { get; set; }
-
-        public string output { get; set; }
-        public List<double> bestHarmonies;
 
         public GlobalBestSearch()
         {
@@ -29,7 +25,8 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            bestHarmonies = new List<double>();
+            base.bestHarmonies = new double[NI];
+            base.bestHarmoniesNotes = new double[NI, TotalNotes];
             memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
                 memory.Add(getRandomHarmony());
@@ -37,7 +34,7 @@ namespace HarmonySearch
             sortMemory();
         }
 
-        public void Run()
+        public void Run(bool showAll)
         {
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
@@ -59,8 +56,11 @@ namespace HarmonySearch
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
-                bestHarmonies.Add(getHarmonyAesthetics(memory[0]));
-                //writeResults(currentImprovisation);
+                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
+                base.bestHarmoniesNotes[currentImprovisation, 0] = memory[0].notes.ElementAt(0);
+                base.bestHarmoniesNotes[currentImprovisation, 1] = memory[0].notes.ElementAt(1);
+                if (showAll == true)
+                    writeResults(currentImprovisation);
             }
         }
 

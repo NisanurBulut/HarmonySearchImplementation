@@ -1,4 +1,5 @@
-﻿using System;
+﻿using org.mariuszgromada.math.mxparser;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,17 @@ namespace HarmonySearch
 {
     public class Search
     {
+        public int NI { get; set; } //Number of Improvisations aka generations
+        public Expression Objective { get; set; }
+        public Argument[] arguments {get; set;}
         public double MinimumValue { get; set; }
         public double MaximumValue { get; set; }
         public int TotalNotes { get; set; }
         public int HMSize { get; set; }
-        public int NI { get; set; } //Number of Improvisations
+
+        public double[] bestHarmonies { get; set; }
+        public double[,] bestHarmoniesNotes { get; set; }
+        public string output { get; set; }
 
         protected List<Harmony> memory;
 
@@ -28,10 +35,14 @@ namespace HarmonySearch
 
         protected double getHarmonyAesthetics(Harmony harmony)
         {
-            //double aesthetics = Math.Sin(harmony.note[0]) + Math.Cos(harmony.note[1]) + Math.Sin(harmony.note[2]) + Math.Cos(harmony.note[3]) + Math.Sin(harmony.note[4]);
-            //double aesthetics = 100 * (harmony.note[1] - Math.Pow(harmony.note[0], 2)) + Math.Pow(1 - harmony.note[0], 2); //Rosenbrock Function
             double aesthetics = Math.Sin(harmony.notes[0]) * Math.Sin(harmony.notes[1]);
-            //double aesthetics = Math.Pow(harmony.note[0], 2) + Math.Pow(harmony.note[1], 2);// + Math.Pow(harmony.note[2], 2) + Math.Pow(harmony.note[3], 2) + Math.Pow(harmony.note[4], 2); //Sphere Function
+            //Argument[] args = new Argument[TotalNotes];
+            //for (int i = 1; i <= TotalNotes; i++)
+            //{
+            //    args[i - 1] = new Argument("x" + i, harmony.notes[i-1]);
+            //}
+            //Objective.addArguments(args);
+            //double aesthetics = Objective.calculate();
 
             return aesthetics;
         }

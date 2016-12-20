@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace HarmonySearch
 {
     public partial class GraphsForm : Form
     {
+        public bool showAll { get; set; }
+
         public ClassicSearch classicHS { get; set; }
         public ImprovedSearch improvedHS { get; set; }
         public GlobalBestSearch globalHS { get; set; }
@@ -28,22 +31,22 @@ namespace HarmonySearch
             if (classicHS != null)
             {
                 classicHS.initializeMemory();
-                classicHS.Run();
+                classicHS.Run(showAll);
             }
             if (improvedHS != null)
             {
                 improvedHS.initializeMemory();
-                improvedHS.Run();
+                improvedHS.Run(showAll);
             }
             if(globalHS != null)
             {
                 globalHS.initializeMemory();
-                globalHS.Run();
+                globalHS.Run(showAll);
             }
             if(adaptiveHS != null)
             {
                 adaptiveHS.initializeMemory();
-                adaptiveHS.Run();
+                adaptiveHS.Run(showAll);
             }
             plotChart();
         }
@@ -53,22 +56,22 @@ namespace HarmonySearch
             if (classicHS != null)
             {
                 classicHS.initializeMemory();
-                classicHS.Run();
+                classicHS.Run(showAll);
             }
             if (improvedHS != null)
             {
                 improvedHS.initializeMemory();
-                improvedHS.Run();
+                improvedHS.Run(showAll);
             }
             if (globalHS != null)
             {
                 globalHS.initializeMemory();
-                globalHS.Run();
+                globalHS.Run(showAll);
             }
             if (adaptiveHS != null)
             {
                 adaptiveHS.initializeMemory();
-                adaptiveHS.Run();
+                adaptiveHS.Run(showAll);
             }
             plotChart();
         }
@@ -85,6 +88,8 @@ namespace HarmonySearch
                 for (int i = 0; i < classicHS.NI; i++)
                 {
                     chart.Series[0].Points.AddXY(i, classicHS.bestHarmonies[i]);
+                    //chart.Series[0].Points.AddXY(i, classicHS.bestHarmoniesNotes[i, 0]);
+                    //chart.Series[0].Points.AddXY(i, classicHS.bestHarmoniesNotes[i, 1]);
                 }
             }
             if (improvedHS != null)
@@ -116,6 +121,8 @@ namespace HarmonySearch
                 {
                     chart.Series[0].Points.AddXY(i, adaptiveHS.bestHarmonies[i]);
                 }
+                //outputRichTextBox.Text = adaptiveHS.output;
+                //outputRichTextBox.ScrollToCaret();
             }
             chart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
             chart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
@@ -123,5 +130,11 @@ namespace HarmonySearch
             chart.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
         }
 
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            ConfigurationForm configurationForm = new ConfigurationForm();
+            configurationForm.Show();
+            this.Close();
+        }
     }
 }
