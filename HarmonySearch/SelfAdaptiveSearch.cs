@@ -94,7 +94,7 @@ namespace HarmonySearch
                 else if (randomFloat >= 0)
                     newHarmony.notes[index] -= (newHarmony.notes[index] - MinVariables[index] ) * Statics.getRandomDouble(0.0, 1.0);
 
-                restrictNote(newHarmony.notes[index]);
+                newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
             }
         }
 

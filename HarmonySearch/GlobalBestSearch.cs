@@ -72,6 +72,7 @@ namespace HarmonySearch
                 Debug.WriteLine("PAR");
                 newHarmony.notes[index] = memory[0].notes[index];
             }
+            newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
         }
 
         public void writeResults(int currentImprovisation)

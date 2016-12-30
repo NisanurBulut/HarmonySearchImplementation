@@ -77,12 +77,12 @@ namespace HarmonySearch
                 if (randomFloat < 0)
                 {
                     newHarmony.notes[index] += Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
-                    restrictNote(newHarmony.notes[index]);
+                    newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
                 }
                 else if (randomFloat >= 0)
                 {
                     newHarmony.notes[index] -= Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
-                    restrictNote(newHarmony.notes[index]);
+                    newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
                 }
             }
         }
