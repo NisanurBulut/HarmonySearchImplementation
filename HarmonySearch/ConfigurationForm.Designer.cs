@@ -333,7 +333,7 @@
             this.ObjectiveTextBox.Name = "ObjectiveTextBox";
             this.ObjectiveTextBox.Size = new System.Drawing.Size(185, 26);
             this.ObjectiveTextBox.TabIndex = 48;
-            this.ObjectiveTextBox.Text = "sin(x1) * sin(x2)";
+            this.ObjectiveTextBox.Text = "Sin(x1) * Sin(x2)";
             this.ObjectiveTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // PARMinTextBox

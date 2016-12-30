@@ -1,4 +1,4 @@
-﻿using org.mariuszgromada.math.mxparser;
+﻿using NCalc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,8 +10,6 @@ namespace HarmonySearch
     public class Search
     {
         public int NI { get; set; } //Number of Improvisations aka generations
-        public Expression Objective { get; set; }
-        public Argument[] arguments {get; set;}
         public double MinimumValue { get; set; }
         public double MaximumValue { get; set; }
         public int TotalNotes { get; set; }
@@ -23,28 +21,27 @@ namespace HarmonySearch
 
         protected List<Harmony> memory;
 
+        public Expression Objective { get; set; }
+
         protected virtual Harmony getRandomHarmony()
         {
             Harmony hrm = new Harmony();
-            hrm.notes = new List<double>();
+            hrm.notes = new double[TotalNotes];
             for (int i = 0; i < TotalNotes; i++)
-                hrm.notes.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
+                hrm.notes[i] = Statics.getRandomDouble(MinimumValue, MaximumValue);
 
             return hrm;
         }
 
         protected double getHarmonyAesthetics(Harmony harmony)
         {
-            double aesthetics = Math.Sin(harmony.notes[0]) * Math.Sin(harmony.notes[1]);
-            //Argument[] args = new Argument[TotalNotes];
-            //for (int i = 1; i <= TotalNotes; i++)
-            //{
-            //    args[i - 1] = new Argument("x" + i, harmony.notes[i-1]);
-            //}
-            //Objective.addArguments(args);
-            //double aesthetics = Objective.calculate();
-
-            return aesthetics;
+            int j = 0;
+            for(int i = 0; i < TotalNotes; i++)
+            {
+                j = i + 1;
+                Objective.Parameters["x" + j] = harmony.notes[i];
+            }
+            return (double)Objective.Evaluate();
         }
 
         protected void sortMemory()

@@ -1,5 +1,4 @@
-﻿using org.mariuszgromada.math.mxparser;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -26,11 +25,6 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            Argument[] arguments = new Argument[TotalNotes];
-            for (int i = 1; i <= TotalNotes; i++)
-            {
-                arguments[i - 1] = new Argument("x" + i, 0.0);
-            }
             base.bestHarmonies = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
             base.memory = new List<Harmony>();
@@ -46,7 +40,7 @@ namespace HarmonySearch
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
                 Harmony newHarmony = new Harmony();
-                newHarmony.notes = new List<double>();
+                newHarmony.notes = new double[TotalNotes];
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
@@ -54,12 +48,12 @@ namespace HarmonySearch
                     {
                         //Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
-                        newHarmony.notes.Add(base.memory[randomHarmony].notes[currentNote]);
+                        newHarmony.notes[currentNote] = base.memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote);
                     }
                     else
                     {
-                        newHarmony.notes.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
+                        newHarmony.notes[currentNote] = Statics.getRandomDouble(MinimumValue, MaximumValue);
                     }
                 }
                 base.updateMemory(newHarmony, currentImprovisation);

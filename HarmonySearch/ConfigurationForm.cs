@@ -1,4 +1,4 @@
-﻿using org.mariuszgromada.math.mxparser;
+﻿using NCalc;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -41,8 +41,8 @@ namespace HarmonySearch
                 if(ClassicRadioButton.Checked == true)
                 {
                     classicHS = new ClassicSearch();
-                    classicHS.NI = Convert.ToInt32(NITextBox.Text);
                     classicHS.Objective = new Expression(ObjectiveTextBox.Text);
+                    classicHS.NI = Convert.ToInt32(NITextBox.Text);
                     classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     classicHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
                     classicHS.MinimumValue = double.Parse(MinValueTextBox.Text, CultureInfo.InvariantCulture);
@@ -54,6 +54,7 @@ namespace HarmonySearch
                 if (ImprovedRadioButton.Checked == true)
                 {
                     improvedHS = new ImprovedSearch();
+                    improvedHS.Objective = new Expression(ObjectiveTextBox.Text);
                     improvedHS.NI = Convert.ToInt32(NITextBox.Text);
                     improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     improvedHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
@@ -68,6 +69,7 @@ namespace HarmonySearch
                 if (GlobalRadioButton.Checked == true)
                 {
                     globalHS = new GlobalBestSearch();
+                    globalHS.Objective = new Expression(ObjectiveTextBox.Text);
                     globalHS.NI = Convert.ToInt32(NITextBox.Text);
                     globalHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     globalHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
@@ -79,6 +81,7 @@ namespace HarmonySearch
                 if (AdaptiveRadioButton.Checked == true)
                 {
                     adaptiveHS = new SelfAdaptiveSearch();
+                    adaptiveHS.Objective = new Expression(ObjectiveTextBox.Text);
                     adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
                     adaptiveHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
@@ -88,17 +91,6 @@ namespace HarmonySearch
                     adaptiveHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
                 }
             }
-            //int i = 1;
-            //string strarg = "x" + i;
-            //Argument arg1 = new Argument(strarg, Math.PI/2);
-            
-            //Argument arg2 = new Argument("x2", Math.PI / 2);
-            //Expression expr = new Expression(ObjectiveTextBox.Text);
-            //expr.addArguments(arg1, arg2);
-            //expr.calculate();
-            //double res;
-            //res = expr.calculate();
-            //res = 0;
         }
 
         private Boolean isInputOk()

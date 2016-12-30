@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,8 @@ namespace HarmonySearch
         public ImprovedSearch improvedHS { get; set; }
         public GlobalBestSearch globalHS { get; set; }
         public SelfAdaptiveSearch adaptiveHS { get; set; }
+
+        private List<double> results;
 
         public GraphsForm()
         {
@@ -91,6 +94,7 @@ namespace HarmonySearch
                     //chart.Series[0].Points.AddXY(i, classicHS.bestHarmoniesNotes[i, 0]);
                     //chart.Series[0].Points.AddXY(i, classicHS.bestHarmoniesNotes[i, 1]);
                 }
+                saveResults(classicHS.bestHarmonies[classicHS.NI - 1]);
             }
             if (improvedHS != null)
             {
@@ -101,6 +105,7 @@ namespace HarmonySearch
                 {
                     chart.Series[0].Points.AddXY(i, improvedHS.bestHarmonies[i]);
                 }
+                saveResults(improvedHS.bestHarmonies[improvedHS.NI - 1]);
             }
             if (globalHS != null)
             {
@@ -111,6 +116,7 @@ namespace HarmonySearch
                 {
                     chart.Series[0].Points.AddXY(i, globalHS.bestHarmonies[i]);
                 }
+                saveResults(globalHS.bestHarmonies[globalHS.NI - 1]);
             }
             if (adaptiveHS != null)
             {
@@ -121,8 +127,7 @@ namespace HarmonySearch
                 {
                     chart.Series[0].Points.AddXY(i, adaptiveHS.bestHarmonies[i]);
                 }
-                //outputRichTextBox.Text = adaptiveHS.output;
-                //outputRichTextBox.ScrollToCaret();
+                saveResults(adaptiveHS.bestHarmonies[adaptiveHS.NI - 1]);
             }
             chart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
             chart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
@@ -130,11 +135,31 @@ namespace HarmonySearch
             chart.ChartAreas[0].AxisY.MajorGrid.LineDashStyle = ChartDashStyle.Dot;
         }
 
+        private void saveResults(double bestHarmony)
+        {
+            richTextBox1.Text += bestHarmony;
+            richTextBox1.Text += "\n";
+            results = new List<double>();
+            results.Add(bestHarmony);
+        }
+
         private void BackButton_Click(object sender, EventArgs e)
         {
             ConfigurationForm configurationForm = new ConfigurationForm();
             configurationForm.Show();
             this.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            richTextBox1.Text += "\n\n\n AVERAGE: ";
+            double sum = 0;
+            for (int i = 0; i < results.Count; i++)
+            {
+                sum += results[i];
+            }
+            double avg = sum / results.Count;
+            richTextBox1.Text += avg;
         }
     }
 }

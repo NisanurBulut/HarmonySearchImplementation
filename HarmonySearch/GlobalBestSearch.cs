@@ -39,7 +39,7 @@ namespace HarmonySearch
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
                 Harmony newHarmony = new Harmony();
-                newHarmony.notes = new List<double>();
+                newHarmony.notes = new double[TotalNotes];
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
@@ -47,12 +47,12 @@ namespace HarmonySearch
                     {
                         Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
-                        newHarmony.notes.Add(memory[randomHarmony].notes[currentNote]);
+                        newHarmony.notes[currentNote] = memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote);
                     }
                     else
                     {
-                        newHarmony.notes.Add(Statics.getRandomDouble(MinimumValue, MaximumValue));
+                        newHarmony.notes[currentNote] = Statics.getRandomDouble(MinimumValue, MaximumValue);
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
