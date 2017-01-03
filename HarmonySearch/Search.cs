@@ -22,6 +22,7 @@ namespace HarmonySearch
         protected List<Harmony> memory;
 
         public Expression Objective { get; set; }
+        public bool Maximize { get; set; }
 
         protected virtual Harmony getRandomHarmony()
         {
@@ -51,23 +52,48 @@ namespace HarmonySearch
             {
                 for (int j = i + 1; j < memory.Count; j++)
                 {
-                    if (getHarmonyAesthetics(memory[i]) < getHarmonyAesthetics(memory[j]))
+                    if (Maximize == true)
                     {
-                        tempHar = memory[i];
-                        memory[i] = memory[j];
-                        memory[j] = tempHar;
+                        if (getHarmonyAesthetics(memory[i]) < getHarmonyAesthetics(memory[j]))
+                        {
+                            tempHar = memory[i];
+                            memory[i] = memory[j];
+                            memory[j] = tempHar;
+                        }
                     }
+                    else
+                    {
+                        if (getHarmonyAesthetics(memory[i]) > getHarmonyAesthetics(memory[j]))
+                        {
+                            tempHar = memory[i];
+                            memory[i] = memory[j];
+                            memory[j] = tempHar;
+                        }
+                    }
+
                 }
             }
         }
 
         protected void updateMemory(Harmony newHar, int currentIteration)
         {
-            if (getHarmonyAesthetics(newHar) > getHarmonyAesthetics(memory[HMSize - 1]))
+            if(Maximize == true)
             {
-                memory[HMSize - 1] = newHar;
-                sortMemory();
+                if (getHarmonyAesthetics(newHar) > getHarmonyAesthetics(memory[HMSize - 1]))
+                {
+                    memory[HMSize - 1] = newHar;
+                    sortMemory();
+                }
             }
+            else
+            {
+                if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(memory[HMSize - 1]))
+                {
+                    memory[HMSize - 1] = newHar;
+                    sortMemory();
+                }
+            }
+
         }
 
         protected double restrictNote(double note)

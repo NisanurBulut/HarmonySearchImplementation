@@ -42,6 +42,7 @@ namespace HarmonySearch
                 {
                     classicHS = new ClassicSearch();
                     classicHS.Objective = new Expression(ObjectiveTextBox.Text);
+                    classicHS.Maximize = MaxRadioBtn.Checked;
                     classicHS.NI = Convert.ToInt32(NITextBox.Text);
                     classicHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     classicHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
@@ -55,6 +56,7 @@ namespace HarmonySearch
                 {
                     improvedHS = new ImprovedSearch();
                     improvedHS.Objective = new Expression(ObjectiveTextBox.Text);
+                    improvedHS.Maximize = MaxRadioBtn.Checked;
                     improvedHS.NI = Convert.ToInt32(NITextBox.Text);
                     improvedHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     improvedHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
@@ -70,6 +72,7 @@ namespace HarmonySearch
                 {
                     globalHS = new GlobalBestSearch();
                     globalHS.Objective = new Expression(ObjectiveTextBox.Text);
+                    globalHS.Maximize = MaxRadioBtn.Checked;
                     globalHS.NI = Convert.ToInt32(NITextBox.Text);
                     globalHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     globalHS.MaximumValue = double.Parse(MaxValueTextBox.Text, CultureInfo.InvariantCulture);
@@ -82,6 +85,7 @@ namespace HarmonySearch
                 {
                     adaptiveHS = new SelfAdaptiveSearch();
                     adaptiveHS.Objective = new Expression(ObjectiveTextBox.Text);
+                    adaptiveHS.Maximize = MaxRadioBtn.Checked;
                     adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
                     adaptiveHS.TotalNotes = Convert.ToInt32(TotalNotesTextBox.Text);
                     adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
@@ -136,7 +140,7 @@ namespace HarmonySearch
                 BWLabel.Visible = true;
                 BWMaxLabel.Visible = false;
                 BWMinLabel.Visible = false;
-                parametersLabel.Text = "Parameters of the Classic Harmony Search:";
+                ParametersLabel.Text = "Parameters of the Classic Harmony Search:";
             }
             if (senderRadioButton.Tag.Equals("ImprovedHS"))
             {
@@ -152,7 +156,7 @@ namespace HarmonySearch
                 BWLabel.Visible = false;
                 BWMaxLabel.Visible = true;
                 BWMinLabel.Visible = true;
-                parametersLabel.Text = "Parameters of the Improved Harmony Search:";
+                ParametersLabel.Text = "Parameters of the Improved Harmony Search:";
             }
             if (senderRadioButton.Tag.Equals("GlobalBestHS"))
             {
@@ -168,7 +172,7 @@ namespace HarmonySearch
                 BWLabel.Visible = false;
                 BWMaxLabel.Visible = false;
                 BWMinLabel.Visible = false;
-                parametersLabel.Text = "Parameters of the Global Best Harmony Search:";
+                ParametersLabel.Text = "Parameters of the Global Best Harmony Search:";
             }
             if (senderRadioButton.Tag.Equals("SelfAdaptiveHS"))
             {
@@ -184,7 +188,7 @@ namespace HarmonySearch
                 BWLabel.Visible = false;
                 BWMaxLabel.Visible = false;
                 BWMinLabel.Visible = false;
-                parametersLabel.Text = "Parameters of the Self Adaptive Harmony Search:";
+                ParametersLabel.Text = "Parameters of the Self Adaptive Harmony Search:";
             }
         }
     }
