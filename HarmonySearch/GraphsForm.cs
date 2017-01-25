@@ -41,12 +41,12 @@ namespace HarmonySearch
                 improvedHS.initializeMemory();
                 improvedHS.Run(showAll);
             }
-            if(globalHS != null)
+            if (globalHS != null)
             {
                 globalHS.initializeMemory();
                 globalHS.Run(showAll);
             }
-            if(adaptiveHS != null)
+            if (adaptiveHS != null)
             {
                 adaptiveHS.initializeMemory();
                 adaptiveHS.Run(showAll);
@@ -85,14 +85,22 @@ namespace HarmonySearch
 
             if (classicHS != null)
             {
-                chart.Series.Add("Classic Harmony Search");
+                chart.Series.Add("Aesthetics");
                 chart.Series[0].ChartType = SeriesChartType.Line;
-                chart.Series[0].Color = System.Drawing.Color.DarkRed;
-                for (int i = 0; i < classicHS.NI; i++)
+                chart.Series[0].Color = System.Drawing.Color.Blue;
+                for(int i = 0; i < classicHS.TotalNotes; i++)
                 {
-                    chart.Series[0].Points.AddXY(i, classicHS.bestHarmonies[i]);
-                    //chart.Series[0].Points.AddXY(i, classicHS.bestHarmoniesNotes[i, 0]);
-                    //chart.Series[0].Points.AddXY(i, classicHS.bestHarmoniesNotes[i, 1]);
+                    chart.Series.Add("Note" + i);
+                    chart.Series[i + 1].ChartType = SeriesChartType.Line;
+                    chart.Series[i + 1].Color = System.Drawing.Color.LightGreen;
+                }
+                for (int j = 0; j < classicHS.NI; j++)
+                {
+                    chart.Series[0].Points.AddXY(j, classicHS.bestHarmonies[j]);
+                    for (int k = 0; k < classicHS.TotalNotes; k++)
+                    {
+                        chart.Series[k+1].Points.AddXY(j, classicHS.bestHarmoniesNotes[j, k]);
+                    }
                 }
                 saveResults(classicHS.bestHarmonies[classicHS.NI - 1]);
             }

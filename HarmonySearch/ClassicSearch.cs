@@ -58,8 +58,11 @@ namespace HarmonySearch
                 }
                 base.updateMemory(newHarmony, currentImprovisation);
                 base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
-                base.bestHarmoniesNotes[currentImprovisation, 0] = memory[0].notes.ElementAt(0);
-                base.bestHarmoniesNotes[currentImprovisation, 1] = memory[0].notes.ElementAt(1);
+                for(int i = 0; i < TotalNotes; i++)
+                {
+                    base.bestHarmoniesNotes[currentImprovisation, i] = memory[0].notes.ElementAt(i);
+                }
+
                 if (showAll == true)
                     writeResults(currentImprovisation);
             }
