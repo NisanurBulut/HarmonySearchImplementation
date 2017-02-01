@@ -59,13 +59,17 @@ namespace HarmonySearch
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
+                //if (currentImprovisation == 249)
+                //{
+                //    countDuplicates();
+                //}
                 base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
                 for (int i = 0; i < TotalNotes; i++)
                 {
                     base.bestHarmoniesNotes[currentImprovisation, i] = memory[0].notes.ElementAt(i);
                 }
                 if (showAll == true)
-                    writeResults(currentImprovisation);
+                    base.writeResults(currentImprovisation);
             }
         }
 
@@ -96,25 +100,7 @@ namespace HarmonySearch
 
         private double getBandwidth(int currentImprovisation)
         {
-            return BWmax + Math.Exp((Math.Log(BWmax / BWmin)/NI) * currentImprovisation);
-        }
-
-        public void writeResults(int currentIteration)
-        {
-            //string output = "";
-            output += "\n\n";
-            output += currentIteration + " Improvisation: \n";
-            for (int i = 0; i < HMSize; i++)
-            {
-                output += i + " Harmony: ";
-                for (int j = 0; j < TotalNotes; j++)
-                {
-                    output += "\n\t";
-                    output += "Note " + j + ": " + memory.ElementAt(i).notes[j];
-                }
-                output += "\n\t Aesthetics: " + getHarmonyAesthetics(memory[i]);
-                output += "\n";
-            }
+            return BWmax - Math.Exp((Math.Log(BWmax / BWmin)/NI) * currentImprovisation);
         }
     }
 }

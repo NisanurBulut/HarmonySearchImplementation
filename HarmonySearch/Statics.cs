@@ -11,13 +11,14 @@ namespace HarmonySearch
         private static readonly Random random = new Random();
         private static readonly object syncLock = new object();
 
-        //public static int getRandomInteger(int min, int max)
-        //{
-        //    lock (syncLock)
-        //    {
-        //        return random.Next(min, max);
-        //    }
-        //}
+        public static int getRandomInteger(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return random.Next(min, max);
+            }
+        }
+
         public static double getRandomDouble(double min, double max)
         {
             lock (syncLock)

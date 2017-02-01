@@ -16,13 +16,14 @@ namespace HarmonySearch
     public partial class GraphsForm : Form
     {
         public bool showAll { get; set; }
+        private int counter = 0;
 
         public ClassicSearch classicHS { get; set; }
         public ImprovedSearch improvedHS { get; set; }
         public GlobalBestSearch globalHS { get; set; }
         public SelfAdaptiveSearch adaptiveHS { get; set; }
 
-        private List<double> results;
+        private List<double> results = new List<double>();
 
         public GraphsForm()
         {
@@ -90,9 +91,10 @@ namespace HarmonySearch
                 chart.Series[0].Color = System.Drawing.Color.Blue;
                 for(int i = 0; i < classicHS.TotalNotes; i++)
                 {
-                    chart.Series.Add("Note" + i);
-                    chart.Series[i + 1].ChartType = SeriesChartType.Line;
-                    chart.Series[i + 1].Color = System.Drawing.Color.LightGreen;
+                    chart.Series.Add("Note " + i);
+                    chart.Series[i + 1].ChartType = SeriesChartType.StepLine;
+                    chart.Series[i + 1].Color = Color.FromArgb(i*100, i*100, i*100);
+                    //chart.Series[i + 1].Color = System.Drawing.Color.SkyBlue;
                 }
                 for (int j = 0; j < classicHS.NI; j++)
                 {
@@ -145,10 +147,12 @@ namespace HarmonySearch
 
         private void saveResults(double bestHarmony)
         {
+            richTextBox1.Text += counter;
+            richTextBox1.Text += "\t";
             richTextBox1.Text += bestHarmony;
             richTextBox1.Text += "\n";
-            results = new List<double>();
             results.Add(bestHarmony);
+            counter++;
         }
 
         private void BackButton_Click(object sender, EventArgs e)

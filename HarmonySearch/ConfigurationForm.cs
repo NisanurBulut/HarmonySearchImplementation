@@ -191,5 +191,10 @@ namespace HarmonySearch
                 ParametersLabel.Text = "Parameters of the Self Adaptive Harmony Search:";
             }
         }
+
+        private void ConfigurationForm_Resize(object sender, EventArgs e)
+        {
+
+        }
     }
 }

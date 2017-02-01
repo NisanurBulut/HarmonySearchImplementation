@@ -105,5 +105,53 @@ namespace HarmonySearch
             else
                 return note;
         }
+
+        public void writeResults(int currentImprovisation)
+        {
+            output += "\n\n";
+            output += "Improvisation Number: " + currentImprovisation + "\n";
+            for (int i = 0; i < HMSize; i++)
+            {
+                output += i + " Harmony: ";
+                for (int j = 0; j < TotalNotes; j++)
+                {
+                    output += "\n\t";
+                    output += "Note " + j + ": " + memory.ElementAt(i).notes[j];
+                }
+                output += "\n\t Aesthetics: " + getHarmonyAesthetics(memory[i]);
+                output += "\n";
+            }
+        }
+
+        protected int countDuplicates()
+        {
+            int duplicatesCounter = 0;
+            List<Harmony> selectedHarmonies = new List<Harmony>();
+            bool harmonyExists;
+
+            for (int i = 0; i < HMSize - 1; i++)
+            {
+                harmonyExists = false;
+                for(int k = 0; k < selectedHarmonies.Count; k++)
+                {
+                    if(getHarmonyAesthetics(memory[i]) == getHarmonyAesthetics(selectedHarmonies[k]))
+                    {
+                        harmonyExists = true;
+                        break;
+                    }
+                }
+                if (harmonyExists == true)
+                    continue;
+                selectedHarmonies.Add(memory[i]);
+                for (int j = i+1; j < HMSize; j++)
+                {
+                    if(getHarmonyAesthetics(memory[i]) == getHarmonyAesthetics(memory[j]))
+                    {
+                        duplicatesCounter++;
+                    }
+                }
+            }
+            return duplicatesCounter;
+        }
     }
 }

@@ -14,6 +14,9 @@ namespace HarmonySearch
         public float HMCR { get; set; }
         public float PAR { get; set; }
         public double BW { get; set; }
+        private int diversityAdjustments = 0;
+        private int diversityIteration = 20;
+        private float defaultPAR;
 
         public ClassicSearch()
         {
@@ -25,6 +28,9 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
+            defaultPAR = PAR;
+            diversityIteration = 20;
+            diversityAdjustments = 0;
             base.bestHarmonies = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
             base.memory = new List<Harmony>();
@@ -57,6 +63,15 @@ namespace HarmonySearch
                     }
                 }
                 base.updateMemory(newHarmony, currentImprovisation);
+                //if (currentImprovisation == diversityIteration)
+                //{
+                //    diversifyPopulation();
+                //    diversityIteration += 20;
+                //}
+                //if (currentImprovisation == 249)
+                //{
+                //    countDuplicates();
+                //}
                 base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
                 for(int i = 0; i < TotalNotes; i++)
                 {
@@ -64,7 +79,7 @@ namespace HarmonySearch
                 }
 
                 if (showAll == true)
-                    writeResults(currentImprovisation);
+                    base.writeResults(currentImprovisation);
             }
         }
 
@@ -84,20 +99,21 @@ namespace HarmonySearch
             }
         }
 
-        public void writeResults(int currentImprovisation)
+        private void diversifyPopulation()
         {
-            output += "\n\n";
-            output +=  "Improvisation Number: " + currentImprovisation + "\n";
-            for (int i = 0; i < HMSize; i++)
+            int populationThreshold = (int) (HMSize * 10 / 100);
+            if (countDuplicates() >= populationThreshold)
             {
-                output += i + " Harmony: ";
-                for (int j = 0; j < TotalNotes; j++)
-                {
-                    output += "\n\t";
-                    output += "Note " + j + ": " + memory.ElementAt(i).notes[j];
-                }
-                output += "\n\t Aesthetics: " + getHarmonyAesthetics(memory[i]);
-                output += "\n";
+                PAR += defaultPAR;
+                if (PAR >= 1)
+                    PAR = 1;
+                diversityAdjustments++;
+                return;
+            }
+            if(diversityAdjustments > 0)
+            {
+                PAR = defaultPAR;
+                diversityAdjustments = 0;
             }
         }
     }
