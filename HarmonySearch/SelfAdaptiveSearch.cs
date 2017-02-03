@@ -11,8 +11,8 @@ namespace HarmonySearch
 {
     public class SelfAdaptiveSearch : Search
     {
-        private List<double> MinVariables;
-        private List<double> MaxVariables;
+        private List<double> minVariables;
+        private List<double> maxVariables;
         public float HMCR { get; set; }
         public float PAR { get; set; }
         public double BW { get; set; }
@@ -62,7 +62,6 @@ namespace HarmonySearch
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
                         newHarmony.notes[currentNote] = memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote);
@@ -96,9 +95,9 @@ namespace HarmonySearch
             {
                 randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
                 if (randomFloat < 0)
-                    newHarmony.notes[index] += (MaxVariables[index] - newHarmony.notes[index]) * Statics.getRandomDouble(0.0, 1.0);
+                    newHarmony.notes[index] += (maxVariables[index] - newHarmony.notes[index]) * Statics.getRandomDouble(0.0, 1.0);
                 else if (randomFloat >= 0)
-                    newHarmony.notes[index] -= (newHarmony.notes[index] - MinVariables[index] ) * Statics.getRandomDouble(0.0, 1.0);
+                    newHarmony.notes[index] -= (newHarmony.notes[index] - minVariables[index] ) * Statics.getRandomDouble(0.0, 1.0);
 
                 newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
             }
@@ -108,8 +107,8 @@ namespace HarmonySearch
         {
             for(int i = 0; i < TotalNotes; i++)
             {
-                if (newHarmony.notes[i] > MaxVariables[i])
-                    MaxVariables[i] = newHarmony.notes[i];
+                if (newHarmony.notes[i] > maxVariables[i])
+                    maxVariables[i] = newHarmony.notes[i];
             }
         }
 
@@ -117,19 +116,19 @@ namespace HarmonySearch
         {
             for (int i = 0; i < TotalNotes; i++)
             {
-                if (newHarmony.notes[i] < MinVariables[i])
-                    MinVariables[i] = newHarmony.notes[i];
+                if (newHarmony.notes[i] < minVariables[i])
+                    minVariables[i] = newHarmony.notes[i];
             }
         }
 
         private void initializeExtremeVariables()
         {
-            MinVariables = new List<double>();
-            MaxVariables = new List<double>();
+            minVariables = new List<double>();
+            maxVariables = new List<double>();
             for(int i=0; i<TotalNotes; i++)
             {
-                MinVariables.Add(MaximumValue);
-                MaxVariables.Add(MinimumValue);
+                minVariables.Add(MaximumValue);
+                maxVariables.Add(MinimumValue);
             }
         }
     }

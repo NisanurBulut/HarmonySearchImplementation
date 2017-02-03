@@ -48,7 +48,6 @@ namespace HarmonySearch
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
                         newHarmony.notes[currentNote] = memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote, currentImprovisation);
@@ -78,7 +77,6 @@ namespace HarmonySearch
             float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= getPAR(currentImprovisation))
             {
-                Debug.WriteLine("PAR");
                 randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
                 if (randomFloat < 0)
                 {
@@ -95,12 +93,16 @@ namespace HarmonySearch
 
         private float getPAR(int currentImprovisation)
         {
-            return PARmin + ((PARmax - PARmin)/NI) * currentImprovisation;
+            float newPAR = PARmin + ((PARmax - PARmin) / NI) * currentImprovisation;
+            return newPAR;
         }
 
         private double getBandwidth(int currentImprovisation)
         {
-            return BWmax - Math.Exp((Math.Log(BWmax / BWmin)/NI) * currentImprovisation);
+            double c = Math.Log(BWmin / BWmax) * (1/NI);
+            double newBW = BWmax * Math.Exp(c * currentImprovisation);
+            //double newBW = BWmin + ((BWmax - BWmin) / NI) * currentImprovisation;
+            return newBW;
         }
     }
 }

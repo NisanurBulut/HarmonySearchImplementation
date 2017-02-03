@@ -45,7 +45,6 @@ namespace HarmonySearch
                     float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
                         newHarmony.notes[currentNote] = memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote);
@@ -75,7 +74,6 @@ namespace HarmonySearch
             float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= PAR)
             {
-                Debug.WriteLine("PAR");
                 newHarmony.notes[index] = memory[0].notes[index];
             }
             newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
