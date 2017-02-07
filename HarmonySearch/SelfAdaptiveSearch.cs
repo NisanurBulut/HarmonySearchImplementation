@@ -30,7 +30,7 @@ namespace HarmonySearch
             Harmony hrm = new Harmony();
             hrm.notes = new double[TotalNotes];
             for (int i = 0; i < TotalNotes; i++)
-                hrm.notes[i] = Statics.getRandomDouble(MinimumValue, MaximumValue);
+                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
 
             checkMaxVariables(hrm);
             checkMinVariables(hrm);
@@ -40,13 +40,14 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
+            results = "";
             base.bestHarmonies = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
-            memory = new List<Harmony>();
+            Memory = new List<Harmony>();
             //TODO:
             initializeExtremeVariables();
             for (int i = 0; i < HMSize; i++)
-                memory.Add(getRandomHarmony());
+                Memory.Add(getRandomHarmony());
 
             sortMemory();
         }
@@ -59,16 +60,16 @@ namespace HarmonySearch
                 newHarmony.notes = new double[TotalNotes];
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
-                    float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
+                    float randomFloat = Randomizer.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
-                        newHarmony.notes[currentNote] = memory[randomHarmony].notes[currentNote];
+                        int randomHarmony = Convert.ToInt32(Randomizer.getRandomDouble(0, HMSize - 1));
+                        newHarmony.notes[currentNote] = Memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote);
                     }
                     else
                     {
-                        newHarmony.notes[currentNote] = Statics.getRandomDouble(MinimumValue, MaximumValue);
+                        newHarmony.notes[currentNote] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -76,10 +77,10 @@ namespace HarmonySearch
                 {
                     countDuplicates();
                 }
-                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
+                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(Memory[0]);
                 for (int i = 0; i < TotalNotes; i++)
                 {
-                    base.bestHarmoniesNotes[currentImprovisation, i] = memory[0].notes.ElementAt(i);
+                    base.bestHarmoniesNotes[currentImprovisation, i] = Memory[0].notes.ElementAt(i);
                 }
 
                 if (showAll == true)
@@ -90,14 +91,14 @@ namespace HarmonySearch
         private void adjustPitch(Harmony newHarmony, int index)
         {
             //TODO: Must adjust based on the best and worst decision-variables
-            float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
+            float randomFloat = Randomizer.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= PAR)
             {
-                randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
+                randomFloat = Randomizer.getRandomFloat(-10.0f, 10.0f);
                 if (randomFloat < 0)
-                    newHarmony.notes[index] += (maxVariables[index] - newHarmony.notes[index]) * Statics.getRandomDouble(0.0, 1.0);
+                    newHarmony.notes[index] += (maxVariables[index] - newHarmony.notes[index]) * Randomizer.getRandomDouble(0.0, 1.0);
                 else if (randomFloat >= 0)
-                    newHarmony.notes[index] -= (newHarmony.notes[index] - minVariables[index] ) * Statics.getRandomDouble(0.0, 1.0);
+                    newHarmony.notes[index] -= (newHarmony.notes[index] - minVariables[index] ) * Randomizer.getRandomDouble(0.0, 1.0);
 
                 newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
             }

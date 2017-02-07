@@ -28,11 +28,12 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
+            results = "";
             base.bestHarmonies = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
-            memory = new List<Harmony>();
+            Memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
-                memory.Add(getRandomHarmony());
+                Memory.Add(getRandomHarmony());
 
             sortMemory();
         }
@@ -45,16 +46,16 @@ namespace HarmonySearch
                 newHarmony.notes = new double[TotalNotes];
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
-                    float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
+                    float randomFloat = Randomizer.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        int randomHarmony = Convert.ToInt32(Statics.getRandomDouble(0, HMSize - 1));
-                        newHarmony.notes[currentNote] = memory[randomHarmony].notes[currentNote];
+                        int randomHarmony = Convert.ToInt32(Randomizer.getRandomDouble(0, HMSize - 1));
+                        newHarmony.notes[currentNote] = Memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote, currentImprovisation);
                     }
                     else
                     {
-                        newHarmony.notes[currentNote] = Statics.getRandomDouble(MinimumValue, MaximumValue);
+                        newHarmony.notes[currentNote] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -62,10 +63,10 @@ namespace HarmonySearch
                 //{
                 //    countDuplicates();
                 //}
-                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(memory[0]);
+                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(Memory[0]);
                 for (int i = 0; i < TotalNotes; i++)
                 {
-                    base.bestHarmoniesNotes[currentImprovisation, i] = memory[0].notes.ElementAt(i);
+                    base.bestHarmoniesNotes[currentImprovisation, i] = Memory[0].notes.ElementAt(i);
                 }
                 if (showAll == true)
                     base.writeResults(currentImprovisation);
@@ -74,18 +75,18 @@ namespace HarmonySearch
 
         private void adjustPitch(Harmony newHarmony, int index, int currentImprovisation)
         {
-            float randomFloat = Statics.getRandomFloat(0.0f, 1.0f);
+            float randomFloat = Randomizer.getRandomFloat(0.0f, 1.0f);
             if (randomFloat <= getPAR(currentImprovisation))
             {
-                randomFloat = Statics.getRandomFloat(-10.0f, 10.0f);
+                randomFloat = Randomizer.getRandomFloat(-10.0f, 10.0f);
                 if (randomFloat < 0)
                 {
-                    newHarmony.notes[index] += Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
+                    newHarmony.notes[index] += Randomizer.getRandomDouble(0, getBandwidth(currentImprovisation));
                     newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
                 }
                 else if (randomFloat >= 0)
                 {
-                    newHarmony.notes[index] -= Statics.getRandomDouble(0, getBandwidth(currentImprovisation));
+                    newHarmony.notes[index] -= Randomizer.getRandomDouble(0, getBandwidth(currentImprovisation));
                     newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
                 }
             }

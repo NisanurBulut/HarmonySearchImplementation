@@ -31,27 +31,27 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.NITextBox = new System.Windows.Forms.TextBox();
             this.BWTextBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.NILabel = new System.Windows.Forms.Label();
+            this.HMCRLabel = new System.Windows.Forms.Label();
             this.PARLabel = new System.Windows.Forms.Label();
             this.BWLabel = new System.Windows.Forms.Label();
             this.MaxRadioBtn = new System.Windows.Forms.RadioButton();
             this.MinRadioBtn = new System.Windows.Forms.RadioButton();
             this.HMSTextBox = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
+            this.HMSLabel = new System.Windows.Forms.Label();
+            this.TotalVarslabel = new System.Windows.Forms.Label();
             this.TotalNotesTextBox = new System.Windows.Forms.TextBox();
             this.MaxValueTextBox = new System.Windows.Forms.TextBox();
             this.MinValueTextBox = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.MaxValueLabel = new System.Windows.Forms.Label();
+            this.MinValueLabel = new System.Windows.Forms.Label();
             this.playButton = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
+            this.HarmonySearchLabel = new System.Windows.Forms.Label();
             this.BWMaxLabel = new System.Windows.Forms.Label();
             this.BWMinLabel = new System.Windows.Forms.Label();
             this.PARMinLabel = new System.Windows.Forms.Label();
             this.PARMaxLabel = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.ObjectiveLabel = new System.Windows.Forms.Label();
             this.ObjectiveTextBox = new System.Windows.Forms.TextBox();
             this.PARMinTextBox = new System.Windows.Forms.TextBox();
             this.PARMaxTextBox = new System.Windows.Forms.TextBox();
@@ -63,11 +63,11 @@
             this.ImprovedRadioButton = new System.Windows.Forms.RadioButton();
             this.GlobalRadioButton = new System.Windows.Forms.RadioButton();
             this.AdaptiveRadioButton = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
+            this.HSVariantsLabel = new System.Windows.Forms.Label();
             this.ParametersLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
+            this.RunOptionsLabel = new System.Windows.Forms.Label();
             this.showAllCheckBox = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,27 +95,27 @@
             this.BWTextBox.Text = "0.1";
             this.BWTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label1
+            // NILabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.Location = new System.Drawing.Point(172, 175);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(28, 18);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "NI";
+            this.NILabel.AutoSize = true;
+            this.NILabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.NILabel.Location = new System.Drawing.Point(172, 175);
+            this.NILabel.Name = "NILabel";
+            this.NILabel.Size = new System.Drawing.Size(28, 18);
+            this.NILabel.TabIndex = 11;
+            this.NILabel.Text = "NI";
             // 
-            // label2
+            // HMCRLabel
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label2.Location = new System.Drawing.Point(532, 320);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 18);
-            this.label2.TabIndex = 12;
-            this.label2.Tag = "";
-            this.label2.Text = "HMCR";
+            this.HMCRLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HMCRLabel.AutoSize = true;
+            this.HMCRLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HMCRLabel.Location = new System.Drawing.Point(532, 320);
+            this.HMCRLabel.Name = "HMCRLabel";
+            this.HMCRLabel.Size = new System.Drawing.Size(48, 18);
+            this.HMCRLabel.TabIndex = 12;
+            this.HMCRLabel.Tag = "";
+            this.HMCRLabel.Text = "HMCR";
             // 
             // PARLabel
             // 
@@ -176,27 +176,27 @@
             this.HMSTextBox.Text = "20";
             this.HMSTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label6
+            // HMSLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label6.Location = new System.Drawing.Point(280, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 18);
-            this.label6.TabIndex = 19;
-            this.label6.Tag = "";
-            this.label6.Text = "HMS";
+            this.HMSLabel.AutoSize = true;
+            this.HMSLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HMSLabel.Location = new System.Drawing.Point(280, 175);
+            this.HMSLabel.Name = "HMSLabel";
+            this.HMSLabel.Size = new System.Drawing.Size(38, 18);
+            this.HMSLabel.TabIndex = 19;
+            this.HMSLabel.Tag = "";
+            this.HMSLabel.Text = "HMS";
             // 
-            // label7
+            // TotalVarslabel
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label7.Location = new System.Drawing.Point(380, 175);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(248, 18);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Total Decision Variables";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.TotalVarslabel.AutoSize = true;
+            this.TotalVarslabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.TotalVarslabel.Location = new System.Drawing.Point(380, 175);
+            this.TotalVarslabel.Name = "TotalVarslabel";
+            this.TotalVarslabel.Size = new System.Drawing.Size(248, 18);
+            this.TotalVarslabel.TabIndex = 20;
+            this.TotalVarslabel.Text = "Total Decision Variables";
+            this.TotalVarslabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TotalNotesTextBox
             // 
@@ -232,27 +232,27 @@
             this.MinValueTextBox.Text = "0.000";
             this.MinValueTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label8
+            // MaxValueLabel
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label8.Location = new System.Drawing.Point(743, 175);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(98, 18);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Max Value";
+            this.MaxValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MaxValueLabel.AutoSize = true;
+            this.MaxValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MaxValueLabel.Location = new System.Drawing.Point(743, 175);
+            this.MaxValueLabel.Name = "MaxValueLabel";
+            this.MaxValueLabel.Size = new System.Drawing.Size(98, 18);
+            this.MaxValueLabel.TabIndex = 24;
+            this.MaxValueLabel.Text = "Max Value";
             // 
-            // label9
+            // MinValueLabel
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label9.Location = new System.Drawing.Point(743, 211);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 18);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "Min Value";
+            this.MinValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.MinValueLabel.AutoSize = true;
+            this.MinValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MinValueLabel.Location = new System.Drawing.Point(743, 211);
+            this.MinValueLabel.Name = "MinValueLabel";
+            this.MinValueLabel.Size = new System.Drawing.Size(98, 18);
+            this.MinValueLabel.TabIndex = 25;
+            this.MinValueLabel.Text = "Min Value";
             // 
             // playButton
             // 
@@ -267,17 +267,17 @@
             this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
-            // label10
+            // HarmonySearchLabel
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label10.Location = new System.Drawing.Point(512, 9);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(302, 31);
-            this.label10.TabIndex = 29;
-            this.label10.Text = "HARMONY SEARCH LAB";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HarmonySearchLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.HarmonySearchLabel.AutoSize = true;
+            this.HarmonySearchLabel.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HarmonySearchLabel.Location = new System.Drawing.Point(512, 9);
+            this.HarmonySearchLabel.Name = "HarmonySearchLabel";
+            this.HarmonySearchLabel.Size = new System.Drawing.Size(302, 31);
+            this.HarmonySearchLabel.TabIndex = 29;
+            this.HarmonySearchLabel.Text = "HARMONY SEARCH LAB";
+            this.HarmonySearchLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // BWMaxLabel
             // 
@@ -331,15 +331,15 @@
             this.PARMaxLabel.Text = "PARmax";
             this.PARMaxLabel.Visible = false;
             // 
-            // label11
+            // ObjectiveLabel
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label11.Location = new System.Drawing.Point(158, 94);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(198, 18);
-            this.label11.TabIndex = 47;
-            this.label11.Text = "Objective Function:";
+            this.ObjectiveLabel.AutoSize = true;
+            this.ObjectiveLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ObjectiveLabel.Location = new System.Drawing.Point(158, 94);
+            this.ObjectiveLabel.Name = "ObjectiveLabel";
+            this.ObjectiveLabel.Size = new System.Drawing.Size(198, 18);
+            this.ObjectiveLabel.TabIndex = 47;
+            this.ObjectiveLabel.Text = "Objective Function:";
             // 
             // ObjectiveTextBox
             // 
@@ -483,15 +483,15 @@
             this.AdaptiveRadioButton.UseVisualStyleBackColor = true;
             this.AdaptiveRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
-            // label3
+            // HSVariantsLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.Location = new System.Drawing.Point(155, 282);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(248, 18);
-            this.label3.TabIndex = 96;
-            this.label3.Text = "Harmony Search Variants:";
+            this.HSVariantsLabel.AutoSize = true;
+            this.HSVariantsLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HSVariantsLabel.Location = new System.Drawing.Point(155, 282);
+            this.HSVariantsLabel.Name = "HSVariantsLabel";
+            this.HSVariantsLabel.Size = new System.Drawing.Size(248, 18);
+            this.HSVariantsLabel.TabIndex = 96;
+            this.HSVariantsLabel.Text = "Harmony Search Variants:";
             // 
             // ParametersLabel
             // 
@@ -525,15 +525,15 @@
             this.panel2.Size = new System.Drawing.Size(144, 100);
             this.panel2.TabIndex = 99;
             // 
-            // label4
+            // RunOptionsLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label4.Location = new System.Drawing.Point(155, 482);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(128, 18);
-            this.label4.TabIndex = 100;
-            this.label4.Text = "Run Options:";
+            this.RunOptionsLabel.AutoSize = true;
+            this.RunOptionsLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.RunOptionsLabel.Location = new System.Drawing.Point(155, 482);
+            this.RunOptionsLabel.Name = "RunOptionsLabel";
+            this.RunOptionsLabel.Size = new System.Drawing.Size(128, 18);
+            this.RunOptionsLabel.TabIndex = 100;
+            this.RunOptionsLabel.Text = "Run Options:";
             // 
             // showAllCheckBox
             // 
@@ -552,11 +552,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1274, 687);
             this.Controls.Add(this.showAllCheckBox);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.RunOptionsLabel);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ParametersLabel);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.HSVariantsLabel);
             this.Controls.Add(this.PARTextBox);
             this.Controls.Add(this.HMCRTextBox);
             this.Controls.Add(this.BWMinTextBox);
@@ -564,25 +564,25 @@
             this.Controls.Add(this.PARMaxTextBox);
             this.Controls.Add(this.PARMinTextBox);
             this.Controls.Add(this.ObjectiveTextBox);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.ObjectiveLabel);
             this.Controls.Add(this.PARMaxLabel);
             this.Controls.Add(this.PARMinLabel);
             this.Controls.Add(this.BWMinLabel);
             this.Controls.Add(this.BWMaxLabel);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.HarmonySearchLabel);
             this.Controls.Add(this.playButton);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.MinValueLabel);
+            this.Controls.Add(this.MaxValueLabel);
             this.Controls.Add(this.MinValueTextBox);
             this.Controls.Add(this.MaxValueTextBox);
             this.Controls.Add(this.TotalNotesTextBox);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
+            this.Controls.Add(this.TotalVarslabel);
+            this.Controls.Add(this.HMSLabel);
             this.Controls.Add(this.HMSTextBox);
             this.Controls.Add(this.BWLabel);
             this.Controls.Add(this.PARLabel);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.HMCRLabel);
+            this.Controls.Add(this.NILabel);
             this.Controls.Add(this.BWTextBox);
             this.Controls.Add(this.NITextBox);
             this.Name = "ConfigurationForm";
@@ -602,27 +602,27 @@
         #endregion
         private System.Windows.Forms.TextBox NITextBox;
         private System.Windows.Forms.TextBox BWTextBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label NILabel;
+        private System.Windows.Forms.Label HMCRLabel;
         private System.Windows.Forms.Label PARLabel;
         private System.Windows.Forms.Label BWLabel;
         private System.Windows.Forms.RadioButton MaxRadioBtn;
         private System.Windows.Forms.RadioButton MinRadioBtn;
         private System.Windows.Forms.TextBox HMSTextBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label HMSLabel;
+        private System.Windows.Forms.Label TotalVarslabel;
         private System.Windows.Forms.TextBox TotalNotesTextBox;
         private System.Windows.Forms.TextBox MaxValueTextBox;
         private System.Windows.Forms.TextBox MinValueTextBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label MaxValueLabel;
+        private System.Windows.Forms.Label MinValueLabel;
         private System.Windows.Forms.Button playButton;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label HarmonySearchLabel;
         private System.Windows.Forms.Label BWMaxLabel;
         private System.Windows.Forms.Label BWMinLabel;
         private System.Windows.Forms.Label PARMinLabel;
         private System.Windows.Forms.Label PARMaxLabel;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label ObjectiveLabel;
         private System.Windows.Forms.TextBox ObjectiveTextBox;
         private System.Windows.Forms.TextBox PARMinTextBox;
         private System.Windows.Forms.TextBox PARMaxTextBox;
@@ -634,11 +634,11 @@
         private System.Windows.Forms.RadioButton ImprovedRadioButton;
         private System.Windows.Forms.RadioButton GlobalRadioButton;
         private System.Windows.Forms.RadioButton AdaptiveRadioButton;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label HSVariantsLabel;
         private System.Windows.Forms.Label ParametersLabel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label RunOptionsLabel;
         private System.Windows.Forms.CheckBox showAllCheckBox;
     }
 }

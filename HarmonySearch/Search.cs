@@ -1,6 +1,7 @@
 ﻿using NCalc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,9 @@ namespace HarmonySearch
 
         public double[] bestHarmonies { get; set; }
         public double[,] bestHarmoniesNotes { get; set; }
-        public string output { get; set; }
+        public string results { get; set; }
 
-        protected List<Harmony> memory;
+        protected List<Harmony> Memory;
 
         public Expression Objective { get; set; }
         public bool Maximize { get; set; }
@@ -29,7 +30,7 @@ namespace HarmonySearch
             Harmony hrm = new Harmony();
             hrm.notes = new double[TotalNotes];
             for (int i = 0; i < TotalNotes; i++)
-                hrm.notes[i] = Statics.getRandomDouble(MinimumValue, MaximumValue);
+                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
 
             return hrm;
         }
@@ -48,26 +49,26 @@ namespace HarmonySearch
         protected void sortMemory()
         {
             Harmony tempHar = new Harmony();
-            for (int i = 0; i < memory.Count; i++)
+            for (int i = 0; i < Memory.Count; i++)
             {
-                for (int j = i + 1; j < memory.Count; j++)
+                for (int j = i + 1; j < Memory.Count; j++)
                 {
                     if (Maximize == true)
                     {
-                        if (getHarmonyAesthetics(memory[i]) < getHarmonyAesthetics(memory[j]))
+                        if (getHarmonyAesthetics(Memory[i]) < getHarmonyAesthetics(Memory[j]))
                         {
-                            tempHar = memory[i];
-                            memory[i] = memory[j];
-                            memory[j] = tempHar;
+                            tempHar = Memory[i];
+                            Memory[i] = Memory[j];
+                            Memory[j] = tempHar;
                         }
                     }
                     else
                     {
-                        if (getHarmonyAesthetics(memory[i]) > getHarmonyAesthetics(memory[j]))
+                        if (getHarmonyAesthetics(Memory[i]) > getHarmonyAesthetics(Memory[j]))
                         {
-                            tempHar = memory[i];
-                            memory[i] = memory[j];
-                            memory[j] = tempHar;
+                            tempHar = Memory[i];
+                            Memory[i] = Memory[j];
+                            Memory[j] = tempHar;
                         }
                     }
 
@@ -79,21 +80,20 @@ namespace HarmonySearch
         {
             if(Maximize == true)
             {
-                if (getHarmonyAesthetics(newHar) > getHarmonyAesthetics(memory[HMSize - 1]))
+                if (getHarmonyAesthetics(newHar) > getHarmonyAesthetics(Memory[HMSize - 1]))
                 {
-                    memory[HMSize - 1] = newHar;
+                    Memory[HMSize - 1] = newHar;
                     sortMemory();
                 }
             }
             else
             {
-                if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(memory[HMSize - 1]))
+                if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(Memory[HMSize - 1]))
                 {
-                    memory[HMSize - 1] = newHar;
+                    Memory[HMSize - 1] = newHar;
                     sortMemory();
                 }
             }
-
         }
 
         protected double restrictNote(double note)
@@ -108,18 +108,37 @@ namespace HarmonySearch
 
         public void writeResults(int currentImprovisation)
         {
-            output += "\n\n";
-            output += "Improvisation Number: " + currentImprovisation + "\n";
+            results += "--------------------------------------------------------------------------------------------";
+            results += Environment.NewLine + "Improvisation Number: " + currentImprovisation + Environment.NewLine;
+            results += "--------------------------------------------------------------------------------------------";
             for (int i = 0; i < HMSize; i++)
             {
-                output += i + " Harmony: ";
+                results += Environment.NewLine;
+                results += i + " Harmony: ";
+                results += Environment.NewLine;
                 for (int j = 0; j < TotalNotes; j++)
                 {
-                    output += "\n\t";
-                    output += "Note " + j + ": " + memory.ElementAt(i).notes[j];
+                    results += "\t";
+                    results += "Note " + j + ": " + Memory[i].notes[j];
                 }
-                output += "\n\t Aesthetics: " + getHarmonyAesthetics(memory[i]);
-                output += "\n";
+                results += Environment.NewLine;
+                results += "\t Aesthetics: " + getHarmonyAesthetics(Memory[i]);
+                results += Environment.NewLine;
+            }
+            saveResultsToFile(results);
+        }
+
+        private void saveResultsToFile(string results)
+        {
+            string path = @"Results.txt";
+            if (!File.Exists(path))
+            {
+                File.Create(path);
+                File.WriteAllText(path, results);
+            }
+            else
+            {
+                File.WriteAllText(path, results);
             }
         }
 
@@ -134,7 +153,7 @@ namespace HarmonySearch
                 harmonyExists = false;
                 for(int k = 0; k < selectedHarmonies.Count; k++)
                 {
-                    if(getHarmonyAesthetics(memory[i]) == getHarmonyAesthetics(selectedHarmonies[k]))
+                    if(getHarmonyAesthetics(Memory[i]) == getHarmonyAesthetics(selectedHarmonies[k]))
                     {
                         harmonyExists = true;
                         break;
@@ -142,10 +161,10 @@ namespace HarmonySearch
                 }
                 if (harmonyExists == true)
                     continue;
-                selectedHarmonies.Add(memory[i]);
+                selectedHarmonies.Add(Memory[i]);
                 for (int j = i+1; j < HMSize; j++)
                 {
-                    if(getHarmonyAesthetics(memory[i]) == getHarmonyAesthetics(memory[j]))
+                    if(getHarmonyAesthetics(Memory[i]) == getHarmonyAesthetics(Memory[j]))
                     {
                         duplicatesCounter++;
                     }

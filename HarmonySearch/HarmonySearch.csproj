@@ -100,7 +100,7 @@
     <Compile Include="ImprovedSearch.cs" />
     <Compile Include="Search.cs" />
     <Compile Include="SelfAdaptiveSearch.cs" />
-    <Compile Include="Statics.cs" />
+    <Compile Include="Randomizer.cs" />
     <EmbeddedResource Include="ConfigurationForm.resx">
       <DependentUpon>ConfigurationForm.cs</DependentUpon>
     </EmbeddedResource>

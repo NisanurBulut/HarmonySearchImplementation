@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HarmonySearch
 {
-    public static class Statics
+    public static class Randomizer
     {
         private static readonly Random random = new Random();
         private static readonly object syncLock = new object();
