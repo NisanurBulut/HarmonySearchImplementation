@@ -28,7 +28,7 @@ namespace HarmonySearch
             graphs.improvedHS = improvedHS;
             graphs.globalHS = globalHS;
             graphs.adaptiveHS = adaptiveHS;
-            graphs.showAll = showAllCheckBox.Checked;
+            graphs.ShowAll = showAllCheckBox.Checked;
             graphs.Show();
 
             this.Hide();
@@ -40,7 +40,7 @@ namespace HarmonySearch
             {
                 if(ClassicRadioButton.Checked == true)
                 {
-                    classicHS = new ClassicSearch();
+                    classicHS = ClassicSearch.Instance;
                     classicHS.Objective = new Expression(ObjectiveTextBox.Text);
                     classicHS.Maximize = MaxRadioBtn.Checked;
                     classicHS.NI = Convert.ToInt32(NITextBox.Text);
@@ -54,7 +54,7 @@ namespace HarmonySearch
                 }
                 if (ImprovedRadioButton.Checked == true)
                 {
-                    improvedHS = new ImprovedSearch();
+                    improvedHS = ImprovedSearch.Instance;
                     improvedHS.Objective = new Expression(ObjectiveTextBox.Text);
                     improvedHS.Maximize = MaxRadioBtn.Checked;
                     improvedHS.NI = Convert.ToInt32(NITextBox.Text);
@@ -70,7 +70,7 @@ namespace HarmonySearch
                 }
                 if (GlobalRadioButton.Checked == true)
                 {
-                    globalHS = new GlobalBestSearch();
+                    globalHS = GlobalBestSearch.Instance;
                     globalHS.Objective = new Expression(ObjectiveTextBox.Text);
                     globalHS.Maximize = MaxRadioBtn.Checked;
                     globalHS.NI = Convert.ToInt32(NITextBox.Text);
@@ -83,7 +83,7 @@ namespace HarmonySearch
                 }
                 if (AdaptiveRadioButton.Checked == true)
                 {
-                    adaptiveHS = new SelfAdaptiveSearch();
+                    adaptiveHS = SelfAdaptiveSearch.Instance;
                     adaptiveHS.Objective = new Expression(ObjectiveTextBox.Text);
                     adaptiveHS.Maximize = MaxRadioBtn.Checked;
                     adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);

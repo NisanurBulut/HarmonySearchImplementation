@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,23 @@ namespace HarmonySearch
         public float PAR { get; set; }
         public double BW { get; set; }
 
-        public SelfAdaptiveSearch()
+        private static SelfAdaptiveSearch instance = null;
+
+        private SelfAdaptiveSearch()
         {
             initializeMemory();
+        }
+
+        public static SelfAdaptiveSearch Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new SelfAdaptiveSearch();
+                }
+                return instance;
+            }
         }
 
         //List<double> harmony = new List<double>(TotalVars);
@@ -52,7 +67,7 @@ namespace HarmonySearch
             sortMemory();
         }
 
-        public void Run(bool showAll)
+        public void Run(ProgressBar progressBar)
         {
             for (int currentImprovisation = 0; currentImprovisation < NI; currentImprovisation++)
             {
@@ -83,8 +98,13 @@ namespace HarmonySearch
                     base.bestHarmoniesNotes[currentImprovisation, i] = Memory[0].notes.ElementAt(i);
                 }
 
-                if (showAll == true)
+                if (ShowAll == true)
                     base.writeResults(currentImprovisation);
+
+                progressBar.Value = currentImprovisation;
+                int percent = (int)(((double)(progressBar.Value - progressBar.Minimum) / (double)(progressBar.Maximum - progressBar.Minimum)) * 100);
+                string progressMessage = "Please wait... Harmony Search in progress. " + percent.ToString() + "%" + " completed.";
+                ProgressBarStyle.SetProgressBarText(progressBar, progressMessage, ProgressBarStyle.ProgressBarTextLocation.Centered, Color.Black, new Font("Arial", 16));
             }
         }
 
