@@ -46,6 +46,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.X2Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.X1Chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.SearchProgress = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.BestHarmonyChart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.X2Chart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.X1Chart)).BeginInit();
@@ -63,7 +64,7 @@
             series1.Legend = "Legend1";
             series1.Name = "Series1";
             this.BestHarmonyChart.Series.Add(series1);
-            this.BestHarmonyChart.Size = new System.Drawing.Size(478, 408);
+            this.BestHarmonyChart.Size = new System.Drawing.Size(695, 578);
             this.BestHarmonyChart.TabIndex = 5;
             this.BestHarmonyChart.Text = "chart1";
             // 
@@ -121,13 +122,13 @@
             this.X2Chart.ChartAreas.Add(chartArea2);
             legend2.Name = "Legend1";
             this.X2Chart.Legends.Add(legend2);
-            this.X2Chart.Location = new System.Drawing.Point(507, 377);
+            this.X2Chart.Location = new System.Drawing.Point(724, 170);
             this.X2Chart.Name = "X2Chart";
             series2.ChartArea = "ChartArea1";
             series2.Legend = "Legend1";
             series2.Name = "Series1";
             this.X2Chart.Series.Add(series2);
-            this.X2Chart.Size = new System.Drawing.Size(306, 201);
+            this.X2Chart.Size = new System.Drawing.Size(306, 294);
             this.X2Chart.TabIndex = 35;
             this.X2Chart.Text = "chart1";
             // 
@@ -137,21 +138,32 @@
             this.X1Chart.ChartAreas.Add(chartArea3);
             legend3.Name = "Legend1";
             this.X1Chart.Legends.Add(legend3);
-            this.X1Chart.Location = new System.Drawing.Point(507, 170);
+            this.X1Chart.Location = new System.Drawing.Point(724, 454);
             this.X1Chart.Name = "X1Chart";
             series3.ChartArea = "ChartArea1";
             series3.Legend = "Legend1";
             series3.Name = "Series1";
             this.X1Chart.Series.Add(series3);
-            this.X1Chart.Size = new System.Drawing.Size(306, 201);
+            this.X1Chart.Size = new System.Drawing.Size(306, 294);
             this.X1Chart.TabIndex = 36;
             this.X1Chart.Text = "chart2";
+            // 
+            // SearchProgress
+            // 
+            this.SearchProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchProgress.Location = new System.Drawing.Point(-5, 754);
+            this.SearchProgress.Name = "SearchProgress";
+            this.SearchProgress.Size = new System.Drawing.Size(1375, 52);
+            this.SearchProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.SearchProgress.TabIndex = 37;
             // 
             // GraphsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1369, 806);
+            this.Controls.Add(this.SearchProgress);
             this.Controls.Add(this.X1Chart);
             this.Controls.Add(this.X2Chart);
             this.Controls.Add(this.button2);
@@ -161,8 +173,9 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.BestHarmonyChart);
             this.Name = "GraphsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Harmony Search";
-            this.Load += new System.EventHandler(this.Form2_Load);
+            this.Activated += new System.EventHandler(this.GraphsForm_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.BestHarmonyChart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.X2Chart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.X1Chart)).EndInit();
@@ -181,5 +194,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataVisualization.Charting.Chart X2Chart;
         private System.Windows.Forms.DataVisualization.Charting.Chart X1Chart;
+        private System.Windows.Forms.ProgressBar SearchProgress;
     }
 }
