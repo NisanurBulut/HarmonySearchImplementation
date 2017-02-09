@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace HarmonySearch
 {
-    public class Search
+    public abstract class Search
     {
         public int NI { get; set; } //Number of Improvisations aka generations
         public double MinimumValue { get; set; }
@@ -19,6 +19,7 @@ namespace HarmonySearch
         public double[] bestHarmonies { get; set; }
         public double[,] bestHarmoniesNotes { get; set; }
         public string results { get; set; }
+        public bool ShowAll;
 
         protected List<Harmony> Memory;
 
@@ -64,14 +65,13 @@ namespace HarmonySearch
                     }
                     else
                     {
-                        if (getHarmonyAesthetics(Memory[i]) > getHarmonyAesthetics(Memory[j]))
+                        if (Math.Abs(getHarmonyAesthetics(Memory[i])) > Math.Abs(getHarmonyAesthetics(Memory[j])))
                         {
                             tempHar = Memory[i];
                             Memory[i] = Memory[j];
                             Memory[j] = tempHar;
                         }
                     }
-
                 }
             }
         }
@@ -88,7 +88,7 @@ namespace HarmonySearch
             }
             else
             {
-                if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(Memory[HMSize - 1]))
+                if (Math.Abs(getHarmonyAesthetics(newHar)) < Math.Abs(getHarmonyAesthetics(Memory[HMSize - 1])))
                 {
                     Memory[HMSize - 1] = newHar;
                     sortMemory();
@@ -125,7 +125,10 @@ namespace HarmonySearch
                 results += "\t Aesthetics: " + getHarmonyAesthetics(Memory[i]);
                 results += Environment.NewLine;
             }
-            saveResultsToFile(results);
+            if (currentImprovisation == (NI - 1))
+            {
+                saveResultsToFile(results);
+            }
         }
 
         private void saveResultsToFile(string results)
@@ -172,5 +175,6 @@ namespace HarmonySearch
             }
             return duplicatesCounter;
         }
+
     }
 }
