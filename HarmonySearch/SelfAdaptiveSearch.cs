@@ -45,7 +45,7 @@ namespace HarmonySearch
             Harmony hrm = new Harmony();
             hrm.notes = new double[TotalNotes];
             for (int i = 0; i < TotalNotes; i++)
-                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
+                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValues[i], MaximumValues[i]);
 
             checkMaxVariables(hrm);
             checkMinVariables(hrm);
@@ -84,7 +84,7 @@ namespace HarmonySearch
                     }
                     else
                     {
-                        newHarmony.notes[currentNote] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
+                        newHarmony.notes[currentNote] = Randomizer.getRandomDouble(MinimumValues[currentNote], MaximumValues[currentNote]);
                     }
                 }
                 updateMemory(newHarmony, currentImprovisation);
@@ -104,7 +104,7 @@ namespace HarmonySearch
                 progressBar.Value = currentImprovisation;
                 int percent = (int)(((double)(progressBar.Value - progressBar.Minimum) / (double)(progressBar.Maximum - progressBar.Minimum)) * 100);
                 string progressMessage = "Please wait... Harmony Search in progress. " + percent.ToString() + "%" + " completed.";
-                ProgressBarStyle.SetProgressBarText(progressBar, progressMessage, ProgressBarStyle.ProgressBarTextLocation.Centered, Color.Black, new Font("Arial", 16));
+                ControlStyle.SetProgressBarText(progressBar, progressMessage, ControlStyle.ProgressBarTextLocation.Centered, Color.Black, new Font("Arial", 16));
             }
         }
 
@@ -120,7 +120,7 @@ namespace HarmonySearch
                 else if (randomFloat >= 0)
                     newHarmony.notes[index] -= (newHarmony.notes[index] - minVariables[index] ) * Randomizer.getRandomDouble(0.0, 1.0);
 
-                newHarmony.notes[index] = restrictNote(newHarmony.notes[index]);
+                newHarmony.notes[index] = restrictNote(newHarmony.notes[index], index);
             }
         }
 
@@ -148,8 +148,8 @@ namespace HarmonySearch
             maxVariables = new List<double>();
             for(int i=0; i<TotalNotes; i++)
             {
-                minVariables.Add(MaximumValue);
-                maxVariables.Add(MinimumValue);
+                minVariables.Add(MaximumValues[i]);
+                maxVariables.Add(MinimumValues[i]);
             }
         }
     }
