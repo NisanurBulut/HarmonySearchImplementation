@@ -11,8 +11,10 @@ namespace HarmonySearch
     public abstract class Search
     {
         public int NI { get; set; } //Number of Improvisations aka generations
-        public double MinimumValue { get; set; }
-        public double MaximumValue { get; set; }
+        //public double MinimumValue { get; set; }
+        public double[] MinimumValues { get; set; }
+        //public double MaximumValue { get; set; }
+        public double[] MaximumValues { get; set; }
         public int TotalNotes { get; set; }
         public int HMSize { get; set; }
 
@@ -31,7 +33,7 @@ namespace HarmonySearch
             Harmony hrm = new Harmony();
             hrm.notes = new double[TotalNotes];
             for (int i = 0; i < TotalNotes; i++)
-                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValue, MaximumValue);
+                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValues[i], MaximumValues[i]);
 
             return hrm;
         }
@@ -96,12 +98,12 @@ namespace HarmonySearch
             }
         }
 
-        protected double restrictNote(double note)
+        protected double restrictNote(double note, int index)
         {
-            if (note > MaximumValue)
-                return MaximumValue;
-            else if (note < MinimumValue)
-                return MinimumValue;
+            if (note > MaximumValues[index])
+                return MaximumValues[index];
+            else if (note < MinimumValues[index])
+                return MinimumValues[index];
             else
                 return note;
         }
