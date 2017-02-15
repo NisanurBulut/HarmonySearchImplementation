@@ -522,7 +522,7 @@
             this.PARTextBox.Size = new System.Drawing.Size(80, 26);
             this.PARTextBox.TabIndex = 114;
             this.PARTextBox.Tag = "";
-            this.PARTextBox.Text = "0.15";
+            this.PARTextBox.Text = "0.20";
             this.PARTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // HMCRTextBox
@@ -534,7 +534,7 @@
             this.HMCRTextBox.Size = new System.Drawing.Size(80, 26);
             this.HMCRTextBox.TabIndex = 113;
             this.HMCRTextBox.Tag = "";
-            this.HMCRTextBox.Text = "0.90";
+            this.HMCRTextBox.Text = "0.70";
             this.HMCRTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // BWMinTextBox
@@ -546,7 +546,7 @@
             this.BWMinTextBox.Size = new System.Drawing.Size(80, 26);
             this.BWMinTextBox.TabIndex = 112;
             this.BWMinTextBox.Tag = "";
-            this.BWMinTextBox.Text = "0.001";
+            this.BWMinTextBox.Text = "0.08";
             this.BWMinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BWMinTextBox.Visible = false;
             // 
@@ -559,7 +559,7 @@
             this.BWMaxTextBox.Size = new System.Drawing.Size(80, 26);
             this.BWMaxTextBox.TabIndex = 111;
             this.BWMaxTextBox.Tag = "";
-            this.BWMaxTextBox.Text = "0.1";
+            this.BWMaxTextBox.Text = "0.5";
             this.BWMaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.BWMaxTextBox.Visible = false;
             // 
@@ -572,7 +572,7 @@
             this.PARMaxTextBox.Size = new System.Drawing.Size(80, 26);
             this.PARMaxTextBox.TabIndex = 110;
             this.PARMaxTextBox.Tag = "";
-            this.PARMaxTextBox.Text = "0.85";
+            this.PARMaxTextBox.Text = "0.25";
             this.PARMaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PARMaxTextBox.Visible = false;
             // 
@@ -585,7 +585,7 @@
             this.PARMinTextBox.Size = new System.Drawing.Size(80, 26);
             this.PARMinTextBox.TabIndex = 109;
             this.PARMinTextBox.Tag = "";
-            this.PARMinTextBox.Text = "0.1";
+            this.PARMinTextBox.Text = "0.15";
             this.PARMinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.PARMinTextBox.Visible = false;
             // 
