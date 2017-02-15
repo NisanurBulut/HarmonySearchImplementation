@@ -326,7 +326,7 @@ namespace HarmonySearch
                 sum += results[i];
             }
             double avg = sum / results.Count;
-            richTextBox1.Text += avg;
+            richTextBox1.Text += Math.Round(avg, 3);
         }
 
         private void GraphsForm_FormClosed(object sender, FormClosedEventArgs e)

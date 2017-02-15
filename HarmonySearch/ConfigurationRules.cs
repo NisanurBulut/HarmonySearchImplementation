@@ -57,7 +57,7 @@ namespace HarmonySearch
                 return false;
             if (HMCR <= 0)
                 return false;
-            if (HMCR >= 1)
+            if (HMCR > 1)
                 return false;
 
             return true;
@@ -72,7 +72,7 @@ namespace HarmonySearch
                 return false;
             if (PAR <= 0)
                 return false;
-            if (PAR >= 1)
+            if (PAR > 1)
                 return false;
 
             return true;

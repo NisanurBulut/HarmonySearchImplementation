@@ -63,9 +63,19 @@ namespace HarmonySearch.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap back_icon {
+        internal static System.Drawing.Bitmap left_arrow_icon {
             get {
-                object obj = ResourceManager.GetObject("back-icon", resourceCulture);
+                object obj = ResourceManager.GetObject("left_arrow_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap replay_icon {
+            get {
+                object obj = ResourceManager.GetObject("replay_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

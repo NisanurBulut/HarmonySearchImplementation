@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphsForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BestHarmonyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,13 +62,13 @@
             // 
             // BestHarmonyChart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.BestHarmonyChart.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.BestHarmonyChart.ChartAreas.Add(chartArea1);
             this.BestHarmonyChart.Location = new System.Drawing.Point(15, 94);
             this.BestHarmonyChart.Name = "BestHarmonyChart";
-            series7.ChartArea = "ChartArea1";
-            series7.Name = "Series1";
-            this.BestHarmonyChart.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.BestHarmonyChart.Series.Add(series1);
             this.BestHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.BestHarmonyChart.TabIndex = 5;
             this.BestHarmonyChart.Text = "chart1";
@@ -156,7 +156,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(619, 34);
             this.button2.TabIndex = 36;
-            this.button2.Text = "Show me the average";
+            this.button2.Text = "Calculate average";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
@@ -216,26 +216,26 @@
             // 
             // WorstHarmonyChart
             // 
-            chartArea8.Name = "ChartArea1";
-            this.WorstHarmonyChart.ChartAreas.Add(chartArea8);
+            chartArea2.Name = "ChartArea1";
+            this.WorstHarmonyChart.ChartAreas.Add(chartArea2);
             this.WorstHarmonyChart.Location = new System.Drawing.Point(963, 94);
             this.WorstHarmonyChart.Name = "WorstHarmonyChart";
-            series8.ChartArea = "ChartArea1";
-            series8.Name = "Series1";
-            this.WorstHarmonyChart.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.WorstHarmonyChart.Series.Add(series2);
             this.WorstHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.WorstHarmonyChart.TabIndex = 7;
             this.WorstHarmonyChart.Text = "chart2";
             // 
             // NewHarmonyChart
             // 
-            chartArea9.Name = "ChartArea1";
-            this.NewHarmonyChart.ChartAreas.Add(chartArea9);
+            chartArea3.Name = "ChartArea1";
+            this.NewHarmonyChart.ChartAreas.Add(chartArea3);
             this.NewHarmonyChart.Location = new System.Drawing.Point(492, 94);
             this.NewHarmonyChart.Name = "NewHarmonyChart";
-            series9.ChartArea = "ChartArea1";
-            series9.Name = "Series1";
-            this.NewHarmonyChart.Series.Add(series9);
+            series3.ChartArea = "ChartArea1";
+            series3.Name = "Series1";
+            this.NewHarmonyChart.Series.Add(series3);
             this.NewHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.NewHarmonyChart.TabIndex = 6;
             this.NewHarmonyChart.Text = "chart1";

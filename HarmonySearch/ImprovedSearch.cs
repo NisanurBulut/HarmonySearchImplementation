@@ -130,9 +130,12 @@ namespace HarmonySearch
 
         private double getBandwidth(int currentImprovisation)
         {
-            double c = Math.Log(BWmin / BWmax) * (1/NI);
-            double newBW = BWmax * Math.Exp(c * currentImprovisation);
-            //double newBW = BWmin + ((BWmax - BWmin) / NI) * currentImprovisation;
+            //double c = Math.Log(BWmin / BWmax) * (1 / NI);
+            //double newBW = BWmax * Math.Exp(c * currentImprovisation);
+            ////double newBW = BWmin + ((BWmax - BWmin) / NI) * currentImprovisation;
+            //return newBW;
+
+            double newBW = BWmax - ((BWmax - BWmin) / NI) * currentImprovisation;
             return newBW;
         }
     }

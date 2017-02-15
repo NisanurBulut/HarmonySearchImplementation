@@ -117,20 +117,21 @@ namespace HarmonySearch
             {
                 Results += Environment.NewLine;
                 Results += i + " Harmony: ";
-                Results += Environment.NewLine;
+                //Results += Environment.NewLine;
                 for (int j = 0; j < TotalNotes; j++)
                 {
                     Results += "\t";
-                    Results += "Note " + j + ": " + Memory[i].notes[j];
+                    Results += "Note " + j + ": " + Math.Round(Memory[i].notes[j], 3);
                 }
-                Results += Environment.NewLine;
-                Results += "\t Aesthetics: " + getHarmonyAesthetics(Memory[i]);
-                Results += Environment.NewLine;
+                //Results += Environment.NewLine;
+                Results += "\t Aesthetics: " + Math.Round(getHarmonyAesthetics(Memory[i]), 3);
+                //Results += Environment.NewLine;
             }
-            if (currentImprovisation == (NI - 1))
-            {
-                saveResultsToFile(Results);
-            }
+            Results += Environment.NewLine;
+            //if (currentImprovisation == (NI - 1))
+            //{
+            //    saveResultsToFile(Results);
+            //}
         }
 
         private void saveResultsToFile(string results)
