@@ -1,6 +1,7 @@
 ﻿using NCalc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Windows.Forms;
@@ -259,7 +260,7 @@ namespace HarmonySearch
 
                 ControlStyle.TextBoxStyle(minTextBox, i);
                 ControlStyle.TextBoxStyle(maxTextBox, i);
-                ControlStyle.LabelStyle(label, i);
+                ControlStyle.ConfigurationLabelStyle(label, i);
                 variablesTab.Controls.Add(minTextBox);
                 variablesTab.Controls.Add(maxTextBox);
                 variablesTab.Controls.Add(label);
@@ -274,6 +275,27 @@ namespace HarmonySearch
                 variablesTab.Controls.RemoveByKey("x" + i + "MaxTextBox");
                 variablesTab.Controls.RemoveByKey("x" + i + "Label");
             }
+        }
+
+        private void ConfigurationForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string url;
+            if (e.Link.LinkData != null)
+                url = e.Link.LinkData.ToString();
+            else
+                url = linkLabel1.Text.Substring(e.Link.Start, e.Link.Length);
+
+            if (!url.Contains("://"))
+                url = "http://" + url;
+
+            var si = new ProcessStartInfo(url);
+            Process.Start(si);
+            linkLabel1.LinkVisited = true;
         }
     }
 }
