@@ -107,8 +107,8 @@ namespace HarmonySearch
                 }
                 
                 saveResults(classicHS.bestHarmoniesAesthetics[classicHS.NI - 1]);
-                if (ShowAll == true)
-                    System.Diagnostics.Process.Start("Results.txt");
+                //if (ShowAll == true)
+                //    System.Diagnostics.Process.Start("Results.txt");
             }
             if (improvedHS != null)
             {
@@ -156,8 +156,8 @@ namespace HarmonySearch
                     numericsTab.Controls.Add(note);
                 }
                 saveResults(improvedHS.bestHarmoniesAesthetics[improvedHS.NI - 1]);
-                if (ShowAll == true)
-                    System.Diagnostics.Process.Start("Results.txt");
+                //if (ShowAll == true)
+                //    System.Diagnostics.Process.Start("Results.txt");
             }
             if (globalHS != null)
             {
@@ -205,8 +205,8 @@ namespace HarmonySearch
                     numericsTab.Controls.Add(note);
                 }
                 saveResults(globalHS.bestHarmoniesAesthetics[globalHS.NI - 1]);
-                if (ShowAll == true)
-                    System.Diagnostics.Process.Start("Results.txt");
+                //if (ShowAll == true)
+                //    System.Diagnostics.Process.Start("Results.txt");
             }
             if (adaptiveHS != null)
             {
@@ -254,8 +254,8 @@ namespace HarmonySearch
                     numericsTab.Controls.Add(note);
                 }
                 saveResults(adaptiveHS.bestHarmoniesAesthetics[adaptiveHS.NI - 1]);
-                if (ShowAll == true)
-                    System.Diagnostics.Process.Start("Results.txt");
+                //if (ShowAll == true)
+                //    System.Diagnostics.Process.Start("Results.txt");
             }
             BestHarmonyChart.ChartAreas[0].AxisX.MajorGrid.LineColor = System.Drawing.Color.LightGray;
             BestHarmonyChart.ChartAreas[0].AxisX.MajorGrid.LineDashStyle = ChartDashStyle.Dot;

@@ -16,9 +16,9 @@ namespace HarmonySearch
         public float HMCR { get; set; }
         public float PAR { get; set; }
         public double BW { get; set; }
-        private int diversityAdjustments = 0;
-        private int diversityIteration = 20;
-        private float defaultPAR;
+        //private int diversityAdjustments = 0;
+        //private int diversityIteration = 20;
+        //private float defaultPAR;
 
         private static ClassicSearch instance = null;
 
@@ -45,9 +45,9 @@ namespace HarmonySearch
         public void initializeMemory()
         {
             Results = "";
-            defaultPAR = PAR;
-            diversityIteration = 50;
-            diversityAdjustments = 0;
+            //defaultPAR = PAR;
+            //diversityIteration = 50;
+            //diversityAdjustments = 0;
             base.bestHarmoniesAesthetics = new double[NI];
             base.newHarmoniesAesthetics = new double[NI];
             base.worstHarmoniesAesthetics = new double[NI];
@@ -132,23 +132,23 @@ namespace HarmonySearch
             }
         }
 
-        private void diversifyPopulation()
-        {
-            int populationThreshold = (int) (HMSize * 10 / 100);
-            if (countDuplicates() >= populationThreshold)
-            {
-                PAR += defaultPAR;
-                if (PAR >= 1)
-                    PAR = 1;
-                diversityAdjustments++;
-                return;
-            }
-            if(diversityAdjustments > 0)
-            {
-                PAR = defaultPAR;
-                diversityAdjustments = 0;
-            }
-        }
+        //private void diversifyPopulation()
+        //{
+        //    int populationThreshold = (int) (HMSize * 10 / 100);
+        //    if (countDuplicates() >= populationThreshold)
+        //    {
+        //        PAR += defaultPAR;
+        //        if (PAR >= 1)
+        //            PAR = 1;
+        //        diversityAdjustments++;
+        //        return;
+        //    }
+        //    if(diversityAdjustments > 0)
+        //    {
+        //        PAR = defaultPAR;
+        //        diversityAdjustments = 0;
+        //    }
+        //}
 
 
     }
