@@ -43,8 +43,10 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            results = "";
-            base.bestHarmonies = new double[NI];
+            Results = "";
+            base.bestHarmoniesAesthetics = new double[NI];
+            base.newHarmoniesAesthetics = new double[NI];
+            base.worstHarmoniesAesthetics = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
             Memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
@@ -78,13 +80,21 @@ namespace HarmonySearch
                 //{
                 //    countDuplicates();
                 //}
-                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(Memory[0]);
+                base.bestHarmoniesAesthetics[currentImprovisation] = getHarmonyAesthetics(Memory[0]);
+                base.newHarmoniesAesthetics[currentImprovisation] = getHarmonyAesthetics(newHarmony);
+                base.worstHarmoniesAesthetics[currentImprovisation] = getHarmonyAesthetics(Memory[HMSize - 1]);
                 for (int i = 0; i < TotalNotes; i++)
                 {
                     base.bestHarmoniesNotes[currentImprovisation, i] = Memory[0].notes.ElementAt(i);
                 }
                 if (ShowAll == true)
+                {
                     base.writeResults(currentImprovisation);
+
+                    Console.WriteLine(Results);
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                }
 
                 progressBar.Value = currentImprovisation;
                 int percent = (int)(((double)(progressBar.Value - progressBar.Minimum) / (double)(progressBar.Maximum - progressBar.Minimum)) * 100);

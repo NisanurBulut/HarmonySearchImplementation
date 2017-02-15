@@ -44,11 +44,13 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            results = "";
+            Results = "";
             defaultPAR = PAR;
             diversityIteration = 50;
             diversityAdjustments = 0;
-            base.bestHarmonies = new double[NI];
+            base.bestHarmoniesAesthetics = new double[NI];
+            base.newHarmoniesAesthetics = new double[NI];
+            base.worstHarmoniesAesthetics = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
             base.Memory = new List<Harmony>();
             for (int i = 0; i < HMSize; i++)
@@ -80,24 +82,33 @@ namespace HarmonySearch
                     }
                 }
                 base.updateMemory(newHarmony, currentImprovisation);
-                if (currentImprovisation == diversityIteration)
-                {
-                    diversifyPopulation();
-                    diversityIteration += 20;
-                }
-                if (currentImprovisation == 249)
-                {
-                    countDuplicates();
-                }
-                base.bestHarmonies[currentImprovisation] = getHarmonyAesthetics(Memory[0]);
-                for(int i = 0; i < TotalNotes; i++)
+                //if (currentImprovisation == diversityIteration)
+                //{
+                //    diversifyPopulation();
+                //    diversityIteration += 20;
+                //}
+                //if (currentImprovisation == 249)
+                //{
+                //    countDuplicates();
+                //}
+                base.bestHarmoniesAesthetics[currentImprovisation] = getHarmonyAesthetics(Memory[0]);
+                base.newHarmoniesAesthetics[currentImprovisation] = getHarmonyAesthetics(newHarmony);
+                base.worstHarmoniesAesthetics[currentImprovisation] = getHarmonyAesthetics(Memory[HMSize - 1]);
+                for (int i = 0; i < TotalNotes; i++)
                 {
                     base.bestHarmoniesNotes[currentImprovisation, i] = Memory[0].notes.ElementAt(i);
                 }
 
                 if (ShowAll == true)
+                {
                     base.writeResults(currentImprovisation);
 
+                    Console.WriteLine(Results);
+                    Console.WriteLine("Press any key to continue...");
+                    Console.ReadKey();
+                }
+
+                //Progress Bar Text
                 progressBar.Value = currentImprovisation;
                 int percent = (int)(((double)(progressBar.Value - progressBar.Minimum) / (double)(progressBar.Maximum - progressBar.Minimum)) * 100);
                 string progressMessage = "Please wait... Harmony Search in progress. " + percent.ToString() + "%" + " completed.";

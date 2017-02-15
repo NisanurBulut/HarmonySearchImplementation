@@ -10,17 +10,17 @@ namespace HarmonySearch
 {
     public abstract class Search
     {
-        public int NI { get; set; } //Number of Improvisations aka generations
-        //public double MinimumValue { get; set; }
+        public int NI { get; set; } //Number of Improvisations
         public double[] MinimumValues { get; set; }
-        //public double MaximumValue { get; set; }
         public double[] MaximumValues { get; set; }
         public int TotalNotes { get; set; }
         public int HMSize { get; set; }
 
-        public double[] bestHarmonies { get; set; }
+        public double[] bestHarmoniesAesthetics { get; set; }
+        public double[] newHarmoniesAesthetics { get; set; }
+        public double[] worstHarmoniesAesthetics { get; set; }
         public double[,] bestHarmoniesNotes { get; set; }
-        public string results { get; set; }
+        public string Results { get; set; }
         public bool ShowAll;
 
         protected List<Harmony> Memory;
@@ -110,26 +110,26 @@ namespace HarmonySearch
 
         public void writeResults(int currentImprovisation)
         {
-            results += "--------------------------------------------------------------------------------------------";
-            results += Environment.NewLine + "Improvisation Number: " + currentImprovisation + Environment.NewLine;
-            results += "--------------------------------------------------------------------------------------------";
+            Results += "--------------------------------------------------------------------------------------------";
+            Results += Environment.NewLine + "Improvisation Number: " + currentImprovisation + Environment.NewLine;
+            Results += "--------------------------------------------------------------------------------------------";
             for (int i = 0; i < HMSize; i++)
             {
-                results += Environment.NewLine;
-                results += i + " Harmony: ";
-                results += Environment.NewLine;
+                Results += Environment.NewLine;
+                Results += i + " Harmony: ";
+                Results += Environment.NewLine;
                 for (int j = 0; j < TotalNotes; j++)
                 {
-                    results += "\t";
-                    results += "Note " + j + ": " + Memory[i].notes[j];
+                    Results += "\t";
+                    Results += "Note " + j + ": " + Memory[i].notes[j];
                 }
-                results += Environment.NewLine;
-                results += "\t Aesthetics: " + getHarmonyAesthetics(Memory[i]);
-                results += Environment.NewLine;
+                Results += Environment.NewLine;
+                Results += "\t Aesthetics: " + getHarmonyAesthetics(Memory[i]);
+                Results += Environment.NewLine;
             }
             if (currentImprovisation == (NI - 1))
             {
-                saveResultsToFile(results);
+                saveResultsToFile(Results);
             }
         }
 
