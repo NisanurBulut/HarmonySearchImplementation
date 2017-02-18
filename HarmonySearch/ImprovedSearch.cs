@@ -43,14 +43,14 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            Results = "";
+            Results = new StringBuilder();
             base.bestHarmoniesAesthetics = new double[NI];
             base.newHarmoniesAesthetics = new double[NI];
             base.worstHarmoniesAesthetics = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
-            Memory = new List<Harmony>();
+            Memory = new Harmony[HMSize];
             for (int i = 0; i < HMSize; i++)
-                Memory.Add(getRandomHarmony());
+                Memory[i] = getRandomHarmony();
 
             sortMemory();
         }

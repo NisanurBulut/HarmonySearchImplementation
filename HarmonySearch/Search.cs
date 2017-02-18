@@ -20,10 +20,10 @@ namespace HarmonySearch
         public double[] newHarmoniesAesthetics { get; set; }
         public double[] worstHarmoniesAesthetics { get; set; }
         public double[,] bestHarmoniesNotes { get; set; }
-        public string Results { get; set; }
+        public StringBuilder Results { get; set; }
         public bool ShowAll;
 
-        protected List<Harmony> Memory;
+        protected Harmony[] Memory;
 
         public Expression Objective { get; set; }
         public bool Maximize { get; set; }
@@ -52,9 +52,9 @@ namespace HarmonySearch
         protected void sortMemory()
         {
             Harmony tempHar = new Harmony();
-            for (int i = 0; i < Memory.Count; i++)
+            for (int i = 0; i < Memory.Length; i++)
             {
-                for (int j = i + 1; j < Memory.Count; j++)
+                for (int j = i + 1; j < HMSize; j++)
                 {
                     if (Maximize == true)
                     {
@@ -110,42 +110,34 @@ namespace HarmonySearch
 
         public void writeResults(int currentImprovisation)
         {
-            Results += "--------------------------------------------------------------------------------------------";
-            Results += Environment.NewLine + "Improvisation Number: " + currentImprovisation + Environment.NewLine;
-            Results += "--------------------------------------------------------------------------------------------";
+            Results.Append("--------------------------------------------------------------------------------------------");
+            Results.Append(Environment.NewLine + "Improvisation Number: " + currentImprovisation + Environment.NewLine);
+            Results.Append("--------------------------------------------------------------------------------------------");
             for (int i = 0; i < HMSize; i++)
             {
-                Results += Environment.NewLine;
-                Results += i + " Harmony: ";
+                Results.Append(Environment.NewLine);
+                Results.Append(i + " Harmony: ");
                 //Results += Environment.NewLine;
                 for (int j = 0; j < TotalNotes; j++)
                 {
-                    Results += "\t";
-                    Results += "Note " + j + ": " + Math.Round(Memory[i].notes[j], 3);
+                    Results.Append("\t");
+                    Results.Append("Note " + j + ": " + Math.Round(Memory[i].notes[j], 3));
                 }
                 //Results += Environment.NewLine;
-                Results += "\t Aesthetics: " + Math.Round(getHarmonyAesthetics(Memory[i]), 3);
+                Results.Append("\t Aesthetics: " + Math.Round(getHarmonyAesthetics(Memory[i]), 3));
                 //Results += Environment.NewLine;
             }
-            Results += Environment.NewLine;
+            Results.Append(Environment.NewLine);
             //if (currentImprovisation == (NI - 1))
             //{
-            //    saveResultsToFile(Results);
+            //    saveResultsToFile();
             //}
         }
 
-        private void saveResultsToFile(string results)
+        private void saveResultsToFile()
         {
             string path = @"Results.txt";
-            if (!File.Exists(path))
-            {
-                File.Create(path);
-                File.WriteAllText(path, results);
-            }
-            else
-            {
-                File.WriteAllText(path, results);
-            }
+            File.WriteAllText(path, Results.ToString());
         }
 
         protected int countDuplicates()

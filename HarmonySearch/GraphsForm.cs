@@ -17,6 +17,8 @@ namespace HarmonySearch
         public GlobalBestSearch globalHS { get; set; }
         public SelfAdaptiveSearch adaptiveHS { get; set; }
 
+        public ConfigurationForm Configuration { get; set; }
+
         private List<double> results = new List<double>();
 
         public GraphsForm()
@@ -96,9 +98,9 @@ namespace HarmonySearch
                 {
                     notesTab.Controls.Add(allDecisionVariables[i]);
                 }
-                Label aesthetics = new Label();
-                ControlStyle.LabelStyle(aesthetics, classicHS.bestHarmoniesAesthetics[classicHS.NI - 1]);
-                numericsTab.Controls.Add(aesthetics);
+                Label aestheticsLabel = new Label();
+                ControlStyle.LabelStyle(aestheticsLabel, classicHS.bestHarmoniesAesthetics[classicHS.NI - 1]);
+                numericsTab.Controls.Add(aestheticsLabel);
                 for (int k = 1; k <= classicHS.TotalNotes; k++)
                 {
                     Label note = new Label();
@@ -146,9 +148,9 @@ namespace HarmonySearch
                 {
                     notesTab.Controls.Add(allDecisionVariables[i]);
                 }
-                Label aesthetics = new Label();
-                ControlStyle.LabelStyle(aesthetics, improvedHS.bestHarmoniesAesthetics[improvedHS.NI - 1]);
-                numericsTab.Controls.Add(aesthetics);
+                Label aestheticsLabel = new Label();
+                ControlStyle.LabelStyle(aestheticsLabel, improvedHS.bestHarmoniesAesthetics[improvedHS.NI - 1]);
+                numericsTab.Controls.Add(aestheticsLabel);
                 for (int k = 1; k <= improvedHS.TotalNotes; k++)
                 {
                     Label note = new Label();
@@ -195,9 +197,9 @@ namespace HarmonySearch
                 {
                     notesTab.Controls.Add(allDecisionVariables[i]);
                 }
-                Label aesthetics = new Label();
-                ControlStyle.LabelStyle(aesthetics, globalHS.bestHarmoniesAesthetics[globalHS.NI - 1]);
-                numericsTab.Controls.Add(aesthetics);
+                Label aestheticsLabel = new Label();
+                ControlStyle.LabelStyle(aestheticsLabel, globalHS.bestHarmoniesAesthetics[globalHS.NI - 1]);
+                numericsTab.Controls.Add(aestheticsLabel);
                 for (int k = 1; k <= globalHS.TotalNotes; k++)
                 {
                     Label note = new Label();
@@ -244,9 +246,9 @@ namespace HarmonySearch
                 {
                     notesTab.Controls.Add(allDecisionVariables[i]);
                 }
-                Label aesthetics = new Label();
-                ControlStyle.LabelStyle(aesthetics, adaptiveHS.bestHarmoniesAesthetics[adaptiveHS.NI - 1]);
-                numericsTab.Controls.Add(aesthetics);
+                Label aestheticsLabel = new Label();
+                ControlStyle.LabelStyle(aestheticsLabel, adaptiveHS.bestHarmoniesAesthetics[adaptiveHS.NI - 1]);
+                numericsTab.Controls.Add(aestheticsLabel);
                 for (int k = 1; k <= adaptiveHS.TotalNotes; k++)
                 {
                     Label note = new Label();
@@ -275,10 +277,10 @@ namespace HarmonySearch
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-            ConfigurationForm configurationForm = new ConfigurationForm();
-            configurationForm.Show();
             isBackButtonPressed = true;
             this.Close();
+            Configuration.initializeComponents();
+            Configuration.Show();
         }
 
         private void performHarmonySearch()
@@ -326,12 +328,14 @@ namespace HarmonySearch
                 sum += results[i];
             }
             double avg = sum / results.Count;
-            richTextBox1.Text += Math.Round(avg, 3);
+            richTextBox1.Text += Math.Round(avg, 6);
         }
 
         private void GraphsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if(!isBackButtonPressed)
+            if (isBackButtonPressed)
+                Dispose();
+            else
                 Application.Exit();
         }
     }

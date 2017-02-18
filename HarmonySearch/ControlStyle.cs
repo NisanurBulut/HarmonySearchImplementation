@@ -37,7 +37,7 @@ namespace HarmonySearch
 
         public static void TextBoxStyle(TextBox textBox, int number)
         {
-            textBox.Size = new Size(250, 22);
+            textBox.Size = new Size(400, 22);
             textBox.TextAlign = HorizontalAlignment.Center;
             textBox.Font = new Font("Courier New", 10, FontStyle.Regular);
             if (textBox.Name.Contains("Min"))
@@ -47,7 +47,7 @@ namespace HarmonySearch
             }
             if(textBox.Name.Contains("Max"))
             {
-                textBox.Location = new Point(567, 100 + (50 * (number - 1)));
+                textBox.Location = new Point(888, 100 + (50 * (number - 1)));
                 textBox.Anchor = (AnchorStyles.Top | AnchorStyles.Right);
             }
         }
@@ -77,7 +77,7 @@ namespace HarmonySearch
         {
             label.Name = "aestheticsLabel";
             label.Text = "Aesthetics: " + value;
-            label.Size = new Size(308, 18);
+            label.Size = new Size(450, 18);
             label.ForeColor = Color.Black;
             label.Font = new Font("Courier New", 12, FontStyle.Regular);
             label.Visible = true;

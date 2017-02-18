@@ -92,7 +92,7 @@
             this.HarmonySearchLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.HarmonySearchLabel.AutoSize = true;
             this.HarmonySearchLabel.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.HarmonySearchLabel.Location = new System.Drawing.Point(353, 9);
+            this.HarmonySearchLabel.Location = new System.Drawing.Point(549, 9);
             this.HarmonySearchLabel.Name = "HarmonySearchLabel";
             this.HarmonySearchLabel.Size = new System.Drawing.Size(302, 31);
             this.HarmonySearchLabel.TabIndex = 29;
@@ -104,7 +104,7 @@
             this.ObjectiveLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ObjectiveLabel.AutoSize = true;
             this.ObjectiveLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ObjectiveLabel.Location = new System.Drawing.Point(396, 38);
+            this.ObjectiveLabel.Location = new System.Drawing.Point(593, 38);
             this.ObjectiveLabel.Name = "ObjectiveLabel";
             this.ObjectiveLabel.Size = new System.Drawing.Size(208, 22);
             this.ObjectiveLabel.TabIndex = 100;
@@ -137,7 +137,7 @@
             // 
             this.MinValueLabel.AutoSize = true;
             this.MinValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MinValueLabel.Location = new System.Drawing.Point(279, 58);
+            this.MinValueLabel.Location = new System.Drawing.Point(346, 58);
             this.MinValueLabel.Name = "MinValueLabel";
             this.MinValueLabel.Size = new System.Drawing.Size(138, 18);
             this.MinValueLabel.TabIndex = 119;
@@ -149,7 +149,7 @@
             this.MaxValueLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaxValueLabel.AutoSize = true;
             this.MaxValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MaxValueLabel.Location = new System.Drawing.Point(629, 58);
+            this.MaxValueLabel.Location = new System.Drawing.Point(1016, 58);
             this.MaxValueLabel.Name = "MaxValueLabel";
             this.MaxValueLabel.Size = new System.Drawing.Size(138, 18);
             this.MaxValueLabel.TabIndex = 118;
@@ -160,10 +160,10 @@
             // 
             this.HMSLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.HMSLabel.AutoSize = true;
-            this.HMSLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.HMSLabel.Location = new System.Drawing.Point(428, 332);
+            this.HMSLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HMSLabel.Location = new System.Drawing.Point(694, 346);
             this.HMSLabel.Name = "HMSLabel";
-            this.HMSLabel.Size = new System.Drawing.Size(38, 18);
+            this.HMSLabel.Size = new System.Drawing.Size(43, 21);
             this.HMSLabel.TabIndex = 25;
             this.HMSLabel.Tag = "";
             this.HMSLabel.Text = "HMS";
@@ -173,10 +173,10 @@
             // 
             this.NILabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.NILabel.AutoSize = true;
-            this.NILabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.NILabel.Location = new System.Drawing.Point(292, 332);
+            this.NILabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.NILabel.Location = new System.Drawing.Point(460, 343);
             this.NILabel.Name = "NILabel";
-            this.NILabel.Size = new System.Drawing.Size(28, 18);
+            this.NILabel.Size = new System.Drawing.Size(32, 21);
             this.NILabel.TabIndex = 23;
             this.NILabel.Text = "NI";
             this.Tips.SetToolTip(this.NILabel, "Number of Imrpovisations");
@@ -185,13 +185,13 @@
             // 
             this.PARMaxLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PARMaxLabel.AutoSize = true;
-            this.PARMaxLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.PARMaxLabel.Location = new System.Drawing.Point(292, 441);
+            this.PARMaxLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.PARMaxLabel.Location = new System.Drawing.Point(460, 449);
             this.PARMaxLabel.Name = "PARMaxLabel";
-            this.PARMaxLabel.Size = new System.Drawing.Size(68, 18);
+            this.PARMaxLabel.Size = new System.Drawing.Size(98, 21);
             this.PARMaxLabel.TabIndex = 108;
             this.PARMaxLabel.Tag = "";
-            this.PARMaxLabel.Text = "PARmax";
+            this.PARMaxLabel.Text = "PAR(max)";
             this.Tips.SetToolTip(this.PARMaxLabel, "Maximum Pitch Adjustment Rate");
             this.PARMaxLabel.Visible = false;
             // 
@@ -199,13 +199,13 @@
             // 
             this.PARMinLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PARMinLabel.AutoSize = true;
-            this.PARMinLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.PARMinLabel.Location = new System.Drawing.Point(292, 405);
+            this.PARMinLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.PARMinLabel.Location = new System.Drawing.Point(460, 414);
             this.PARMinLabel.Name = "PARMinLabel";
-            this.PARMinLabel.Size = new System.Drawing.Size(68, 18);
+            this.PARMinLabel.Size = new System.Drawing.Size(98, 21);
             this.PARMinLabel.TabIndex = 107;
             this.PARMinLabel.Tag = "";
-            this.PARMinLabel.Text = "PARmin";
+            this.PARMinLabel.Text = "PAR(min)";
             this.Tips.SetToolTip(this.PARMinLabel, "Minimum Pitch Adjustment Rate");
             this.PARMinLabel.Visible = false;
             // 
@@ -213,13 +213,13 @@
             // 
             this.BWMinLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BWMinLabel.AutoSize = true;
-            this.BWMinLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.BWMinLabel.Location = new System.Drawing.Point(542, 405);
+            this.BWMinLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.BWMinLabel.Location = new System.Drawing.Point(831, 414);
             this.BWMinLabel.Name = "BWMinLabel";
-            this.BWMinLabel.Size = new System.Drawing.Size(58, 18);
+            this.BWMinLabel.Size = new System.Drawing.Size(87, 21);
             this.BWMinLabel.TabIndex = 106;
             this.BWMinLabel.Tag = "";
-            this.BWMinLabel.Text = "BWmin";
+            this.BWMinLabel.Text = "BW(min)";
             this.Tips.SetToolTip(this.BWMinLabel, "Minimum Bandwidth");
             this.BWMinLabel.Visible = false;
             // 
@@ -227,13 +227,13 @@
             // 
             this.BWMaxLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BWMaxLabel.AutoSize = true;
-            this.BWMaxLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.BWMaxLabel.Location = new System.Drawing.Point(542, 436);
+            this.BWMaxLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.BWMaxLabel.Location = new System.Drawing.Point(831, 449);
             this.BWMaxLabel.Name = "BWMaxLabel";
-            this.BWMaxLabel.Size = new System.Drawing.Size(58, 18);
+            this.BWMaxLabel.Size = new System.Drawing.Size(87, 21);
             this.BWMaxLabel.TabIndex = 105;
             this.BWMaxLabel.Tag = "";
-            this.BWMaxLabel.Text = "BWmax";
+            this.BWMaxLabel.Text = "BW(max)";
             this.Tips.SetToolTip(this.BWMaxLabel, "Maximum Bandwidth");
             this.BWMaxLabel.Visible = false;
             // 
@@ -241,10 +241,10 @@
             // 
             this.BWLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BWLabel.AutoSize = true;
-            this.BWLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.BWLabel.Location = new System.Drawing.Point(562, 371);
+            this.BWLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.BWLabel.Location = new System.Drawing.Point(860, 379);
             this.BWLabel.Name = "BWLabel";
-            this.BWLabel.Size = new System.Drawing.Size(28, 18);
+            this.BWLabel.Size = new System.Drawing.Size(32, 21);
             this.BWLabel.TabIndex = 104;
             this.BWLabel.Tag = "";
             this.BWLabel.Text = "BW";
@@ -254,10 +254,10 @@
             // 
             this.PARLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PARLabel.AutoSize = true;
-            this.PARLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.PARLabel.Location = new System.Drawing.Point(292, 371);
+            this.PARLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.PARLabel.Location = new System.Drawing.Point(460, 379);
             this.PARLabel.Name = "PARLabel";
-            this.PARLabel.Size = new System.Drawing.Size(38, 18);
+            this.PARLabel.Size = new System.Drawing.Size(43, 21);
             this.PARLabel.TabIndex = 103;
             this.PARLabel.Tag = "";
             this.PARLabel.Text = "PAR";
@@ -267,10 +267,10 @@
             // 
             this.HMCRLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.HMCRLabel.AutoSize = true;
-            this.HMCRLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.HMCRLabel.Location = new System.Drawing.Point(552, 332);
+            this.HMCRLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HMCRLabel.Location = new System.Drawing.Point(842, 346);
             this.HMCRLabel.Name = "HMCRLabel";
-            this.HMCRLabel.Size = new System.Drawing.Size(48, 18);
+            this.HMCRLabel.Size = new System.Drawing.Size(54, 21);
             this.HMCRLabel.TabIndex = 102;
             this.HMCRLabel.Tag = "";
             this.HMCRLabel.Text = "HMCR";
@@ -285,10 +285,11 @@
             this.tabControl1.Controls.Add(this.variablesTab);
             this.tabControl1.Controls.Add(this.algorithmTab);
             this.tabControl1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.tabControl1.Location = new System.Drawing.Point(-6, 35);
+            this.tabControl1.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.tabControl1.Location = new System.Drawing.Point(-6, 43);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1031, 568);
+            this.tabControl1.Size = new System.Drawing.Size(1424, 697);
             this.tabControl1.TabIndex = 118;
             // 
             // problemTab
@@ -300,11 +301,11 @@
             this.problemTab.Controls.Add(this.panel2);
             this.problemTab.Controls.Add(this.ObjectiveTextBox);
             this.problemTab.Controls.Add(this.ObjectiveLabel);
-            this.problemTab.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.problemTab.Location = new System.Drawing.Point(4, 22);
+            this.problemTab.Font = new System.Drawing.Font("Courier New", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.problemTab.Location = new System.Drawing.Point(4, 26);
             this.problemTab.Name = "problemTab";
             this.problemTab.Padding = new System.Windows.Forms.Padding(3);
-            this.problemTab.Size = new System.Drawing.Size(1023, 542);
+            this.problemTab.Size = new System.Drawing.Size(1416, 667);
             this.problemTab.TabIndex = 0;
             this.problemTab.Text = "Problem Settings";
             this.problemTab.UseVisualStyleBackColor = true;
@@ -314,7 +315,7 @@
             this.showAllCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.showAllCheckBox.AutoSize = true;
             this.showAllCheckBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.showAllCheckBox.Location = new System.Drawing.Point(374, 318);
+            this.showAllCheckBox.Location = new System.Drawing.Point(571, 443);
             this.showAllCheckBox.Name = "showAllCheckBox";
             this.showAllCheckBox.Size = new System.Drawing.Size(257, 22);
             this.showAllCheckBox.TabIndex = 119;
@@ -326,7 +327,7 @@
             this.RunOptionsLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.RunOptionsLabel.AutoSize = true;
             this.RunOptionsLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.RunOptionsLabel.Location = new System.Drawing.Point(433, 287);
+            this.RunOptionsLabel.Location = new System.Drawing.Point(630, 412);
             this.RunOptionsLabel.Name = "RunOptionsLabel";
             this.RunOptionsLabel.Size = new System.Drawing.Size(128, 18);
             this.RunOptionsLabel.TabIndex = 118;
@@ -337,19 +338,19 @@
             this.linkLabel1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.linkLabel1.Location = new System.Drawing.Point(172, 496);
+            this.linkLabel1.Location = new System.Drawing.Point(369, 621);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(608, 16);
+            this.linkLabel1.Size = new System.Drawing.Size(616, 16);
             this.linkLabel1.TabIndex = 104;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx#Methods";
+            this.linkLabel1.Text = "https://msdn.microsoft.com/en-us/library/system.math(v=vs.110).aspx#Anchor_2";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // label1
             // 
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label1.Location = new System.Drawing.Point(66, 438);
+            this.label1.Location = new System.Drawing.Point(263, 563);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(861, 58);
             this.label1.TabIndex = 103;
@@ -364,7 +365,7 @@
             this.panel2.AutoSize = true;
             this.panel2.Controls.Add(this.MaxRadioBtn);
             this.panel2.Controls.Add(this.MinRadioBtn);
-            this.panel2.Location = new System.Drawing.Point(423, 140);
+            this.panel2.Location = new System.Drawing.Point(620, 140);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(160, 87);
             this.panel2.TabIndex = 102;
@@ -401,7 +402,7 @@
             this.ObjectiveTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ObjectiveTextBox.Location = new System.Drawing.Point(3, 79);
             this.ObjectiveTextBox.Name = "ObjectiveTextBox";
-            this.ObjectiveTextBox.Size = new System.Drawing.Size(1006, 26);
+            this.ObjectiveTextBox.Size = new System.Drawing.Size(1399, 26);
             this.ObjectiveTextBox.TabIndex = 101;
             this.ObjectiveTextBox.Text = "100 * Pow((Pow(x1, 2) - x2), 2) + Pow(1 - x2, 2)";
             this.ObjectiveTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -418,10 +419,10 @@
             this.variablesTab.Controls.Add(this.x1MinTextBox);
             this.variablesTab.Controls.Add(this.x1MaxTextBox);
             this.variablesTab.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold);
-            this.variablesTab.Location = new System.Drawing.Point(4, 22);
+            this.variablesTab.Location = new System.Drawing.Point(4, 26);
             this.variablesTab.Name = "variablesTab";
             this.variablesTab.Padding = new System.Windows.Forms.Padding(3);
-            this.variablesTab.Size = new System.Drawing.Size(1023, 542);
+            this.variablesTab.Size = new System.Drawing.Size(1416, 667);
             this.variablesTab.TabIndex = 1;
             this.variablesTab.Text = "Decision Variables";
             this.variablesTab.UseVisualStyleBackColor = true;
@@ -431,9 +432,9 @@
             // 
             this.x2MaxTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.x2MaxTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.x2MaxTextBox.Location = new System.Drawing.Point(567, 150);
+            this.x2MaxTextBox.Location = new System.Drawing.Point(888, 150);
             this.x2MaxTextBox.Name = "x2MaxTextBox";
-            this.x2MaxTextBox.Size = new System.Drawing.Size(250, 22);
+            this.x2MaxTextBox.Size = new System.Drawing.Size(400, 22);
             this.x2MaxTextBox.TabIndex = 122;
             this.x2MaxTextBox.Text = "2.048";
             this.x2MaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -443,7 +444,7 @@
             this.x2MinTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.x2MinTextBox.Location = new System.Drawing.Point(222, 150);
             this.x2MinTextBox.Name = "x2MinTextBox";
-            this.x2MinTextBox.Size = new System.Drawing.Size(250, 22);
+            this.x2MinTextBox.Size = new System.Drawing.Size(400, 22);
             this.x2MinTextBox.TabIndex = 121;
             this.x2MinTextBox.Text = "-2.048";
             this.x2MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -453,7 +454,7 @@
             this.x1MinTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.x1MinTextBox.Location = new System.Drawing.Point(222, 100);
             this.x1MinTextBox.Name = "x1MinTextBox";
-            this.x1MinTextBox.Size = new System.Drawing.Size(250, 22);
+            this.x1MinTextBox.Size = new System.Drawing.Size(400, 22);
             this.x1MinTextBox.TabIndex = 117;
             this.x1MinTextBox.Tag = "";
             this.x1MinTextBox.Text = "-2.048";
@@ -463,9 +464,9 @@
             // 
             this.x1MaxTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.x1MaxTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.x1MaxTextBox.Location = new System.Drawing.Point(567, 100);
+            this.x1MaxTextBox.Location = new System.Drawing.Point(888, 100);
             this.x1MaxTextBox.Name = "x1MaxTextBox";
-            this.x1MaxTextBox.Size = new System.Drawing.Size(250, 22);
+            this.x1MaxTextBox.Size = new System.Drawing.Size(400, 22);
             this.x1MaxTextBox.TabIndex = 116;
             this.x1MaxTextBox.Tag = "";
             this.x1MaxTextBox.Text = "2.048";
@@ -495,9 +496,9 @@
             this.algorithmTab.Controls.Add(this.NILabel);
             this.algorithmTab.Controls.Add(this.NITextBox);
             this.algorithmTab.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold);
-            this.algorithmTab.Location = new System.Drawing.Point(4, 22);
+            this.algorithmTab.Location = new System.Drawing.Point(4, 26);
             this.algorithmTab.Name = "algorithmTab";
-            this.algorithmTab.Size = new System.Drawing.Size(1023, 542);
+            this.algorithmTab.Size = new System.Drawing.Size(1416, 667);
             this.algorithmTab.TabIndex = 2;
             this.algorithmTab.Text = "Algorithm Settings";
             this.algorithmTab.UseVisualStyleBackColor = true;
@@ -506,20 +507,20 @@
             // 
             this.ParametersLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.ParametersLabel.AutoSize = true;
-            this.ParametersLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ParametersLabel.Location = new System.Drawing.Point(290, 294);
+            this.ParametersLabel.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ParametersLabel.Location = new System.Drawing.Point(460, 307);
             this.ParametersLabel.Name = "ParametersLabel";
-            this.ParametersLabel.Size = new System.Drawing.Size(418, 18);
+            this.ParametersLabel.Size = new System.Drawing.Size(530, 23);
             this.ParametersLabel.TabIndex = 115;
-            this.ParametersLabel.Text = "Parameters of the Classic Harmony Search:";
+            this.ParametersLabel.Text = "Parameters of the Classic Harmony Search";
             // 
             // PARTextBox
             // 
             this.PARTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.PARTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.PARTextBox.Location = new System.Drawing.Point(338, 368);
+            this.PARTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.PARTextBox.Location = new System.Drawing.Point(557, 376);
             this.PARTextBox.Name = "PARTextBox";
-            this.PARTextBox.Size = new System.Drawing.Size(80, 26);
+            this.PARTextBox.Size = new System.Drawing.Size(80, 29);
             this.PARTextBox.TabIndex = 114;
             this.PARTextBox.Tag = "";
             this.PARTextBox.Text = "0.20";
@@ -528,10 +529,10 @@
             // HMCRTextBox
             // 
             this.HMCRTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HMCRTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.HMCRTextBox.Location = new System.Drawing.Point(606, 329);
+            this.HMCRTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HMCRTextBox.Location = new System.Drawing.Point(916, 343);
             this.HMCRTextBox.Name = "HMCRTextBox";
-            this.HMCRTextBox.Size = new System.Drawing.Size(80, 26);
+            this.HMCRTextBox.Size = new System.Drawing.Size(80, 29);
             this.HMCRTextBox.TabIndex = 113;
             this.HMCRTextBox.Tag = "";
             this.HMCRTextBox.Text = "0.70";
@@ -540,10 +541,10 @@
             // BWMinTextBox
             // 
             this.BWMinTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BWMinTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.BWMinTextBox.Location = new System.Drawing.Point(606, 400);
+            this.BWMinTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.BWMinTextBox.Location = new System.Drawing.Point(916, 411);
             this.BWMinTextBox.Name = "BWMinTextBox";
-            this.BWMinTextBox.Size = new System.Drawing.Size(80, 26);
+            this.BWMinTextBox.Size = new System.Drawing.Size(80, 29);
             this.BWMinTextBox.TabIndex = 112;
             this.BWMinTextBox.Tag = "";
             this.BWMinTextBox.Text = "0.08";
@@ -553,10 +554,10 @@
             // BWMaxTextBox
             // 
             this.BWMaxTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BWMaxTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.BWMaxTextBox.Location = new System.Drawing.Point(606, 433);
+            this.BWMaxTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.BWMaxTextBox.Location = new System.Drawing.Point(916, 446);
             this.BWMaxTextBox.Name = "BWMaxTextBox";
-            this.BWMaxTextBox.Size = new System.Drawing.Size(80, 26);
+            this.BWMaxTextBox.Size = new System.Drawing.Size(80, 29);
             this.BWMaxTextBox.TabIndex = 111;
             this.BWMaxTextBox.Tag = "";
             this.BWMaxTextBox.Text = "0.5";
@@ -566,10 +567,10 @@
             // PARMaxTextBox
             // 
             this.PARMaxTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.PARMaxTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.PARMaxTextBox.Location = new System.Drawing.Point(368, 434);
+            this.PARMaxTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.PARMaxTextBox.Location = new System.Drawing.Point(557, 446);
             this.PARMaxTextBox.Name = "PARMaxTextBox";
-            this.PARMaxTextBox.Size = new System.Drawing.Size(80, 26);
+            this.PARMaxTextBox.Size = new System.Drawing.Size(80, 29);
             this.PARMaxTextBox.TabIndex = 110;
             this.PARMaxTextBox.Tag = "";
             this.PARMaxTextBox.Text = "0.25";
@@ -579,10 +580,10 @@
             // PARMinTextBox
             // 
             this.PARMinTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.PARMinTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.PARMinTextBox.Location = new System.Drawing.Point(366, 402);
+            this.PARMinTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.PARMinTextBox.Location = new System.Drawing.Point(557, 411);
             this.PARMinTextBox.Name = "PARMinTextBox";
-            this.PARMinTextBox.Size = new System.Drawing.Size(80, 26);
+            this.PARMinTextBox.Size = new System.Drawing.Size(80, 29);
             this.PARMinTextBox.TabIndex = 109;
             this.PARMinTextBox.Tag = "";
             this.PARMinTextBox.Text = "0.15";
@@ -592,10 +593,10 @@
             // BWTextBox
             // 
             this.BWTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BWTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.BWTextBox.Location = new System.Drawing.Point(606, 368);
+            this.BWTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.BWTextBox.Location = new System.Drawing.Point(916, 376);
             this.BWTextBox.Name = "BWTextBox";
-            this.BWTextBox.Size = new System.Drawing.Size(80, 26);
+            this.BWTextBox.Size = new System.Drawing.Size(80, 29);
             this.BWTextBox.TabIndex = 101;
             this.BWTextBox.Tag = "";
             this.BWTextBox.Text = "0.1";
@@ -608,18 +609,18 @@
             this.panel1.Controls.Add(this.AdaptiveRadioButton);
             this.panel1.Controls.Add(this.GlobalRadioButton);
             this.panel1.Controls.Add(this.ClassicRadioButton);
-            this.panel1.Location = new System.Drawing.Point(331, 111);
+            this.panel1.Location = new System.Drawing.Point(557, 99);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(315, 119);
+            this.panel1.Size = new System.Drawing.Size(342, 119);
             this.panel1.TabIndex = 100;
             // 
             // ImprovedRadioButton
             // 
             this.ImprovedRadioButton.AutoSize = true;
-            this.ImprovedRadioButton.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ImprovedRadioButton.Location = new System.Drawing.Point(3, 33);
+            this.ImprovedRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ImprovedRadioButton.Location = new System.Drawing.Point(3, 34);
             this.ImprovedRadioButton.Name = "ImprovedRadioButton";
-            this.ImprovedRadioButton.Size = new System.Drawing.Size(256, 22);
+            this.ImprovedRadioButton.Size = new System.Drawing.Size(281, 25);
             this.ImprovedRadioButton.TabIndex = 93;
             this.ImprovedRadioButton.Tag = "ImprovedHS";
             this.ImprovedRadioButton.Text = "Improved Harmony Search";
@@ -629,10 +630,10 @@
             // AdaptiveRadioButton
             // 
             this.AdaptiveRadioButton.AutoSize = true;
-            this.AdaptiveRadioButton.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.AdaptiveRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.AdaptiveRadioButton.Location = new System.Drawing.Point(3, 89);
             this.AdaptiveRadioButton.Name = "AdaptiveRadioButton";
-            this.AdaptiveRadioButton.Size = new System.Drawing.Size(306, 22);
+            this.AdaptiveRadioButton.Size = new System.Drawing.Size(336, 25);
             this.AdaptiveRadioButton.TabIndex = 95;
             this.AdaptiveRadioButton.Tag = "SelfAdaptiveHS";
             this.AdaptiveRadioButton.Text = "Self Adaptive Harmony Search";
@@ -642,10 +643,10 @@
             // GlobalRadioButton
             // 
             this.GlobalRadioButton.AutoSize = true;
-            this.GlobalRadioButton.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.GlobalRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.GlobalRadioButton.Location = new System.Drawing.Point(3, 61);
             this.GlobalRadioButton.Name = "GlobalRadioButton";
-            this.GlobalRadioButton.Size = new System.Drawing.Size(286, 22);
+            this.GlobalRadioButton.Size = new System.Drawing.Size(314, 25);
             this.GlobalRadioButton.TabIndex = 94;
             this.GlobalRadioButton.Tag = "GlobalBestHS";
             this.GlobalRadioButton.Text = "Global Best Harmony Search";
@@ -656,10 +657,10 @@
             // 
             this.ClassicRadioButton.AutoSize = true;
             this.ClassicRadioButton.Checked = true;
-            this.ClassicRadioButton.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ClassicRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ClassicRadioButton.Location = new System.Drawing.Point(3, 3);
             this.ClassicRadioButton.Name = "ClassicRadioButton";
-            this.ClassicRadioButton.Size = new System.Drawing.Size(246, 22);
+            this.ClassicRadioButton.Size = new System.Drawing.Size(270, 25);
             this.ClassicRadioButton.TabIndex = 92;
             this.ClassicRadioButton.TabStop = true;
             this.ClassicRadioButton.Tag = "ClassicHS";
@@ -671,20 +672,20 @@
             // 
             this.HSVariantsLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.HSVariantsLabel.AutoSize = true;
-            this.HSVariantsLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.HSVariantsLabel.Location = new System.Drawing.Point(352, 78);
+            this.HSVariantsLabel.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HSVariantsLabel.Location = new System.Drawing.Point(553, 73);
             this.HSVariantsLabel.Name = "HSVariantsLabel";
-            this.HSVariantsLabel.Size = new System.Drawing.Size(248, 18);
+            this.HSVariantsLabel.Size = new System.Drawing.Size(309, 23);
             this.HSVariantsLabel.TabIndex = 99;
-            this.HSVariantsLabel.Text = "Harmony Search Variants:";
+            this.HSVariantsLabel.Text = "Harmony Search Variants";
             // 
             // HMSTextBox
             // 
             this.HMSTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HMSTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.HMSTextBox.Location = new System.Drawing.Point(472, 329);
+            this.HMSTextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.HMSTextBox.Location = new System.Drawing.Point(738, 343);
             this.HMSTextBox.Name = "HMSTextBox";
-            this.HMSTextBox.Size = new System.Drawing.Size(60, 26);
+            this.HMSTextBox.Size = new System.Drawing.Size(60, 29);
             this.HMSTextBox.TabIndex = 24;
             this.HMSTextBox.Tag = "";
             this.HMSTextBox.Text = "20";
@@ -693,10 +694,10 @@
             // NITextBox
             // 
             this.NITextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.NITextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.NITextBox.Location = new System.Drawing.Point(336, 329);
+            this.NITextBox.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.NITextBox.Location = new System.Drawing.Point(557, 343);
             this.NITextBox.Name = "NITextBox";
-            this.NITextBox.Size = new System.Drawing.Size(80, 26);
+            this.NITextBox.Size = new System.Drawing.Size(80, 29);
             this.NITextBox.TabIndex = 22;
             this.NITextBox.Text = "500";
             this.NITextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -707,7 +708,7 @@
             this.playButton.BackColor = System.Drawing.Color.Transparent;
             this.playButton.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
-            this.playButton.Location = new System.Drawing.Point(421, 609);
+            this.playButton.Location = new System.Drawing.Point(618, 746);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(160, 48);
             this.playButton.TabIndex = 28;
@@ -718,10 +719,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 669);
+            this.ClientSize = new System.Drawing.Size(1401, 806);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.HarmonySearchLabel);
             this.Controls.Add(this.playButton);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ConfigurationForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "";

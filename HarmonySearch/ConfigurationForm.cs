@@ -11,10 +11,10 @@ namespace HarmonySearch
 {
     public partial class ConfigurationForm : Form
     {
-        ClassicSearch classicHS;
-        ImprovedSearch improvedHS;
-        GlobalBestSearch globalHS;
-        SelfAdaptiveSearch adaptiveHS;
+        private ClassicSearch classicHS;
+        private ImprovedSearch improvedHS;
+        private GlobalBestSearch globalHS;
+        private SelfAdaptiveSearch adaptiveHS;
 
         private int totalNotesControls = 2;
 
@@ -33,9 +33,10 @@ namespace HarmonySearch
             graphs.globalHS = globalHS;
             graphs.adaptiveHS = adaptiveHS;
             graphs.ShowAll = showAllCheckBox.Checked;
-            graphs.Show();
+            graphs.Configuration = this;
 
             this.Hide();
+            graphs.Show();
         }
 
         private void setHarmonySearch()
@@ -122,6 +123,7 @@ namespace HarmonySearch
                         TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
                         adaptiveHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
                     }
+                    adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
                     adaptiveHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
                     adaptiveHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
                 }
@@ -296,6 +298,14 @@ namespace HarmonySearch
             var si = new ProcessStartInfo(url);
             Process.Start(si);
             linkLabel1.LinkVisited = true;
+        }
+
+        public void initializeComponents()
+        {
+            classicHS = null;
+            improvedHS = null;
+            globalHS = null;
+            adaptiveHS = null;
         }
     }
 }

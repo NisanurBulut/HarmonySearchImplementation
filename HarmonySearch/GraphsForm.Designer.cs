@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphsForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BestHarmonyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button1 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,13 +62,13 @@
             // 
             // BestHarmonyChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.BestHarmonyChart.ChartAreas.Add(chartArea1);
+            chartArea7.Name = "ChartArea1";
+            this.BestHarmonyChart.ChartAreas.Add(chartArea7);
             this.BestHarmonyChart.Location = new System.Drawing.Point(15, 94);
             this.BestHarmonyChart.Name = "BestHarmonyChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.BestHarmonyChart.Series.Add(series1);
+            series7.ChartArea = "ChartArea1";
+            series7.Name = "Series1";
+            this.BestHarmonyChart.Series.Add(series7);
             this.BestHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.BestHarmonyChart.TabIndex = 5;
             this.BestHarmonyChart.Text = "chart1";
@@ -116,10 +116,13 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.numericsTab);
             this.tabControl1.Controls.Add(this.aestheticsTab);
             this.tabControl1.Controls.Add(this.notesTab);
+            this.tabControl1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.tabControl1.Location = new System.Drawing.Point(-5, 120);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -132,10 +135,10 @@
             this.numericsTab.Controls.Add(this.button2);
             this.numericsTab.Controls.Add(this.richTextBox1);
             this.numericsTab.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.numericsTab.Location = new System.Drawing.Point(4, 22);
+            this.numericsTab.Location = new System.Drawing.Point(4, 27);
             this.numericsTab.Name = "numericsTab";
             this.numericsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.numericsTab.Size = new System.Drawing.Size(1399, 610);
+            this.numericsTab.Size = new System.Drawing.Size(1399, 605);
             this.numericsTab.TabIndex = 0;
             this.numericsTab.Text = "Numeric Results";
             this.numericsTab.UseVisualStyleBackColor = true;
@@ -176,10 +179,10 @@
             this.aestheticsTab.Controls.Add(this.WorstHarmonyChart);
             this.aestheticsTab.Controls.Add(this.NewHarmonyChart);
             this.aestheticsTab.Controls.Add(this.BestHarmonyChart);
-            this.aestheticsTab.Location = new System.Drawing.Point(4, 22);
+            this.aestheticsTab.Location = new System.Drawing.Point(4, 27);
             this.aestheticsTab.Name = "aestheticsTab";
             this.aestheticsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.aestheticsTab.Size = new System.Drawing.Size(1399, 610);
+            this.aestheticsTab.Size = new System.Drawing.Size(1399, 605);
             this.aestheticsTab.TabIndex = 1;
             this.aestheticsTab.Text = "Aesthetics Charts";
             this.aestheticsTab.UseVisualStyleBackColor = true;
@@ -216,26 +219,26 @@
             // 
             // WorstHarmonyChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.WorstHarmonyChart.ChartAreas.Add(chartArea2);
+            chartArea8.Name = "ChartArea1";
+            this.WorstHarmonyChart.ChartAreas.Add(chartArea8);
             this.WorstHarmonyChart.Location = new System.Drawing.Point(963, 94);
             this.WorstHarmonyChart.Name = "WorstHarmonyChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Name = "Series1";
-            this.WorstHarmonyChart.Series.Add(series2);
+            series8.ChartArea = "ChartArea1";
+            series8.Name = "Series1";
+            this.WorstHarmonyChart.Series.Add(series8);
             this.WorstHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.WorstHarmonyChart.TabIndex = 7;
             this.WorstHarmonyChart.Text = "chart2";
             // 
             // NewHarmonyChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.NewHarmonyChart.ChartAreas.Add(chartArea3);
+            chartArea9.Name = "ChartArea1";
+            this.NewHarmonyChart.ChartAreas.Add(chartArea9);
             this.NewHarmonyChart.Location = new System.Drawing.Point(492, 94);
             this.NewHarmonyChart.Name = "NewHarmonyChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Name = "Series1";
-            this.NewHarmonyChart.Series.Add(series3);
+            series9.ChartArea = "ChartArea1";
+            series9.Name = "Series1";
+            this.NewHarmonyChart.Series.Add(series9);
             this.NewHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.NewHarmonyChart.TabIndex = 6;
             this.NewHarmonyChart.Text = "chart1";
@@ -243,9 +246,9 @@
             // notesTab
             // 
             this.notesTab.AutoScroll = true;
-            this.notesTab.Location = new System.Drawing.Point(4, 22);
+            this.notesTab.Location = new System.Drawing.Point(4, 27);
             this.notesTab.Name = "notesTab";
-            this.notesTab.Size = new System.Drawing.Size(1399, 610);
+            this.notesTab.Size = new System.Drawing.Size(1399, 605);
             this.notesTab.TabIndex = 2;
             this.notesTab.Text = "Notes Charts";
             this.notesTab.UseVisualStyleBackColor = true;
@@ -260,6 +263,7 @@
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GraphsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Harmony Search";

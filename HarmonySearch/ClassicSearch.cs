@@ -44,7 +44,7 @@ namespace HarmonySearch
 
         public void initializeMemory()
         {
-            Results = "";
+            Results = new StringBuilder();
             //defaultPAR = PAR;
             //diversityIteration = 50;
             //diversityAdjustments = 0;
@@ -52,10 +52,10 @@ namespace HarmonySearch
             base.newHarmoniesAesthetics = new double[NI];
             base.worstHarmoniesAesthetics = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
-            base.Memory = new List<Harmony>();
+            base.Memory = new Harmony[HMSize];
             for (int i = 0; i < HMSize; i++)
             {
-                Memory.Add(getRandomHarmony());
+                Memory[i] = getRandomHarmony();
             }
             sortMemory();
         }
