@@ -38,7 +38,7 @@ namespace HarmonySearch
             this.Enabled = true;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void RerunButton_Click(object sender, EventArgs e)
         {
             SearchProgress.Show();
             this.Enabled = false;
@@ -323,12 +323,17 @@ namespace HarmonySearch
         {
             richTextBox1.Text += "\n\n\n AVERAGE: ";
             double sum = 0;
+            double sumPowered = 0;
             for (int i = 0; i < results.Count; i++)
             {
                 sum += results[i];
+                sumPowered += Math.Pow(results[i], 2);
             }
             double avg = sum / results.Count;
+            double standardDeviation = Math.Round(Math.Sqrt(sumPowered / results.Count), 6);
+
             richTextBox1.Text += Math.Round(avg, 6);
+            richTextBox1.Text += "\tStandard Deviation: " + sumPowered / results.Count + "\n\n";
         }
 
         private void GraphsForm_FormClosed(object sender, FormClosedEventArgs e)

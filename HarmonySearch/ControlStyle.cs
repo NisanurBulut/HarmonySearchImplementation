@@ -35,6 +35,11 @@ namespace HarmonySearch
             Left, Centered
         }
 
+        public static void MessageBoxStyle(String message)
+        {
+            MessageBox.Show(message, "Harmony Search Lab", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
         public static void TextBoxStyle(TextBox textBox, int number)
         {
             textBox.Size = new Size(400, 22);
@@ -55,7 +60,7 @@ namespace HarmonySearch
         public static void ConfigurationLabelStyle(Label label, int number)
         {
             label.Text = "X" + number;
-            label.Size = new Size(35, 20);
+            label.Size = new Size(40, 20);
             label.ForeColor = Color.Black;
             label.Font = new Font("Courier New", 12, FontStyle.Bold);
             label.Visible = true;
@@ -66,7 +71,7 @@ namespace HarmonySearch
         {
             label.Name = "x" + number + "Label";
             label.Text = "X" + number;
-            label.Size = new Size(35, 20);
+            label.Size = new Size(40, 20);
             label.ForeColor = Color.Black;
             label.Font = new Font("Courier New", 12, FontStyle.Bold);
             label.Visible = true;

@@ -117,6 +117,10 @@ namespace HarmonySearch
         {
             if (minValueText == null || maxValueText == null || minValueText == "" || maxValueText == "")
                 return false;
+            if (minValueText.Equals("*"))
+                return true;
+            if (maxValueText.Equals("*"))
+                return true;
             double minValue = 0.0;
             if (!double.TryParse(minValueText, NumberStyles.Any, CultureInfo.InvariantCulture, out minValue))
                 return false;

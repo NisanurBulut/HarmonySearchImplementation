@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphsForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BestHarmonyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.button1 = new System.Windows.Forms.Button();
+            this.RerunButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.BackButton = new System.Windows.Forms.Button();
             this.SearchProgress = new System.Windows.Forms.ProgressBar();
@@ -62,26 +62,26 @@
             // 
             // BestHarmonyChart
             // 
-            chartArea7.Name = "ChartArea1";
-            this.BestHarmonyChart.ChartAreas.Add(chartArea7);
+            chartArea1.Name = "ChartArea1";
+            this.BestHarmonyChart.ChartAreas.Add(chartArea1);
             this.BestHarmonyChart.Location = new System.Drawing.Point(15, 94);
             this.BestHarmonyChart.Name = "BestHarmonyChart";
-            series7.ChartArea = "ChartArea1";
-            series7.Name = "Series1";
-            this.BestHarmonyChart.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.BestHarmonyChart.Series.Add(series1);
             this.BestHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.BestHarmonyChart.TabIndex = 5;
             this.BestHarmonyChart.Text = "chart1";
             // 
-            // button1
+            // RerunButton
             // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(87, 43);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 61);
-            this.button1.TabIndex = 6;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.RerunButton.Image = ((System.Drawing.Image)(resources.GetObject("RerunButton.Image")));
+            this.RerunButton.Location = new System.Drawing.Point(87, 43);
+            this.RerunButton.Name = "RerunButton";
+            this.RerunButton.Size = new System.Drawing.Size(58, 61);
+            this.RerunButton.TabIndex = 6;
+            this.RerunButton.UseVisualStyleBackColor = true;
+            this.RerunButton.Click += new System.EventHandler(this.RerunButton_Click);
             // 
             // label10
             // 
@@ -131,6 +131,7 @@
             // 
             // numericsTab
             // 
+            this.numericsTab.AutoScroll = true;
             this.numericsTab.Controls.Add(this.label4);
             this.numericsTab.Controls.Add(this.button2);
             this.numericsTab.Controls.Add(this.richTextBox1);
@@ -219,26 +220,26 @@
             // 
             // WorstHarmonyChart
             // 
-            chartArea8.Name = "ChartArea1";
-            this.WorstHarmonyChart.ChartAreas.Add(chartArea8);
+            chartArea2.Name = "ChartArea1";
+            this.WorstHarmonyChart.ChartAreas.Add(chartArea2);
             this.WorstHarmonyChart.Location = new System.Drawing.Point(963, 94);
             this.WorstHarmonyChart.Name = "WorstHarmonyChart";
-            series8.ChartArea = "ChartArea1";
-            series8.Name = "Series1";
-            this.WorstHarmonyChart.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.WorstHarmonyChart.Series.Add(series2);
             this.WorstHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.WorstHarmonyChart.TabIndex = 7;
             this.WorstHarmonyChart.Text = "chart2";
             // 
             // NewHarmonyChart
             // 
-            chartArea9.Name = "ChartArea1";
-            this.NewHarmonyChart.ChartAreas.Add(chartArea9);
+            chartArea3.Name = "ChartArea1";
+            this.NewHarmonyChart.ChartAreas.Add(chartArea3);
             this.NewHarmonyChart.Location = new System.Drawing.Point(492, 94);
             this.NewHarmonyChart.Name = "NewHarmonyChart";
-            series9.ChartArea = "ChartArea1";
-            series9.Name = "Series1";
-            this.NewHarmonyChart.Series.Add(series9);
+            series3.ChartArea = "ChartArea1";
+            series3.Name = "Series1";
+            this.NewHarmonyChart.Series.Add(series3);
             this.NewHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.NewHarmonyChart.TabIndex = 6;
             this.NewHarmonyChart.Text = "chart1";
@@ -262,7 +263,7 @@
             this.Controls.Add(this.SearchProgress);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.RerunButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GraphsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -285,7 +286,7 @@
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart BestHarmonyChart;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button RerunButton;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.ProgressBar SearchProgress;

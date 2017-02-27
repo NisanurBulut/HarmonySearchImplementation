@@ -25,8 +25,17 @@ namespace HarmonySearch
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            setHarmonySearch();
-            
+            Expression objective = new Expression(ObjectiveRichTextBox.Text);
+            if(objective.HasErrors())
+            {
+                ControlStyle.MessageBoxStyle("The objective function is not valid. Please try again.\n\n" + objective.Error);
+                return;
+            }
+            if (isInputOk())
+                setHarmonySearch(objective);
+            else
+                return;
+
             GraphsForm graphs = new GraphsForm();
             graphs.classicHS = classicHS;
             graphs.improvedHS = improvedHS;
@@ -39,22 +48,27 @@ namespace HarmonySearch
             graphs.Show();
         }
 
-        private void setHarmonySearch()
+        private void setHarmonySearch(Expression objective)
         {
             if (isInputOk())
             {
                 if(ClassicRadioButton.Checked == true)
                 {
                     classicHS = ClassicSearch.Instance;
-                    classicHS.Objective = new Expression(ObjectiveTextBox.Text);
-                    classicHS.Maximize = MaxRadioBtn.Checked;
+                    classicHS.Objective = objective;
+                    if (MaxRadioBtn.Checked)
+                        classicHS.Optimum = OptimizationGoal.Max;
+                    if (MinRadioBtn.Checked)
+                        classicHS.Optimum = OptimizationGoal.Min;
+                    if (MinAbsRadioBtn.Checked)
+                        classicHS.Optimum = OptimizationGoal.MinAbs;
                     classicHS.NI = Convert.ToInt32(NITextBox.Text);
                     classicHS.TotalNotes = countDecisionVariables();
                     classicHS.MinimumValues = new double[classicHS.TotalNotes];
                     classicHS.MaximumValues = new double[classicHS.TotalNotes];
                     for(int i = 0; i < classicHS.TotalNotes; i++)
                     {
-                        TextBox minTextBox = (TextBox) this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
+                        TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
                         classicHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
                         TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
                         classicHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
@@ -67,8 +81,13 @@ namespace HarmonySearch
                 if (ImprovedRadioButton.Checked == true)
                 {
                     improvedHS = ImprovedSearch.Instance;
-                    improvedHS.Objective = new Expression(ObjectiveTextBox.Text);
-                    improvedHS.Maximize = MaxRadioBtn.Checked;
+                    improvedHS.Objective = objective;
+                    if (MaxRadioBtn.Checked)
+                        improvedHS.Optimum = OptimizationGoal.Max;
+                    if (MinRadioBtn.Checked)
+                        improvedHS.Optimum = OptimizationGoal.Min;
+                    if (MinAbsRadioBtn.Checked)
+                        improvedHS.Optimum = OptimizationGoal.MinAbs;
                     improvedHS.NI = Convert.ToInt32(NITextBox.Text);
                     improvedHS.TotalNotes = countDecisionVariables();
                     improvedHS.MinimumValues = new double[improvedHS.TotalNotes];
@@ -90,8 +109,13 @@ namespace HarmonySearch
                 if (GlobalRadioButton.Checked == true)
                 {
                     globalHS = GlobalBestSearch.Instance;
-                    globalHS.Objective = new Expression(ObjectiveTextBox.Text);
-                    globalHS.Maximize = MaxRadioBtn.Checked;
+                    globalHS.Objective = objective;
+                    if (MaxRadioBtn.Checked)
+                        globalHS.Optimum = OptimizationGoal.Max;
+                    if (MinRadioBtn.Checked)
+                        globalHS.Optimum = OptimizationGoal.Min;
+                    if (MinAbsRadioBtn.Checked)
+                        globalHS.Optimum = OptimizationGoal.MinAbs;
                     globalHS.NI = Convert.ToInt32(NITextBox.Text);
                     globalHS.TotalNotes = countDecisionVariables();
                     globalHS.MinimumValues = new double[globalHS.TotalNotes];
@@ -110,8 +134,13 @@ namespace HarmonySearch
                 if (AdaptiveRadioButton.Checked == true)
                 {
                     adaptiveHS = SelfAdaptiveSearch.Instance;
-                    adaptiveHS.Objective = new Expression(ObjectiveTextBox.Text);
-                    adaptiveHS.Maximize = MaxRadioBtn.Checked;
+                    adaptiveHS.Objective = objective;
+                    if (MaxRadioBtn.Checked)
+                        adaptiveHS.Optimum = OptimizationGoal.Max;
+                    if (MinRadioBtn.Checked)
+                        adaptiveHS.Optimum = OptimizationGoal.Min;
+                    if (MinAbsRadioBtn.Checked)
+                        adaptiveHS.Optimum = OptimizationGoal.MinAbs;
                     adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
                     adaptiveHS.TotalNotes = countDecisionVariables();
                     adaptiveHS.MinimumValues = new double[adaptiveHS.TotalNotes];
@@ -228,7 +257,7 @@ namespace HarmonySearch
             int counter = 1;
             while(true)
             {
-                if (ObjectiveTextBox.Text.Contains("x" + counter))
+                if (ObjectiveRichTextBox.Text.Contains("x" + counter))
                     counter++;
                 else
                     return --counter;
@@ -306,6 +335,13 @@ namespace HarmonySearch
             improvedHS = null;
             globalHS = null;
             adaptiveHS = null;
+        }
+
+        private void ObjectiveRichTextBox_Leave(object sender, EventArgs e)
+        {
+            ObjectiveRichTextBox.SelectAll();
+            ObjectiveRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+            ObjectiveRichTextBox.DeselectAll();
         }
     }
 }

@@ -48,6 +48,7 @@ namespace HarmonySearch
             base.newHarmoniesAesthetics = new double[NI];
             base.worstHarmoniesAesthetics = new double[NI];
             base.bestHarmoniesNotes = new double[NI, TotalNotes];
+            Memory = null;
             Memory = new Harmony[HMSize];
             for (int i = 0; i < HMSize; i++)
                 Memory[i] = getRandomHarmony();

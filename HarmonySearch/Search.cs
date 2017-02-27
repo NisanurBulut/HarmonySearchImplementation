@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace HarmonySearch
 {
+    public enum OptimizationGoal
+    {
+        Max, Min, MinAbs
+    }
+
     public abstract class Search
     {
         public int NI { get; set; } //Number of Improvisations
@@ -26,7 +31,7 @@ namespace HarmonySearch
         protected Harmony[] Memory;
 
         public Expression Objective { get; set; }
-        public bool Maximize { get; set; }
+        public OptimizationGoal Optimum { get; set; }
 
         protected virtual Harmony getRandomHarmony()
         {
@@ -56,7 +61,7 @@ namespace HarmonySearch
             {
                 for (int j = i + 1; j < HMSize; j++)
                 {
-                    if (Maximize == true)
+                    if (Optimum.Equals(OptimizationGoal.Max))
                     {
                         if (getHarmonyAesthetics(Memory[i]) < getHarmonyAesthetics(Memory[j]))
                         {
@@ -65,7 +70,16 @@ namespace HarmonySearch
                             Memory[j] = tempHar;
                         }
                     }
-                    else
+                    if (Optimum.Equals(OptimizationGoal.Min))
+                    {
+                        if (getHarmonyAesthetics(Memory[i]) > getHarmonyAesthetics(Memory[j]))
+                        {
+                            tempHar = Memory[i];
+                            Memory[i] = Memory[j];
+                            Memory[j] = tempHar;
+                        }
+                    }
+                    if (Optimum.Equals(OptimizationGoal.MinAbs))
                     {
                         if (Math.Abs(getHarmonyAesthetics(Memory[i])) > Math.Abs(getHarmonyAesthetics(Memory[j])))
                         {
@@ -80,7 +94,7 @@ namespace HarmonySearch
 
         protected void updateMemory(Harmony newHar, int currentIteration)
         {
-            if(Maximize == true)
+            if (Optimum.Equals(OptimizationGoal.Max))
             {
                 if (getHarmonyAesthetics(newHar) > getHarmonyAesthetics(Memory[HMSize - 1]))
                 {
@@ -88,7 +102,15 @@ namespace HarmonySearch
                     sortMemory();
                 }
             }
-            else
+            if (Optimum.Equals(OptimizationGoal.Min))
+            {
+                if (getHarmonyAesthetics(newHar) < getHarmonyAesthetics(Memory[HMSize - 1]))
+                {
+                    Memory[HMSize - 1] = newHar;
+                    sortMemory();
+                }
+            }
+            if (Optimum.Equals(OptimizationGoal.MinAbs))
             {
                 if (Math.Abs(getHarmonyAesthetics(newHar)) < Math.Abs(getHarmonyAesthetics(Memory[HMSize - 1])))
                 {
