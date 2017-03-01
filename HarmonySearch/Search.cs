@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace HarmonySearch
 {
+    public enum HarmonySearchVariant
+    {
+        Classic, Improved, GlobalBest, SelfAdaptive 
+    }
+
     public enum OptimizationGoal
     {
         Max, Min, MinAbs
@@ -150,10 +155,10 @@ namespace HarmonySearch
                 //Results += Environment.NewLine;
             }
             Results.Append(Environment.NewLine);
-            //if (currentImprovisation == (NI - 1))
-            //{
-            //    saveResultsToFile();
-            //}
+            if (currentImprovisation == (NI - 1))
+            {
+                saveResultsToFile();
+            }
         }
 
         private void saveResultsToFile()

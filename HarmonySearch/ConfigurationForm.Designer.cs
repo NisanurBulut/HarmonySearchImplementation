@@ -54,6 +54,7 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.MinAbsRadioBtn = new System.Windows.Forms.RadioButton();
             this.MaxRadioBtn = new System.Windows.Forms.RadioButton();
             this.MinRadioBtn = new System.Windows.Forms.RadioButton();
             this.variablesTab = new System.Windows.Forms.TabPage();
@@ -79,7 +80,6 @@
             this.HMSTextBox = new System.Windows.Forms.TextBox();
             this.NITextBox = new System.Windows.Forms.TextBox();
             this.playButton = new System.Windows.Forms.Button();
-            this.MinAbsRadioBtn = new System.Windows.Forms.RadioButton();
             this.tabControl1.SuspendLayout();
             this.problemTab.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -326,6 +326,7 @@
             this.ObjectiveRichTextBox.Text = "-20 * Exp(-0.2 * Sqrt(0.5*(Pow(x1, 2) + Pow(x2, 2)))) - Exp(0.5 * (Cos(2 * 3.1415" +
     "93 * x1) + Cos(2 * 3.141593 * x2))) + 2.71828 + 20";
             this.ObjectiveRichTextBox.WordWrap = false;
+            this.ObjectiveRichTextBox.Enter += new System.EventHandler(this.ObjectiveRichTextBox_Enter);
             this.ObjectiveRichTextBox.Leave += new System.EventHandler(this.ObjectiveRichTextBox_Leave);
             // 
             // showAllCheckBox
@@ -389,6 +390,18 @@
             this.panel2.Size = new System.Drawing.Size(248, 101);
             this.panel2.TabIndex = 102;
             // 
+            // MinAbsRadioBtn
+            // 
+            this.MinAbsRadioBtn.AutoSize = true;
+            this.MinAbsRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MinAbsRadioBtn.Location = new System.Drawing.Point(19, 65);
+            this.MinAbsRadioBtn.Name = "MinAbsRadioBtn";
+            this.MinAbsRadioBtn.Size = new System.Drawing.Size(226, 25);
+            this.MinAbsRadioBtn.TabIndex = 121;
+            this.MinAbsRadioBtn.TabStop = true;
+            this.MinAbsRadioBtn.Text = "Minimize(absolute)";
+            this.MinAbsRadioBtn.UseVisualStyleBackColor = true;
+            // 
             // MaxRadioBtn
             // 
             this.MaxRadioBtn.AutoSize = true;
@@ -432,7 +445,6 @@
             this.variablesTab.TabIndex = 1;
             this.variablesTab.Text = "Decision Variables";
             this.variablesTab.UseVisualStyleBackColor = true;
-            this.variablesTab.Enter += new System.EventHandler(this.tabPage2_Enter);
             // 
             // x2MaxTextBox
             // 
@@ -721,18 +733,6 @@
             this.playButton.TabIndex = 28;
             this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.playButton_Click);
-            // 
-            // MinAbsRadioBtn
-            // 
-            this.MinAbsRadioBtn.AutoSize = true;
-            this.MinAbsRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MinAbsRadioBtn.Location = new System.Drawing.Point(19, 65);
-            this.MinAbsRadioBtn.Name = "MinAbsRadioBtn";
-            this.MinAbsRadioBtn.Size = new System.Drawing.Size(226, 25);
-            this.MinAbsRadioBtn.TabIndex = 121;
-            this.MinAbsRadioBtn.TabStop = true;
-            this.MinAbsRadioBtn.Text = "Minimize(absolute)";
-            this.MinAbsRadioBtn.UseVisualStyleBackColor = true;
             // 
             // ConfigurationForm
             // 

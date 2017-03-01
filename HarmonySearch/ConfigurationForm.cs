@@ -16,6 +16,9 @@ namespace HarmonySearch
         private GlobalBestSearch globalHS;
         private SelfAdaptiveSearch adaptiveHS;
 
+        private Expression objective;
+        private HarmonySearchVariant currentVariant;
+
         private int totalNotesControls = 2;
 
         public ConfigurationForm()
@@ -25,14 +28,8 @@ namespace HarmonySearch
 
         private void playButton_Click(object sender, EventArgs e)
         {
-            Expression objective = new Expression(ObjectiveRichTextBox.Text);
-            if(objective.HasErrors())
-            {
-                ControlStyle.MessageBoxStyle("The objective function is not valid. Please try again.\n\n" + objective.Error);
-                return;
-            }
             if (isInputOk())
-                setHarmonySearch(objective);
+                setHarmonySearch();
             else
                 return;
 
@@ -48,137 +45,186 @@ namespace HarmonySearch
             graphs.Show();
         }
 
-        private void setHarmonySearch(Expression objective)
+        private void setHarmonySearch()
         {
-            if (isInputOk())
+            if (currentVariant == HarmonySearchVariant.Classic)
             {
-                if(ClassicRadioButton.Checked == true)
+                classicHS = ClassicSearch.Instance;
+                classicHS.Objective = objective;
+                if (MaxRadioBtn.Checked)
+                    classicHS.Optimum = OptimizationGoal.Max;
+                if (MinRadioBtn.Checked)
+                    classicHS.Optimum = OptimizationGoal.Min;
+                if (MinAbsRadioBtn.Checked)
+                    classicHS.Optimum = OptimizationGoal.MinAbs;
+                classicHS.NI = Convert.ToInt32(NITextBox.Text);
+                classicHS.TotalNotes = countDecisionVariables();
+                classicHS.MinimumValues = new double[classicHS.TotalNotes];
+                classicHS.MaximumValues = new double[classicHS.TotalNotes];
+                for (int i = 0; i < classicHS.TotalNotes; i++)
                 {
-                    classicHS = ClassicSearch.Instance;
-                    classicHS.Objective = objective;
-                    if (MaxRadioBtn.Checked)
-                        classicHS.Optimum = OptimizationGoal.Max;
-                    if (MinRadioBtn.Checked)
-                        classicHS.Optimum = OptimizationGoal.Min;
-                    if (MinAbsRadioBtn.Checked)
-                        classicHS.Optimum = OptimizationGoal.MinAbs;
-                    classicHS.NI = Convert.ToInt32(NITextBox.Text);
-                    classicHS.TotalNotes = countDecisionVariables();
-                    classicHS.MinimumValues = new double[classicHS.TotalNotes];
-                    classicHS.MaximumValues = new double[classicHS.TotalNotes];
-                    for(int i = 0; i < classicHS.TotalNotes; i++)
-                    {
-                        TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
-                        classicHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
-                        TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
-                        classicHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
-                    }
-                    classicHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
-                    classicHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
-                    classicHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
-                    classicHS.BW = double.Parse(BWTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
+                    classicHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
+                    classicHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
                 }
-                if (ImprovedRadioButton.Checked == true)
+                classicHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                classicHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                classicHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+                classicHS.BW = double.Parse(BWTextBox.Text, CultureInfo.InvariantCulture);
+            }
+            if (currentVariant == HarmonySearchVariant.Improved)
+            {
+                improvedHS = ImprovedSearch.Instance;
+                improvedHS.Objective = objective;
+                if (MaxRadioBtn.Checked)
+                    improvedHS.Optimum = OptimizationGoal.Max;
+                if (MinRadioBtn.Checked)
+                    improvedHS.Optimum = OptimizationGoal.Min;
+                if (MinAbsRadioBtn.Checked)
+                    improvedHS.Optimum = OptimizationGoal.MinAbs;
+                improvedHS.NI = Convert.ToInt32(NITextBox.Text);
+                improvedHS.TotalNotes = countDecisionVariables();
+                improvedHS.MinimumValues = new double[improvedHS.TotalNotes];
+                improvedHS.MaximumValues = new double[improvedHS.TotalNotes];
+                for (int i = 0; i < improvedHS.TotalNotes; i++)
                 {
-                    improvedHS = ImprovedSearch.Instance;
-                    improvedHS.Objective = objective;
-                    if (MaxRadioBtn.Checked)
-                        improvedHS.Optimum = OptimizationGoal.Max;
-                    if (MinRadioBtn.Checked)
-                        improvedHS.Optimum = OptimizationGoal.Min;
-                    if (MinAbsRadioBtn.Checked)
-                        improvedHS.Optimum = OptimizationGoal.MinAbs;
-                    improvedHS.NI = Convert.ToInt32(NITextBox.Text);
-                    improvedHS.TotalNotes = countDecisionVariables();
-                    improvedHS.MinimumValues = new double[improvedHS.TotalNotes];
-                    improvedHS.MaximumValues = new double[improvedHS.TotalNotes];
-                    for (int i = 0; i < improvedHS.TotalNotes; i++)
-                    {
-                        TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
-                        improvedHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
-                        TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
-                        improvedHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
-                    }
-                    improvedHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
-                    improvedHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
-                    improvedHS.PARmin = float.Parse(PARMinTextBox.Text, CultureInfo.InvariantCulture);
-                    improvedHS.PARmax = float.Parse(PARMaxTextBox.Text, CultureInfo.InvariantCulture);
-                    improvedHS.BWmin = float.Parse(BWMinTextBox.Text, CultureInfo.InvariantCulture);
-                    improvedHS.BWmax = float.Parse(BWMaxTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
+                    improvedHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
+                    improvedHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
                 }
-                if (GlobalRadioButton.Checked == true)
+                improvedHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                improvedHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.PARmin = float.Parse(PARMinTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.PARmax = float.Parse(PARMaxTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.BWmin = float.Parse(BWMinTextBox.Text, CultureInfo.InvariantCulture);
+                improvedHS.BWmax = float.Parse(BWMaxTextBox.Text, CultureInfo.InvariantCulture);
+            }
+            if (currentVariant == HarmonySearchVariant.GlobalBest)
+            {
+                globalHS = GlobalBestSearch.Instance;
+                globalHS.Objective = objective;
+                if (MaxRadioBtn.Checked)
+                    globalHS.Optimum = OptimizationGoal.Max;
+                if (MinRadioBtn.Checked)
+                    globalHS.Optimum = OptimizationGoal.Min;
+                if (MinAbsRadioBtn.Checked)
+                    globalHS.Optimum = OptimizationGoal.MinAbs;
+                globalHS.NI = Convert.ToInt32(NITextBox.Text);
+                globalHS.TotalNotes = countDecisionVariables();
+                globalHS.MinimumValues = new double[globalHS.TotalNotes];
+                globalHS.MaximumValues = new double[globalHS.TotalNotes];
+                for (int i = 0; i < globalHS.TotalNotes; i++)
                 {
-                    globalHS = GlobalBestSearch.Instance;
-                    globalHS.Objective = objective;
-                    if (MaxRadioBtn.Checked)
-                        globalHS.Optimum = OptimizationGoal.Max;
-                    if (MinRadioBtn.Checked)
-                        globalHS.Optimum = OptimizationGoal.Min;
-                    if (MinAbsRadioBtn.Checked)
-                        globalHS.Optimum = OptimizationGoal.MinAbs;
-                    globalHS.NI = Convert.ToInt32(NITextBox.Text);
-                    globalHS.TotalNotes = countDecisionVariables();
-                    globalHS.MinimumValues = new double[globalHS.TotalNotes];
-                    globalHS.MaximumValues = new double[globalHS.TotalNotes];
-                    for (int i = 0; i < globalHS.TotalNotes; i++)
-                    {
-                        TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
-                        globalHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
-                        TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
-                        globalHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
-                    }
-                    globalHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
-                    globalHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
-                    globalHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
+                    globalHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
+                    globalHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
                 }
-                if (AdaptiveRadioButton.Checked == true)
+                globalHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                globalHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                globalHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+            }
+            if (currentVariant == HarmonySearchVariant.SelfAdaptive)
+            {
+                adaptiveHS = SelfAdaptiveSearch.Instance;
+                adaptiveHS.Objective = objective;
+                if (MaxRadioBtn.Checked)
+                    adaptiveHS.Optimum = OptimizationGoal.Max;
+                if (MinRadioBtn.Checked)
+                    adaptiveHS.Optimum = OptimizationGoal.Min;
+                if (MinAbsRadioBtn.Checked)
+                    adaptiveHS.Optimum = OptimizationGoal.MinAbs;
+                adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
+                adaptiveHS.TotalNotes = countDecisionVariables();
+                adaptiveHS.MinimumValues = new double[adaptiveHS.TotalNotes];
+                adaptiveHS.MaximumValues = new double[adaptiveHS.TotalNotes];
+                for (int i = 0; i < adaptiveHS.TotalNotes; i++)
                 {
-                    adaptiveHS = SelfAdaptiveSearch.Instance;
-                    adaptiveHS.Objective = objective;
-                    if (MaxRadioBtn.Checked)
-                        adaptiveHS.Optimum = OptimizationGoal.Max;
-                    if (MinRadioBtn.Checked)
-                        adaptiveHS.Optimum = OptimizationGoal.Min;
-                    if (MinAbsRadioBtn.Checked)
-                        adaptiveHS.Optimum = OptimizationGoal.MinAbs;
-                    adaptiveHS.NI = Convert.ToInt32(NITextBox.Text);
-                    adaptiveHS.TotalNotes = countDecisionVariables();
-                    adaptiveHS.MinimumValues = new double[adaptiveHS.TotalNotes];
-                    adaptiveHS.MaximumValues = new double[adaptiveHS.TotalNotes];
-                    for (int i = 0; i < adaptiveHS.TotalNotes; i++)
-                    {
-                        TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
-                        adaptiveHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
-                        TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
-                        adaptiveHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
-                    }
-                    adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
-                    adaptiveHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
-                    adaptiveHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
+                    adaptiveHS.MinimumValues[i] = double.Parse(minTextBox.Text, CultureInfo.InvariantCulture);
+                    TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
+                    adaptiveHS.MaximumValues[i] = double.Parse(maxTextBox.Text, CultureInfo.InvariantCulture);
                 }
+                adaptiveHS.HMSize = Convert.ToInt32(HMSTextBox.Text);
+                adaptiveHS.HMCR = float.Parse(HMCRTextBox.Text, CultureInfo.InvariantCulture);
+                adaptiveHS.PAR = float.Parse(PARTextBox.Text, CultureInfo.InvariantCulture);
             }
         }
 
         private Boolean isInputOk()
         {
+            if(ObjectiveRichTextBox.Text.Equals("") || ObjectiveRichTextBox.Text == null)
+            {
+                ControlStyle.MessageBoxStyle("The objective function is null or empty.");
+                return false;
+            }
+            objective = new Expression(ObjectiveRichTextBox.Text);
+            if (objective.HasErrors())
+            {
+                ControlStyle.MessageBoxStyle("The objective function is not valid. \n\n" + objective.Error);
+                return false;
+            }
+            if (objective == null)
+            {
+                ControlStyle.MessageBoxStyle("The objective function is not valid. Please try again.");
+                return false;
+            }
+            for (int i = 0; i < totalNotesControls; i++)
+            {
+                TextBox minTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MinTextBox", true)[0];
+                TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
+                if (!ConfigurationRules.areExtremeValuesValid(minTextBox.Text, maxTextBox.Text))
+                {
+                    ControlStyle.MessageBoxStyle("Decision variable " + "X" + (i + 1) + " bounds are not valid.");
+                    return false;
+                }
+            }
             if (!ConfigurationRules.isNIValid(NITextBox.Text))
+            {
+                ControlStyle.MessageBoxStyle("NI(Number of Improvisations) field is not valid. Please try again.");
                 return false;
+            }
             if (!ConfigurationRules.isHMSValid(HMSTextBox.Text))
+            {
+                ControlStyle.MessageBoxStyle("HMS(Harmony Memory Size) field is not valid. Please try again.");
                 return false;
+            }
             if (!ConfigurationRules.isHMCRValid(HMCRTextBox.Text))
+            {
+                ControlStyle.MessageBoxStyle("HMCR(Harmony Memory Consideration Rate) field is not valid. Please try again.");
                 return false;
-            if (!ConfigurationRules.isPARValid(PARTextBox.Text))
-                return false;
-            if (!ConfigurationRules.arePARExtremesValid(PARMinTextBox.Text, PARMaxTextBox.Text))
-                return false;
-            if (!ConfigurationRules.isBWValid(BWTextBox.Text))
-                return false;
-            if (!ConfigurationRules.isBWValid(BWMinTextBox.Text))
-                return false;
-            if (!ConfigurationRules.isBWValid(BWMaxTextBox.Text))
-                return false;
-            if (!ConfigurationRules.areExtremeValuesValid(x1MinTextBox.Text, x1MaxTextBox.Text))
-                return false;
+            }
+            if (!currentVariant.Equals(HarmonySearchVariant.Improved))
+            {
+                if (!ConfigurationRules.isPARValid(PARTextBox.Text))
+                {
+                    ControlStyle.MessageBoxStyle("PAR(Pitch Adjustment Rate) field is not valid.");
+                    return false;
+                }
+                if(currentVariant.Equals(HarmonySearchVariant.Classic))
+                {
+                    if (!ConfigurationRules.isBWValid(BWTextBox.Text))
+                    {
+                        ControlStyle.MessageBoxStyle("BW(Bandwidth) field is not valid.");
+                        return false;
+                    }
+                }
+            }
+            else
+            {
+                if (!ConfigurationRules.arePARExtremesValid(PARMinTextBox.Text, PARMaxTextBox.Text))
+                {
+                    ControlStyle.MessageBoxStyle("PAR(Pitch Adjustment Rate) bounds are not valid.");
+                    return false;
+                }
+                if (!ConfigurationRules.areΒWExtremesValid(BWMinTextBox.Text, BWMaxTextBox.Text))
+                {
+                    ControlStyle.MessageBoxStyle("BW(Bandwidth) bounds are not not valid.");
+                    return false;
+                }
+            }
 
             return true;
         }
@@ -201,6 +247,7 @@ namespace HarmonySearch
                 BWMaxLabel.Visible = false;
                 BWMinLabel.Visible = false;
                 ParametersLabel.Text = "Parameters of the Classic Harmony Search:";
+                currentVariant = HarmonySearchVariant.Classic;
             }
             if (senderRadioButton.Tag.Equals("ImprovedHS"))
             {
@@ -217,6 +264,7 @@ namespace HarmonySearch
                 BWMaxLabel.Visible = true;
                 BWMinLabel.Visible = true;
                 ParametersLabel.Text = "Parameters of the Improved Harmony Search:";
+                currentVariant = HarmonySearchVariant.Improved;
             }
             if (senderRadioButton.Tag.Equals("GlobalBestHS"))
             {
@@ -233,6 +281,7 @@ namespace HarmonySearch
                 BWMaxLabel.Visible = false;
                 BWMinLabel.Visible = false;
                 ParametersLabel.Text = "Parameters of the Global Best Harmony Search:";
+                currentVariant = HarmonySearchVariant.GlobalBest;
             }
             if (senderRadioButton.Tag.Equals("SelfAdaptiveHS"))
             {
@@ -249,6 +298,7 @@ namespace HarmonySearch
                 BWMaxLabel.Visible = false;
                 BWMinLabel.Visible = false;
                 ParametersLabel.Text = "Parameters of the Self Adaptive Harmony Search:";
+                currentVariant = HarmonySearchVariant.SelfAdaptive;
             }
         }
 
@@ -262,20 +312,6 @@ namespace HarmonySearch
                 else
                     return --counter;
             }
-        }
-
-        private void tabPage2_Enter(object sender, EventArgs e)
-        {
-            int totalNotes = countDecisionVariables();
-            if(totalNotes > totalNotesControls)
-            {
-                createNewTextbox(totalNotes);
-            }
-            else if(totalNotes < totalNotesControls)
-            {
-                deleteTextbox(totalNotes);
-            }
-            totalNotesControls = totalNotes;
         }
 
         private void createNewTextbox(int totalNotes)
@@ -300,7 +336,7 @@ namespace HarmonySearch
 
         private void deleteTextbox(int totalNotes)
         {
-            for(int i = totalNotesControls; i > totalNotes; i--)
+            for (int i = totalNotesControls; i > totalNotes; i--)
             {
                 variablesTab.Controls.RemoveByKey("x" + i + "MinTextBox");
                 variablesTab.Controls.RemoveByKey("x" + i + "MaxTextBox");
@@ -337,11 +373,25 @@ namespace HarmonySearch
             adaptiveHS = null;
         }
 
-        private void ObjectiveRichTextBox_Leave(object sender, EventArgs e)
+        private void ObjectiveRichTextBox_Enter(object sender, EventArgs e)
         {
             ObjectiveRichTextBox.SelectAll();
             ObjectiveRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
             ObjectiveRichTextBox.DeselectAll();
+        }
+
+        private void ObjectiveRichTextBox_Leave(object sender, EventArgs e)
+        {
+            int totalNotes = countDecisionVariables();
+            if (totalNotes > totalNotesControls)
+            {
+                createNewTextbox(totalNotes);
+            }
+            else if (totalNotes < totalNotesControls)
+            {
+                deleteTextbox(totalNotes);
+            }
+            totalNotesControls = totalNotes;
         }
     }
 }

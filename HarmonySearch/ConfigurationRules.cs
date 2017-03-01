@@ -113,14 +113,36 @@ namespace HarmonySearch
             return true;
         }
 
+        public static Boolean areΒWExtremesValid(String minBWText, String maxBWText)
+        {
+            if (minBWText == null || minBWText == "" || maxBWText == null || maxBWText == "")
+                return false;
+            float minBW = 0.0f;
+            if (!float.TryParse(minBWText, NumberStyles.Any, CultureInfo.InvariantCulture, out minBW))
+                return false;
+            if (minBW <= 0)
+                return false;
+            if (minBW >= 1)
+                return false;
+            float maxBW = 0.0f;
+            if (!float.TryParse(maxBWText, NumberStyles.Any, CultureInfo.InvariantCulture, out maxBW))
+                return false;
+            if (maxBW <= 0)
+                return false;
+            if (minBW >= maxBW)
+                return false;
+
+            return true;
+        }
+
         public static Boolean areExtremeValuesValid(String minValueText, String maxValueText)
         {
             if (minValueText == null || maxValueText == null || minValueText == "" || maxValueText == "")
                 return false;
-            if (minValueText.Equals("*"))
-                return true;
-            if (maxValueText.Equals("*"))
-                return true;
+            //if (minValueText.Equals("*"))
+            //    return true;
+            //if (maxValueText.Equals("*"))
+            //    return true;
             double minValue = 0.0;
             if (!double.TryParse(minValueText, NumberStyles.Any, CultureInfo.InvariantCulture, out minValue))
                 return false;
