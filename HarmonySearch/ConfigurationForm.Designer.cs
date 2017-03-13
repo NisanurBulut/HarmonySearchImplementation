@@ -323,7 +323,7 @@
             this.ObjectiveRichTextBox.Name = "ObjectiveRichTextBox";
             this.ObjectiveRichTextBox.Size = new System.Drawing.Size(1393, 70);
             this.ObjectiveRichTextBox.TabIndex = 120;
-            this.ObjectiveRichTextBox.Text = "1 + (Pow(x1, 2)/4000) + (Pow(x2, 2)/4000) - Cos(x1) * Cos(x2/Sqrt(2))";
+            this.ObjectiveRichTextBox.Text = "10*2 + Pow(x1, 2) - 10*Cos(2*3.14159*x1) + Pow(x2, 2) - 10*Cos(2*3.14159*x2)";
             this.ObjectiveRichTextBox.WordWrap = false;
             this.ObjectiveRichTextBox.Enter += new System.EventHandler(this.ObjectiveRichTextBox_Enter);
             this.ObjectiveRichTextBox.Leave += new System.EventHandler(this.ObjectiveRichTextBox_Leave);
@@ -332,6 +332,8 @@
             // 
             this.showAllCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.showAllCheckBox.AutoSize = true;
+            this.showAllCheckBox.Checked = true;
+            this.showAllCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showAllCheckBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.showAllCheckBox.Location = new System.Drawing.Point(571, 443);
             this.showAllCheckBox.Name = "showAllCheckBox";
@@ -453,7 +455,7 @@
             this.x2MaxTextBox.Name = "x2MaxTextBox";
             this.x2MaxTextBox.Size = new System.Drawing.Size(400, 22);
             this.x2MaxTextBox.TabIndex = 122;
-            this.x2MaxTextBox.Text = "600";
+            this.x2MaxTextBox.Text = "5.12";
             this.x2MaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // x2MinTextBox
@@ -463,7 +465,7 @@
             this.x2MinTextBox.Name = "x2MinTextBox";
             this.x2MinTextBox.Size = new System.Drawing.Size(400, 22);
             this.x2MinTextBox.TabIndex = 121;
-            this.x2MinTextBox.Text = "-600";
+            this.x2MinTextBox.Text = "-5.12";
             this.x2MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // x1MinTextBox
@@ -474,7 +476,7 @@
             this.x1MinTextBox.Size = new System.Drawing.Size(400, 22);
             this.x1MinTextBox.TabIndex = 117;
             this.x1MinTextBox.Tag = "";
-            this.x1MinTextBox.Text = "-600";
+            this.x1MinTextBox.Text = "-5.12";
             this.x1MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // x1MaxTextBox
@@ -486,7 +488,7 @@
             this.x1MaxTextBox.Size = new System.Drawing.Size(400, 22);
             this.x1MaxTextBox.TabIndex = 116;
             this.x1MaxTextBox.Tag = "";
-            this.x1MaxTextBox.Text = "600";
+            this.x1MaxTextBox.Text = "5.12";
             this.x1MaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // algorithmTab
