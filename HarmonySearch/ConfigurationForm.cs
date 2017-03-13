@@ -24,6 +24,9 @@ namespace HarmonySearch
         public ConfigurationForm()
         {
             InitializeComponent();
+            ObjectiveRichTextBox.SelectAll();
+            ObjectiveRichTextBox.SelectionAlignment = HorizontalAlignment.Center;
+            ObjectiveRichTextBox.DeselectAll();
         }
 
         private void playButton_Click(object sender, EventArgs e)

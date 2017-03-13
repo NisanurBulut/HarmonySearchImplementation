@@ -323,8 +323,7 @@
             this.ObjectiveRichTextBox.Name = "ObjectiveRichTextBox";
             this.ObjectiveRichTextBox.Size = new System.Drawing.Size(1393, 70);
             this.ObjectiveRichTextBox.TabIndex = 120;
-            this.ObjectiveRichTextBox.Text = "-20 * Exp(-0.2 * Sqrt(0.5*(Pow(x1, 2) + Pow(x2, 2)))) - Exp(0.5 * (Cos(2 * 3.1415" +
-    "93 * x1) + Cos(2 * 3.141593 * x2))) + 2.71828 + 20";
+            this.ObjectiveRichTextBox.Text = "1 + (Pow(x1, 2)/4000) + (Pow(x2, 2)/4000) - Cos(x1) * Cos(x2/Sqrt(2))";
             this.ObjectiveRichTextBox.WordWrap = false;
             this.ObjectiveRichTextBox.Enter += new System.EventHandler(this.ObjectiveRichTextBox_Enter);
             this.ObjectiveRichTextBox.Leave += new System.EventHandler(this.ObjectiveRichTextBox_Leave);
@@ -454,7 +453,7 @@
             this.x2MaxTextBox.Name = "x2MaxTextBox";
             this.x2MaxTextBox.Size = new System.Drawing.Size(400, 22);
             this.x2MaxTextBox.TabIndex = 122;
-            this.x2MaxTextBox.Text = "32.768";
+            this.x2MaxTextBox.Text = "600";
             this.x2MaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // x2MinTextBox
@@ -464,7 +463,7 @@
             this.x2MinTextBox.Name = "x2MinTextBox";
             this.x2MinTextBox.Size = new System.Drawing.Size(400, 22);
             this.x2MinTextBox.TabIndex = 121;
-            this.x2MinTextBox.Text = "-32.768";
+            this.x2MinTextBox.Text = "-600";
             this.x2MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // x1MinTextBox
@@ -475,7 +474,7 @@
             this.x1MinTextBox.Size = new System.Drawing.Size(400, 22);
             this.x1MinTextBox.TabIndex = 117;
             this.x1MinTextBox.Tag = "";
-            this.x1MinTextBox.Text = "-32.768";
+            this.x1MinTextBox.Text = "-600";
             this.x1MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // x1MaxTextBox
@@ -487,7 +486,7 @@
             this.x1MaxTextBox.Size = new System.Drawing.Size(400, 22);
             this.x1MaxTextBox.TabIndex = 116;
             this.x1MaxTextBox.Tag = "";
-            this.x1MaxTextBox.Text = "32.768";
+            this.x1MaxTextBox.Text = "600";
             this.x1MaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // algorithmTab

@@ -64,6 +64,8 @@ namespace HarmonySearch
 
             if (classicHS != null)
             {
+                if (classicHS.ShowAll == true)
+                    resultsRichTextBox.Text = classicHS.Results.ToString();
                 totalNotes = classicHS.TotalNotes;
                 BestHarmonyChart.Series.Add("Aesthetics");
                 BestHarmonyChart.Series[0].ChartType = SeriesChartType.Line;
@@ -114,6 +116,8 @@ namespace HarmonySearch
             }
             if (improvedHS != null)
             {
+                if (improvedHS.ShowAll == true)
+                    resultsRichTextBox.Text = improvedHS.Results.ToString();
                 totalNotes = improvedHS.TotalNotes;
                 BestHarmonyChart.Series.Add("Aesthetics");
                 BestHarmonyChart.Series[0].ChartType = SeriesChartType.Line;
@@ -163,6 +167,8 @@ namespace HarmonySearch
             }
             if (globalHS != null)
             {
+                if (globalHS.ShowAll == true)
+                    resultsRichTextBox.Text = globalHS.Results.ToString();
                 totalNotes = globalHS.TotalNotes;
                 BestHarmonyChart.Series.Add("Aesthetics");
                 BestHarmonyChart.Series[0].ChartType = SeriesChartType.Line;
@@ -212,6 +218,8 @@ namespace HarmonySearch
             }
             if (adaptiveHS != null)
             {
+                if (adaptiveHS.ShowAll == true)
+                    resultsRichTextBox.Text = adaptiveHS.Results.ToString();
                 totalNotes = adaptiveHS.TotalNotes;
                 BestHarmonyChart.Series.Add("Aesthetics");
                 BestHarmonyChart.Series[0].ChartType = SeriesChartType.Line;
@@ -267,12 +275,12 @@ namespace HarmonySearch
 
         private void saveResults(double bestHarmonyAesthetics)
         {
-            richTextBox1.Text += counter;
-            richTextBox1.Text += "\t";
-            richTextBox1.Text += bestHarmonyAesthetics;
-            richTextBox1.Text += "\n";
-            results.Add(bestHarmonyAesthetics);
-            counter++;
+            //resultsRichTextBox.Text += counter;
+            //resultsRichTextBox.Text += "\t";
+            //resultsRichTextBox.Text += bestHarmonyAesthetics;
+            //resultsRichTextBox.Text += "\n";
+            //results.Add(bestHarmonyAesthetics);
+            //counter++;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -319,29 +327,32 @@ namespace HarmonySearch
             }
         }
 
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            richTextBox1.Text += "\n\n\n AVERAGE: ";
-            double sum = 0;
-            double sumPowered = 0;
-            for (int i = 0; i < results.Count; i++)
-            {
-                sum += results[i];
-                sumPowered += Math.Pow(results[i], 2);
-            }
-            double avg = sum / results.Count;
-            double standardDeviation = Math.Round(Math.Sqrt(sumPowered / results.Count), 6);
-
-            richTextBox1.Text += Math.Round(avg, 6);
-            richTextBox1.Text += "\tStandard Deviation: " + sumPowered / results.Count + "\n\n";
-        }
-
         private void GraphsForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (isBackButtonPressed)
                 Dispose();
             else
                 Application.Exit();
+        }
+
+        private void averageButton_Click(object sender, EventArgs e)
+        {
+            //resultsRichTextBox.Text += "\n\n\n AVERAGE: ";
+            //double sum = 0;
+            //double variance = 0;
+            //for (int i = 0; i < results.Count; i++)
+            //{
+            //    sum += results[i];
+            //}
+            //double avg = sum / results.Count;
+            //for (int j = 0; j < results.Count; j++)
+            //{
+            //    variance += Math.Pow((results[j] - avg), 2);
+            //}
+            //double standardDeviation = Math.Sqrt(variance / results.Count);
+
+            //resultsRichTextBox.Text += Math.Round(avg, 6);
+            //resultsRichTextBox.Text += "\tStandard Deviation: " + Math.Round(standardDeviation, 6) + "\n\n";
         }
     }
 }

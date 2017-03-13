@@ -122,8 +122,6 @@ namespace HarmonySearch
                 return false;
             if (minBW <= 0)
                 return false;
-            if (minBW >= 1)
-                return false;
             float maxBW = 0.0f;
             if (!float.TryParse(maxBWText, NumberStyles.Any, CultureInfo.InvariantCulture, out maxBW))
                 return false;

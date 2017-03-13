@@ -103,9 +103,9 @@ namespace HarmonySearch
                 {
                     base.writeResults(currentImprovisation);
 
-                    Console.WriteLine(Results);
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
+                    //Console.WriteLine(Results);
+                    //Console.WriteLine("Press any key to continue...");
+                    //Console.ReadKey();
                 }
 
                 //Progress Bar Text

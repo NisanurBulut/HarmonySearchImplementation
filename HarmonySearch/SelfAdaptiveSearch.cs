@@ -82,6 +82,7 @@ namespace HarmonySearch
                     {
                         int randomHarmony = Convert.ToInt32(Randomizer.getRandomDouble(0, HMSize - 1));
                         newHarmony.notes[currentNote] = Memory[randomHarmony].notes[currentNote];
+                        updatePAR(currentImprovisation);
                         adjustPitch(newHarmony, currentNote);
                     }
                     else
@@ -106,9 +107,9 @@ namespace HarmonySearch
                 {
                     base.writeResults(currentImprovisation);
 
-                    Console.WriteLine(Results);
-                    Console.WriteLine("Press any key to continue...");
-                    Console.ReadKey();
+                    //Console.WriteLine(Results);
+                    //Console.WriteLine("Press any key to continue...");
+                    //Console.ReadKey();
                 }
 
                 progressBar.Value = currentImprovisation;
@@ -132,6 +133,12 @@ namespace HarmonySearch
 
                 newHarmony.notes[index] = restrictNote(newHarmony.notes[index], index);
             }
+        }
+
+        private void updatePAR(int currentImprovisation)
+        {
+            float newPAR = 1 - ((1 / NI) * currentImprovisation);
+            PAR = newPAR;
         }
 
         private void checkMaxVariables(Harmony newHarmony)

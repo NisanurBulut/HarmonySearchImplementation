@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HarmonySearch
 {
@@ -31,7 +32,7 @@ namespace HarmonySearch
         public double[] worstHarmoniesAesthetics { get; set; }
         public double[,] bestHarmoniesNotes { get; set; }
         public StringBuilder Results { get; set; }
-        public bool ShowAll;
+        public bool ShowAll { get; set; }
 
         protected Harmony[] Memory;
 

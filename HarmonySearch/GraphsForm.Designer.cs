@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphsForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series11 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series12 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BestHarmonyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.RerunButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -43,8 +43,8 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.numericsTab = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.averageButton = new System.Windows.Forms.Button();
+            this.resultsRichTextBox = new System.Windows.Forms.RichTextBox();
             this.aestheticsTab = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -62,13 +62,13 @@
             // 
             // BestHarmonyChart
             // 
-            chartArea1.Name = "ChartArea1";
-            this.BestHarmonyChart.ChartAreas.Add(chartArea1);
+            chartArea10.Name = "ChartArea1";
+            this.BestHarmonyChart.ChartAreas.Add(chartArea10);
             this.BestHarmonyChart.Location = new System.Drawing.Point(15, 94);
             this.BestHarmonyChart.Name = "BestHarmonyChart";
-            series1.ChartArea = "ChartArea1";
-            series1.Name = "Series1";
-            this.BestHarmonyChart.Series.Add(series1);
+            series10.ChartArea = "ChartArea1";
+            series10.Name = "Series1";
+            this.BestHarmonyChart.Series.Add(series10);
             this.BestHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.BestHarmonyChart.TabIndex = 5;
             this.BestHarmonyChart.Text = "chart1";
@@ -133,8 +133,8 @@
             // 
             this.numericsTab.AutoScroll = true;
             this.numericsTab.Controls.Add(this.label4);
-            this.numericsTab.Controls.Add(this.button2);
-            this.numericsTab.Controls.Add(this.richTextBox1);
+            this.numericsTab.Controls.Add(this.averageButton);
+            this.numericsTab.Controls.Add(this.resultsRichTextBox);
             this.numericsTab.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.numericsTab.Location = new System.Drawing.Point(4, 27);
             this.numericsTab.Name = "numericsTab";
@@ -154,23 +154,24 @@
             this.label4.TabIndex = 37;
             this.label4.Text = "Best Harmony";
             // 
-            // button2
+            // averageButton
             // 
-            this.button2.Location = new System.Drawing.Point(757, 557);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(619, 34);
-            this.button2.TabIndex = 36;
-            this.button2.Text = "Calculate average";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            this.averageButton.Location = new System.Drawing.Point(757, 557);
+            this.averageButton.Name = "averageButton";
+            this.averageButton.Size = new System.Drawing.Size(619, 34);
+            this.averageButton.TabIndex = 36;
+            this.averageButton.Text = "Calculate average";
+            this.averageButton.UseVisualStyleBackColor = true;
+            this.averageButton.Visible = false;
+            this.averageButton.Click += new System.EventHandler(this.averageButton_Click);
             // 
-            // richTextBox1
+            // resultsRichTextBox
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(757, 35);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(619, 516);
-            this.richTextBox1.TabIndex = 35;
-            this.richTextBox1.Text = "";
+            this.resultsRichTextBox.Location = new System.Drawing.Point(434, 35);
+            this.resultsRichTextBox.Name = "resultsRichTextBox";
+            this.resultsRichTextBox.Size = new System.Drawing.Size(942, 516);
+            this.resultsRichTextBox.TabIndex = 35;
+            this.resultsRichTextBox.Text = "";
             // 
             // aestheticsTab
             // 
@@ -220,26 +221,26 @@
             // 
             // WorstHarmonyChart
             // 
-            chartArea2.Name = "ChartArea1";
-            this.WorstHarmonyChart.ChartAreas.Add(chartArea2);
+            chartArea11.Name = "ChartArea1";
+            this.WorstHarmonyChart.ChartAreas.Add(chartArea11);
             this.WorstHarmonyChart.Location = new System.Drawing.Point(963, 94);
             this.WorstHarmonyChart.Name = "WorstHarmonyChart";
-            series2.ChartArea = "ChartArea1";
-            series2.Name = "Series1";
-            this.WorstHarmonyChart.Series.Add(series2);
+            series11.ChartArea = "ChartArea1";
+            series11.Name = "Series1";
+            this.WorstHarmonyChart.Series.Add(series11);
             this.WorstHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.WorstHarmonyChart.TabIndex = 7;
             this.WorstHarmonyChart.Text = "chart2";
             // 
             // NewHarmonyChart
             // 
-            chartArea3.Name = "ChartArea1";
-            this.NewHarmonyChart.ChartAreas.Add(chartArea3);
+            chartArea12.Name = "ChartArea1";
+            this.NewHarmonyChart.ChartAreas.Add(chartArea12);
             this.NewHarmonyChart.Location = new System.Drawing.Point(492, 94);
             this.NewHarmonyChart.Name = "NewHarmonyChart";
-            series3.ChartArea = "ChartArea1";
-            series3.Name = "Series1";
-            this.NewHarmonyChart.Series.Add(series3);
+            series12.ChartArea = "ChartArea1";
+            series12.Name = "Series1";
+            this.NewHarmonyChart.Series.Add(series12);
             this.NewHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.NewHarmonyChart.TabIndex = 6;
             this.NewHarmonyChart.Text = "chart1";
@@ -292,8 +293,8 @@
         private System.Windows.Forms.ProgressBar SearchProgress;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage numericsTab;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button averageButton;
+        private System.Windows.Forms.RichTextBox resultsRichTextBox;
         private System.Windows.Forms.TabPage aestheticsTab;
         private System.Windows.Forms.TabPage notesTab;
         private System.Windows.Forms.DataVisualization.Charting.Chart WorstHarmonyChart;
