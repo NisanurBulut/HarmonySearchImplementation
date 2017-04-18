@@ -149,10 +149,10 @@ namespace HarmonySearch
                 for (int j = 0; j < TotalNotes; j++)
                 {
                     Results.Append("\t");
-                    Results.Append("Note " + j + ": " + Math.Round(Memory[i].notes[j], 3));
+                    Results.Append("Note " + j + ": " + Math.Round(Memory[i].notes[j], 6));
                 }
                 //Results += Environment.NewLine;
-                Results.Append("\t Aesthetics: " + Math.Round(getHarmonyAesthetics(Memory[i]), 3));
+                Results.Append("\t Aesthetics: " + Math.Round(getHarmonyAesthetics(Memory[i]), 9));
                 //Results += Environment.NewLine;
             }
             Results.Append(Environment.NewLine);

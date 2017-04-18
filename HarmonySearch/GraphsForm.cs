@@ -9,7 +9,7 @@ namespace HarmonySearch
     {
         public bool ShowAll { get; set; }
         private int totalNotes;
-        private int counter = 0;
+        public bool activationFlag;
         private bool isBackButtonPressed = false;
 
         public ClassicSearch classicHS { get; set; }
@@ -28,7 +28,7 @@ namespace HarmonySearch
 
         private void GraphsForm_Activated(object sender, EventArgs e)
         {
-            if (counter != 0)
+            if (activationFlag == false)
                 return;
             SearchProgress.Show();
             this.Enabled = false;
@@ -36,6 +36,7 @@ namespace HarmonySearch
             plotChart();
             SearchProgress.Hide();
             this.Enabled = true;
+            activationFlag = false;
         }
 
         private void RerunButton_Click(object sender, EventArgs e)

@@ -37,7 +37,12 @@ namespace HarmonySearch
 
         public static void MessageBoxStyle(String message)
         {
-            MessageBox.Show(message, "Harmony Search Lab", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(message, "Harmony Search", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        public static void MessageBoxSuccessStyle(String message)
+        {
+            MessageBox.Show(message, "Harmony Search", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static void TextBoxStyle(TextBox textBox, int number)
