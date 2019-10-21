@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Harmony_Search_Implements.Enums;
 
 namespace Harmony_Search_Implements.SearchingProcess
 {
@@ -42,9 +43,57 @@ namespace Harmony_Search_Implements.SearchingProcess
             base.Memory = new Harmony[HMSize];//hafızayı tazele
             for (int i = 0; i < HMSize; i++)
             {
-              //  Memory[i] = getRandomHarmony();
+                Memory[i] = getRandomHarmony();
             }
-           // sortMemory();
+            sortMemory();
+        }
+        protected void sortMemory()
+        {
+            Harmony tempHar = new Harmony();
+            for (int i = 0; i < Memory.Length; i++)
+            {
+                for (int j = i + 1; j < HMSize; j++)
+                {
+                    if (Optimum.Equals(OptimizationGoal.Max))
+                    {
+                        if (getHarmonyAesthetics(Memory[i]) < getHarmonyAesthetics(Memory[j]))
+                        {
+                            tempHar = Memory[i];
+                            Memory[i] = Memory[j];
+                            Memory[j] = tempHar;
+                        }
+                    }
+                    if (Optimum.Equals(OptimizationGoal.Min))
+                    {
+                        if (getHarmonyAesthetics(Memory[i]) > getHarmonyAesthetics(Memory[j]))
+                        {
+                            tempHar = Memory[i];
+                            Memory[i] = Memory[j];
+                            Memory[j] = tempHar;
+                        }
+                    }
+                    if (Optimum.Equals(OptimizationGoal.MinAbs))
+                    {
+                        if (Math.Abs(getHarmonyAesthetics(Memory[i])) > Math.Abs(getHarmonyAesthetics(Memory[j])))
+                        {
+                            tempHar = Memory[i];
+                            Memory[i] = Memory[j];
+                            Memory[j] = tempHar;
+                        }
+                    }
+                }
+            }
+        }
+        protected double getHarmonyAesthetics(Harmony harmony)
+        {
+            int j = 0;
+            for (int i = 0; i < TotalNotes; i++)
+            {
+                j = i + 1;
+                Objective.Parameters["x" + j] = harmony.notes[i];
+            }
+            var returnValue= (double)Objective.Evaluate();
+            return returnValue;
         }
     }
 }

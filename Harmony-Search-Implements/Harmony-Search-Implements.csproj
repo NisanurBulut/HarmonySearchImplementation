@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Enums\HarmonySearchVariant.cs" />
     <Compile Include="Enums\OptimizationGoal.cs" />
+    <Compile Include="Helpers\Randomizer.cs" />
     <Compile Include="Screens\ConfigForm.cs">
       <SubType>Form</SubType>
     </Compile>

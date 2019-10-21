@@ -43,22 +43,16 @@
             this.MaxRadioBtn = new System.Windows.Forms.RadioButton();
             this.MinRadioBtn = new System.Windows.Forms.RadioButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.playButton = new System.Windows.Forms.Button();
-            this.x2Label = new System.Windows.Forms.Label();
-            this.x1Label = new System.Windows.Forms.Label();
-            this.x2MinTextBox = new System.Windows.Forms.TextBox();
-            this.x1MinTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.MinValueLabel = new System.Windows.Forms.Label();
             this.x2MaxTextBox = new System.Windows.Forms.TextBox();
             this.x1MaxTextBox = new System.Windows.Forms.TextBox();
-            this.MinValueLabel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.x2MinTextBox = new System.Windows.Forms.TextBox();
+            this.x1MinTextBox = new System.Windows.Forms.TextBox();
+            this.x2Label = new System.Windows.Forms.Label();
+            this.x1Label = new System.Windows.Forms.Label();
             this.algorithmTab = new System.Windows.Forms.TabPage();
-            this.HSVariantsLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.ImprovedRadioButton = new System.Windows.Forms.RadioButton();
-            this.AdaptiveRadioButton = new System.Windows.Forms.RadioButton();
-            this.GlobalRadioButton = new System.Windows.Forms.RadioButton();
-            this.ClassicRadioButton = new System.Windows.Forms.RadioButton();
+            this.ParametersLabel = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.PARTextBox = new System.Windows.Forms.TextBox();
             this.HMCRTextBox = new System.Windows.Forms.TextBox();
@@ -78,7 +72,13 @@
             this.HMSTextBox = new System.Windows.Forms.TextBox();
             this.NILabel = new System.Windows.Forms.Label();
             this.NITextBox = new System.Windows.Forms.TextBox();
-            this.ParametersLabel = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.ImprovedRadioButton = new System.Windows.Forms.RadioButton();
+            this.AdaptiveRadioButton = new System.Windows.Forms.RadioButton();
+            this.GlobalRadioButton = new System.Windows.Forms.RadioButton();
+            this.ClassicRadioButton = new System.Windows.Forms.RadioButton();
+            this.HSVariantsLabel = new System.Windows.Forms.Label();
+            this.playButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -86,8 +86,8 @@
             this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.algorithmTab.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -182,7 +182,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(786, 238);
+            this.tabPage1.Size = new System.Drawing.Size(1181, 298);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Problem Ayarları";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -273,65 +273,30 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(786, 238);
+            this.tabPage2.Size = new System.Drawing.Size(1181, 298);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Karar Değişkenleri";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // playButton
+            // label3
             // 
-            this.playButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.playButton.BackColor = System.Drawing.Color.Transparent;
-            this.playButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.playButton.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
-            this.playButton.Location = new System.Drawing.Point(517, 485);
-            this.playButton.Name = "playButton";
-            this.playButton.Size = new System.Drawing.Size(160, 48);
-            this.playButton.TabIndex = 29;
-            this.playButton.UseVisualStyleBackColor = false;
-            this.playButton.Click += new System.EventHandler(this.PlayButton_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.label3.Location = new System.Drawing.Point(529, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 18);
+            this.label3.TabIndex = 135;
+            this.label3.Text = "Max";
             // 
-            // x2Label
+            // MinValueLabel
             // 
-            this.x2Label.AutoSize = true;
-            this.x2Label.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.x2Label.Location = new System.Drawing.Point(213, 110);
-            this.x2Label.Name = "x2Label";
-            this.x2Label.Size = new System.Drawing.Size(28, 18);
-            this.x2Label.TabIndex = 129;
-            this.x2Label.Text = "X2";
-            // 
-            // x1Label
-            // 
-            this.x1Label.AutoSize = true;
-            this.x1Label.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.x1Label.Location = new System.Drawing.Point(213, 60);
-            this.x1Label.Name = "x1Label";
-            this.x1Label.Size = new System.Drawing.Size(28, 18);
-            this.x1Label.TabIndex = 128;
-            this.x1Label.Text = "X1";
-            // 
-            // x2MinTextBox
-            // 
-            this.x2MinTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.x2MinTextBox.Location = new System.Drawing.Point(331, 110);
-            this.x2MinTextBox.Name = "x2MinTextBox";
-            this.x2MinTextBox.Size = new System.Drawing.Size(90, 22);
-            this.x2MinTextBox.TabIndex = 131;
-            this.x2MinTextBox.Text = "-5.12";
-            this.x2MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // x1MinTextBox
-            // 
-            this.x1MinTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.x1MinTextBox.Location = new System.Drawing.Point(331, 60);
-            this.x1MinTextBox.Name = "x1MinTextBox";
-            this.x1MinTextBox.Size = new System.Drawing.Size(90, 22);
-            this.x1MinTextBox.TabIndex = 130;
-            this.x1MinTextBox.Tag = "";
-            this.x1MinTextBox.Text = "-5.12";
-            this.x1MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MinValueLabel.AutoSize = true;
+            this.MinValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MinValueLabel.Location = new System.Drawing.Point(350, 23);
+            this.MinValueLabel.Name = "MinValueLabel";
+            this.MinValueLabel.Size = new System.Drawing.Size(38, 18);
+            this.MinValueLabel.TabIndex = 134;
+            this.MinValueLabel.Text = "Min";
             // 
             // x2MaxTextBox
             // 
@@ -356,25 +321,46 @@
             this.x1MaxTextBox.Text = "5.12";
             this.x1MaxTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // MinValueLabel
+            // x2MinTextBox
             // 
-            this.MinValueLabel.AutoSize = true;
-            this.MinValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.MinValueLabel.Location = new System.Drawing.Point(350, 23);
-            this.MinValueLabel.Name = "MinValueLabel";
-            this.MinValueLabel.Size = new System.Drawing.Size(38, 18);
-            this.MinValueLabel.TabIndex = 134;
-            this.MinValueLabel.Text = "Min";
+            this.x2MinTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.x2MinTextBox.Location = new System.Drawing.Point(331, 110);
+            this.x2MinTextBox.Name = "x2MinTextBox";
+            this.x2MinTextBox.Size = new System.Drawing.Size(90, 22);
+            this.x2MinTextBox.TabIndex = 131;
+            this.x2MinTextBox.Text = "-5.12";
+            this.x2MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label3
+            // x1MinTextBox
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.label3.Location = new System.Drawing.Point(529, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 18);
-            this.label3.TabIndex = 135;
-            this.label3.Text = "Max";
+            this.x1MinTextBox.Font = new System.Drawing.Font("Courier New", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.x1MinTextBox.Location = new System.Drawing.Point(331, 60);
+            this.x1MinTextBox.Name = "x1MinTextBox";
+            this.x1MinTextBox.Size = new System.Drawing.Size(90, 22);
+            this.x1MinTextBox.TabIndex = 130;
+            this.x1MinTextBox.Tag = "";
+            this.x1MinTextBox.Text = "-5.12";
+            this.x1MinTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // x2Label
+            // 
+            this.x2Label.AutoSize = true;
+            this.x2Label.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.x2Label.Location = new System.Drawing.Point(213, 110);
+            this.x2Label.Name = "x2Label";
+            this.x2Label.Size = new System.Drawing.Size(28, 18);
+            this.x2Label.TabIndex = 129;
+            this.x2Label.Text = "X2";
+            // 
+            // x1Label
+            // 
+            this.x1Label.AutoSize = true;
+            this.x1Label.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.x1Label.Location = new System.Drawing.Point(213, 60);
+            this.x1Label.Name = "x1Label";
+            this.x1Label.Size = new System.Drawing.Size(28, 18);
+            this.x1Label.TabIndex = 128;
+            this.x1Label.Text = "X1";
             // 
             // algorithmTab
             // 
@@ -390,78 +376,16 @@
             this.algorithmTab.Text = "Algoritma ayarları";
             this.algorithmTab.UseVisualStyleBackColor = true;
             // 
-            // HSVariantsLabel
+            // ParametersLabel
             // 
-            this.HSVariantsLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.HSVariantsLabel.AutoSize = true;
-            this.HSVariantsLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.HSVariantsLabel.Location = new System.Drawing.Point(38, 16);
-            this.HSVariantsLabel.Name = "HSVariantsLabel";
-            this.HSVariantsLabel.Size = new System.Drawing.Size(398, 18);
-            this.HSVariantsLabel.TabIndex = 100;
-            this.HSVariantsLabel.Text = "Harmony Search Yönteminin Varyasyonları";
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel1.Controls.Add(this.ImprovedRadioButton);
-            this.panel1.Controls.Add(this.AdaptiveRadioButton);
-            this.panel1.Controls.Add(this.GlobalRadioButton);
-            this.panel1.Controls.Add(this.ClassicRadioButton);
-            this.panel1.Location = new System.Drawing.Point(41, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(342, 164);
-            this.panel1.TabIndex = 101;
-            // 
-            // ImprovedRadioButton
-            // 
-            this.ImprovedRadioButton.AutoSize = true;
-            this.ImprovedRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ImprovedRadioButton.Location = new System.Drawing.Point(3, 45);
-            this.ImprovedRadioButton.Name = "ImprovedRadioButton";
-            this.ImprovedRadioButton.Size = new System.Drawing.Size(281, 25);
-            this.ImprovedRadioButton.TabIndex = 93;
-            this.ImprovedRadioButton.Tag = "ImprovedHS";
-            this.ImprovedRadioButton.Text = "Improved Harmony Search";
-            this.ImprovedRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // AdaptiveRadioButton
-            // 
-            this.AdaptiveRadioButton.AutoSize = true;
-            this.AdaptiveRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.AdaptiveRadioButton.Location = new System.Drawing.Point(3, 136);
-            this.AdaptiveRadioButton.Name = "AdaptiveRadioButton";
-            this.AdaptiveRadioButton.Size = new System.Drawing.Size(336, 25);
-            this.AdaptiveRadioButton.TabIndex = 95;
-            this.AdaptiveRadioButton.Tag = "SelfAdaptiveHS";
-            this.AdaptiveRadioButton.Text = "Self Adaptive Harmony Search";
-            this.AdaptiveRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // GlobalRadioButton
-            // 
-            this.GlobalRadioButton.AutoSize = true;
-            this.GlobalRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.GlobalRadioButton.Location = new System.Drawing.Point(3, 90);
-            this.GlobalRadioButton.Name = "GlobalRadioButton";
-            this.GlobalRadioButton.Size = new System.Drawing.Size(314, 25);
-            this.GlobalRadioButton.TabIndex = 94;
-            this.GlobalRadioButton.Tag = "GlobalBestHS";
-            this.GlobalRadioButton.Text = "Global Best Harmony Search";
-            this.GlobalRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // ClassicRadioButton
-            // 
-            this.ClassicRadioButton.AutoSize = true;
-            this.ClassicRadioButton.Checked = true;
-            this.ClassicRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.ClassicRadioButton.Location = new System.Drawing.Point(3, 3);
-            this.ClassicRadioButton.Name = "ClassicRadioButton";
-            this.ClassicRadioButton.Size = new System.Drawing.Size(270, 25);
-            this.ClassicRadioButton.TabIndex = 92;
-            this.ClassicRadioButton.TabStop = true;
-            this.ClassicRadioButton.Tag = "ClassicHS";
-            this.ClassicRadioButton.Text = "Classic Harmony Search";
-            this.ClassicRadioButton.UseVisualStyleBackColor = true;
+            this.ParametersLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.ParametersLabel.AutoSize = true;
+            this.ParametersLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ParametersLabel.Location = new System.Drawing.Point(663, 16);
+            this.ParametersLabel.Name = "ParametersLabel";
+            this.ParametersLabel.Size = new System.Drawing.Size(318, 18);
+            this.ParametersLabel.TabIndex = 135;
+            this.ParametersLabel.Text = "Klasik Uyum Arama parametreleri";
             // 
             // panel3
             // 
@@ -686,7 +610,7 @@
             this.HMSTextBox.Size = new System.Drawing.Size(60, 29);
             this.HMSTextBox.TabIndex = 118;
             this.HMSTextBox.Tag = "";
-            this.HMSTextBox.Text = "20";
+            this.HMSTextBox.Text = "3";
             this.HMSTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // NILabel
@@ -708,19 +632,95 @@
             this.NITextBox.Name = "NITextBox";
             this.NITextBox.Size = new System.Drawing.Size(80, 29);
             this.NITextBox.TabIndex = 116;
-            this.NITextBox.Text = "500";
+            this.NITextBox.Text = "10";
             this.NITextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // ParametersLabel
+            // panel1
             // 
-            this.ParametersLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ParametersLabel.AutoSize = true;
-            this.ParametersLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ParametersLabel.Location = new System.Drawing.Point(663, 16);
-            this.ParametersLabel.Name = "ParametersLabel";
-            this.ParametersLabel.Size = new System.Drawing.Size(318, 18);
-            this.ParametersLabel.TabIndex = 135;
-            this.ParametersLabel.Text = "Klasik Uyum Arama parametreleri";
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Controls.Add(this.ImprovedRadioButton);
+            this.panel1.Controls.Add(this.AdaptiveRadioButton);
+            this.panel1.Controls.Add(this.GlobalRadioButton);
+            this.panel1.Controls.Add(this.ClassicRadioButton);
+            this.panel1.Location = new System.Drawing.Point(41, 49);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(342, 164);
+            this.panel1.TabIndex = 101;
+            // 
+            // ImprovedRadioButton
+            // 
+            this.ImprovedRadioButton.AutoSize = true;
+            this.ImprovedRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ImprovedRadioButton.Location = new System.Drawing.Point(3, 45);
+            this.ImprovedRadioButton.Name = "ImprovedRadioButton";
+            this.ImprovedRadioButton.Size = new System.Drawing.Size(281, 25);
+            this.ImprovedRadioButton.TabIndex = 93;
+            this.ImprovedRadioButton.Tag = "ImprovedHS";
+            this.ImprovedRadioButton.Text = "Improved Harmony Search";
+            this.ImprovedRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // AdaptiveRadioButton
+            // 
+            this.AdaptiveRadioButton.AutoSize = true;
+            this.AdaptiveRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.AdaptiveRadioButton.Location = new System.Drawing.Point(3, 136);
+            this.AdaptiveRadioButton.Name = "AdaptiveRadioButton";
+            this.AdaptiveRadioButton.Size = new System.Drawing.Size(336, 25);
+            this.AdaptiveRadioButton.TabIndex = 95;
+            this.AdaptiveRadioButton.Tag = "SelfAdaptiveHS";
+            this.AdaptiveRadioButton.Text = "Self Adaptive Harmony Search";
+            this.AdaptiveRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // GlobalRadioButton
+            // 
+            this.GlobalRadioButton.AutoSize = true;
+            this.GlobalRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.GlobalRadioButton.Location = new System.Drawing.Point(3, 90);
+            this.GlobalRadioButton.Name = "GlobalRadioButton";
+            this.GlobalRadioButton.Size = new System.Drawing.Size(314, 25);
+            this.GlobalRadioButton.TabIndex = 94;
+            this.GlobalRadioButton.Tag = "GlobalBestHS";
+            this.GlobalRadioButton.Text = "Global Best Harmony Search";
+            this.GlobalRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // ClassicRadioButton
+            // 
+            this.ClassicRadioButton.AutoSize = true;
+            this.ClassicRadioButton.Checked = true;
+            this.ClassicRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ClassicRadioButton.Location = new System.Drawing.Point(3, 3);
+            this.ClassicRadioButton.Name = "ClassicRadioButton";
+            this.ClassicRadioButton.Size = new System.Drawing.Size(270, 25);
+            this.ClassicRadioButton.TabIndex = 92;
+            this.ClassicRadioButton.TabStop = true;
+            this.ClassicRadioButton.Tag = "ClassicHS";
+            this.ClassicRadioButton.Text = "Classic Harmony Search";
+            this.ClassicRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // HSVariantsLabel
+            // 
+            this.HSVariantsLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.HSVariantsLabel.AutoSize = true;
+            this.HSVariantsLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.HSVariantsLabel.Location = new System.Drawing.Point(38, 16);
+            this.HSVariantsLabel.Name = "HSVariantsLabel";
+            this.HSVariantsLabel.Size = new System.Drawing.Size(398, 18);
+            this.HSVariantsLabel.TabIndex = 100;
+            this.HSVariantsLabel.Text = "Harmony Search Yönteminin Varyasyonları";
+            // 
+            // playButton
+            // 
+            this.playButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.playButton.BackColor = System.Drawing.Color.Transparent;
+            this.playButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.playButton.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
+            this.playButton.Location = new System.Drawing.Point(517, 485);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(160, 48);
+            this.playButton.TabIndex = 29;
+            this.playButton.UseVisualStyleBackColor = false;
+            this.playButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
             // ConfigForm
             // 
@@ -745,10 +745,10 @@
             this.tabPage2.PerformLayout();
             this.algorithmTab.ResumeLayout(false);
             this.algorithmTab.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

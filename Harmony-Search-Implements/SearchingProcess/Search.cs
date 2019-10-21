@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Harmony_Search_Implements.Helpers;
 using NCalc;
 
 namespace Harmony_Search_Implements.SearchingProcess
@@ -27,6 +28,15 @@ namespace Harmony_Search_Implements.SearchingProcess
 
         public Expression Objective { get; set; }
         public OptimizationGoal Optimum { get; set; }
+        protected virtual Harmony getRandomHarmony()
+        {
+            Harmony hrm = new Harmony();
+            hrm.notes = new double[TotalNotes];
+            for (int i = 0; i < TotalNotes; i++)
+                hrm.notes[i] = Randomizer.getRandomDouble(MinimumValues[i], MaximumValues[i]);
+
+            return hrm;
+        }
 
     }
 }

@@ -36,11 +36,24 @@ namespace Harmony_Search_Implements.Screens
                 return;
             SearchProgress.Show();
             this.Enabled = false;
-           // performHarmonySearch();
+            performHarmonySearch();
             //plotChart();
             SearchProgress.Hide();
             this.Enabled = true;
             activationFlag = false;
         }
+        private void performHarmonySearch()
+        {
+            if (classicHS != null)
+            {
+                classicHS.ShowAll = ShowAll;
+                classicHS.initializeMemory();
+                SearchProgress.Minimum = 0;//iterasyon değerleri
+                SearchProgress.Maximum = classicHS.NI;
+               // classicHS.Run(SearchProgress);
+            }
+            
+        }
+
     }
 }
