@@ -71,7 +71,7 @@ namespace HarmonySearch
                     float randomFloat = Randomizer.getRandomFloat(0.0f, 1.0f);
                     if (randomFloat <= HMCR)
                     {
-                        //Debug.WriteLine("HMCR");
+                        Debug.WriteLine("HMCR");
                         int randomHarmony = Convert.ToInt32(Randomizer.getRandomDouble(0, HMSize - 1));
                         newHarmony.notes[currentNote] = base.Memory[randomHarmony].notes[currentNote];
                         adjustPitch(newHarmony, currentNote);
