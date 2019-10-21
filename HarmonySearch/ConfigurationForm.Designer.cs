@@ -113,9 +113,9 @@
             this.ObjectiveLabel.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ObjectiveLabel.Location = new System.Drawing.Point(593, 38);
             this.ObjectiveLabel.Name = "ObjectiveLabel";
-            this.ObjectiveLabel.Size = new System.Drawing.Size(263, 22);
+            this.ObjectiveLabel.Size = new System.Drawing.Size(175, 22);
             this.ObjectiveLabel.TabIndex = 100;
-            this.ObjectiveLabel.Text = "Αντικειμενική Συνάρτηση";
+            this.ObjectiveLabel.Text = "Amaç Fonksiyonu";
             this.Tips.SetToolTip(this.ObjectiveLabel, "Objective Function");
             // 
             // x2Label
@@ -146,9 +146,9 @@
             this.MinValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MinValueLabel.Location = new System.Drawing.Point(378, 58);
             this.MinValueLabel.Name = "MinValueLabel";
-            this.MinValueLabel.Size = new System.Drawing.Size(88, 18);
+            this.MinValueLabel.Size = new System.Drawing.Size(38, 18);
             this.MinValueLabel.TabIndex = 119;
-            this.MinValueLabel.Text = "Ελάχιστο";
+            this.MinValueLabel.Text = "Min";
             this.Tips.SetToolTip(this.MinValueLabel, "Minimum Value of Decision Variable");
             // 
             // MaxValueLabel
@@ -158,9 +158,9 @@
             this.MaxValueLabel.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MaxValueLabel.Location = new System.Drawing.Point(1051, 58);
             this.MaxValueLabel.Name = "MaxValueLabel";
-            this.MaxValueLabel.Size = new System.Drawing.Size(78, 18);
+            this.MaxValueLabel.Size = new System.Drawing.Size(38, 18);
             this.MaxValueLabel.TabIndex = 118;
-            this.MaxValueLabel.Text = "Μέγιστο";
+            this.MaxValueLabel.Text = "Μax";
             this.Tips.SetToolTip(this.MaxValueLabel, "Maximum Value of Decision Variable");
             // 
             // HMSLabel
@@ -316,7 +316,7 @@
             this.problemTab.Padding = new System.Windows.Forms.Padding(3);
             this.problemTab.Size = new System.Drawing.Size(1416, 667);
             this.problemTab.TabIndex = 0;
-            this.problemTab.Text = "Ρυθμίσεις Προβλήματος";
+            this.problemTab.Text = "Problem Ayarları";
             this.problemTab.UseVisualStyleBackColor = true;
             // 
             // ObjectiveRichTextBox
@@ -344,9 +344,9 @@
             this.showAllCheckBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.showAllCheckBox.Location = new System.Drawing.Point(525, 441);
             this.showAllCheckBox.Name = "showAllCheckBox";
-            this.showAllCheckBox.Size = new System.Drawing.Size(397, 22);
+            this.showAllCheckBox.Size = new System.Drawing.Size(427, 22);
             this.showAllCheckBox.TabIndex = 119;
-            this.showAllCheckBox.Text = "Επίδειξη υποψήφιων λύσεων κάθε γενιάς";
+            this.showAllCheckBox.Text = "Her nesilde aday çözümlerin gösterilmesi";
             this.showAllCheckBox.UseVisualStyleBackColor = true;
             // 
             // RunOptionsLabel
@@ -356,9 +356,9 @@
             this.RunOptionsLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.RunOptionsLabel.Location = new System.Drawing.Point(617, 411);
             this.RunOptionsLabel.Name = "RunOptionsLabel";
-            this.RunOptionsLabel.Size = new System.Drawing.Size(218, 18);
+            this.RunOptionsLabel.Size = new System.Drawing.Size(198, 18);
             this.RunOptionsLabel.TabIndex = 118;
-            this.RunOptionsLabel.Text = "Επιλογές Προγράμματος";
+            this.RunOptionsLabel.Text = "Program Seçenekleri";
             // 
             // linkLabel1
             // 
@@ -381,8 +381,8 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(861, 58);
             this.label1.TabIndex = 103;
-            this.label1.Text = "* Οι μαθηματικές εκφράσεις της αντικειμενικής συνάρτησης πρέπει να έχουν την μορφ" +
-    "ή που περιγράφεται στον παρακάτω σύνδεσμο";
+            this.label1.Text = "* Amaç fonksiyonunun matematiksel ifadeleri aşağıdaki linkte açıklandığı şekilde " +
+    "olmalıdır.";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel2
@@ -394,7 +394,7 @@
             this.panel2.Controls.Add(this.MinRadioBtn);
             this.panel2.Location = new System.Drawing.Point(580, 198);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(303, 101);
+            this.panel2.Size = new System.Drawing.Size(326, 101);
             this.panel2.TabIndex = 102;
             // 
             // MinAbsRadioBtn
@@ -403,10 +403,10 @@
             this.MinAbsRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MinAbsRadioBtn.Location = new System.Drawing.Point(19, 65);
             this.MinAbsRadioBtn.Name = "MinAbsRadioBtn";
-            this.MinAbsRadioBtn.Size = new System.Drawing.Size(281, 25);
+            this.MinAbsRadioBtn.Size = new System.Drawing.Size(193, 25);
             this.MinAbsRadioBtn.TabIndex = 121;
             this.MinAbsRadioBtn.TabStop = true;
-            this.MinAbsRadioBtn.Text = "Ελαχιστοποίηση(απόλυτο)";
+            this.MinAbsRadioBtn.Text = "Küçült (mutlak)";
             this.MinAbsRadioBtn.UseVisualStyleBackColor = true;
             // 
             // MaxRadioBtn
@@ -415,9 +415,9 @@
             this.MaxRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MaxRadioBtn.Location = new System.Drawing.Point(64, 3);
             this.MaxRadioBtn.Name = "MaxRadioBtn";
-            this.MaxRadioBtn.Size = new System.Drawing.Size(171, 25);
+            this.MaxRadioBtn.Size = new System.Drawing.Size(237, 25);
             this.MaxRadioBtn.TabIndex = 16;
-            this.MaxRadioBtn.Text = "Μεγιστοποίηση";
+            this.MaxRadioBtn.Text = "Max Değere Çıkarmak";
             this.MaxRadioBtn.UseVisualStyleBackColor = true;
             // 
             // MinRadioBtn
@@ -427,10 +427,10 @@
             this.MinRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.MinRadioBtn.Location = new System.Drawing.Point(64, 34);
             this.MinRadioBtn.Name = "MinRadioBtn";
-            this.MinRadioBtn.Size = new System.Drawing.Size(182, 25);
+            this.MinRadioBtn.Size = new System.Drawing.Size(259, 25);
             this.MinRadioBtn.TabIndex = 17;
             this.MinRadioBtn.TabStop = true;
-            this.MinRadioBtn.Text = "Ελαχιστοποίηση";
+            this.MinRadioBtn.Text = "Min Değere İndirgemek";
             this.MinRadioBtn.UseVisualStyleBackColor = true;
             // 
             // variablesTab
@@ -450,7 +450,7 @@
             this.variablesTab.Padding = new System.Windows.Forms.Padding(3);
             this.variablesTab.Size = new System.Drawing.Size(1416, 667);
             this.variablesTab.TabIndex = 1;
-            this.variablesTab.Text = "Μεταβλητές Απόφασης";
+            this.variablesTab.Text = "Karar değişkenleri";
             this.variablesTab.UseVisualStyleBackColor = true;
             // 
             // x2MaxTextBox
@@ -525,7 +525,7 @@
             this.algorithmTab.Name = "algorithmTab";
             this.algorithmTab.Size = new System.Drawing.Size(1416, 667);
             this.algorithmTab.TabIndex = 2;
-            this.algorithmTab.Text = "Ρυθμίσεις Αλγορίθμου";
+            this.algorithmTab.Text = "Algoritma Ayarları";
             this.algorithmTab.UseVisualStyleBackColor = true;
             // 
             // ParametersLabel
@@ -535,9 +535,9 @@
             this.ParametersLabel.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ParametersLabel.Location = new System.Drawing.Point(461, 363);
             this.ParametersLabel.Name = "ParametersLabel";
-            this.ParametersLabel.Size = new System.Drawing.Size(491, 23);
+            this.ParametersLabel.Size = new System.Drawing.Size(413, 23);
             this.ParametersLabel.TabIndex = 115;
-            this.ParametersLabel.Text = "Παράμετροι της Classic Harmony Search";
+            this.ParametersLabel.Text = "Klasik Uyum Arama parametreleri";
             // 
             // PARTextBox
             // 
@@ -645,10 +645,10 @@
             this.ImprovedRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ImprovedRadioButton.Location = new System.Drawing.Point(3, 45);
             this.ImprovedRadioButton.Name = "ImprovedRadioButton";
-            this.ImprovedRadioButton.Size = new System.Drawing.Size(281, 25);
+            this.ImprovedRadioButton.Size = new System.Drawing.Size(292, 25);
             this.ImprovedRadioButton.TabIndex = 93;
             this.ImprovedRadioButton.Tag = "ImprovedHS";
-            this.ImprovedRadioButton.Text = "Improved Harmony Search";
+            this.ImprovedRadioButton.Text = "Geliştirilmiş Uyum Arama";
             this.ImprovedRadioButton.UseVisualStyleBackColor = true;
             this.ImprovedRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
@@ -658,10 +658,10 @@
             this.AdaptiveRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.AdaptiveRadioButton.Location = new System.Drawing.Point(3, 136);
             this.AdaptiveRadioButton.Name = "AdaptiveRadioButton";
-            this.AdaptiveRadioButton.Size = new System.Drawing.Size(336, 25);
+            this.AdaptiveRadioButton.Size = new System.Drawing.Size(369, 25);
             this.AdaptiveRadioButton.TabIndex = 95;
             this.AdaptiveRadioButton.Tag = "SelfAdaptiveHS";
-            this.AdaptiveRadioButton.Text = "Self Adaptive Harmony Search";
+            this.AdaptiveRadioButton.Text = "Kendinden Uyarlamalı Uyum Arama";
             this.AdaptiveRadioButton.UseVisualStyleBackColor = true;
             this.AdaptiveRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
@@ -671,10 +671,10 @@
             this.GlobalRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.GlobalRadioButton.Location = new System.Drawing.Point(3, 90);
             this.GlobalRadioButton.Name = "GlobalRadioButton";
-            this.GlobalRadioButton.Size = new System.Drawing.Size(314, 25);
+            this.GlobalRadioButton.Size = new System.Drawing.Size(369, 25);
             this.GlobalRadioButton.TabIndex = 94;
             this.GlobalRadioButton.Tag = "GlobalBestHS";
-            this.GlobalRadioButton.Text = "Global Best Harmony Search";
+            this.GlobalRadioButton.Text = "Küresel En İyi Uyum Araştırması";
             this.GlobalRadioButton.UseVisualStyleBackColor = true;
             this.GlobalRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
@@ -685,11 +685,11 @@
             this.ClassicRadioButton.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.ClassicRadioButton.Location = new System.Drawing.Point(3, 3);
             this.ClassicRadioButton.Name = "ClassicRadioButton";
-            this.ClassicRadioButton.Size = new System.Drawing.Size(270, 25);
+            this.ClassicRadioButton.Size = new System.Drawing.Size(248, 25);
             this.ClassicRadioButton.TabIndex = 92;
             this.ClassicRadioButton.TabStop = true;
             this.ClassicRadioButton.Tag = "ClassicHS";
-            this.ClassicRadioButton.Text = "Classic Harmony Search";
+            this.ClassicRadioButton.Text = "Klasik Harmoni Arama";
             this.ClassicRadioButton.UseVisualStyleBackColor = true;
             this.ClassicRadioButton.CheckedChanged += new System.EventHandler(this.RadioButton_CheckedChanged);
             // 
@@ -700,9 +700,9 @@
             this.HSVariantsLabel.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.HSVariantsLabel.Location = new System.Drawing.Point(480, 73);
             this.HSVariantsLabel.Name = "HSVariantsLabel";
-            this.HSVariantsLabel.Size = new System.Drawing.Size(491, 23);
+            this.HSVariantsLabel.Size = new System.Drawing.Size(517, 23);
             this.HSVariantsLabel.TabIndex = 99;
-            this.HSVariantsLabel.Text = "Παραλλαγές της μεθόδου Harmony Search";
+            this.HSVariantsLabel.Text = "Harmony Search yönteminin varyasyonları";
             // 
             // HMSTextBox
             // 
@@ -737,7 +737,7 @@
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Size = new System.Drawing.Size(1416, 667);
             this.tabPage1.TabIndex = 3;
-            this.tabPage1.Text = "Save & Load";
+            this.tabPage1.Text = "Kaydet & Yükle";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -747,7 +747,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Τοποθεσία:";
+            this.label2.Text = "Dosya Yolu";
             // 
             // saveButton
             // 

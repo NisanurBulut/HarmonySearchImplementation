@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphsForm));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.BestHarmonyChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.RerunButton = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -62,13 +62,13 @@
             // 
             // BestHarmonyChart
             // 
-            chartArea4.Name = "ChartArea1";
-            this.BestHarmonyChart.ChartAreas.Add(chartArea4);
+            chartArea1.Name = "ChartArea1";
+            this.BestHarmonyChart.ChartAreas.Add(chartArea1);
             this.BestHarmonyChart.Location = new System.Drawing.Point(15, 94);
             this.BestHarmonyChart.Name = "BestHarmonyChart";
-            series4.ChartArea = "ChartArea1";
-            series4.Name = "Series1";
-            this.BestHarmonyChart.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Name = "Series1";
+            this.BestHarmonyChart.Series.Add(series1);
             this.BestHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.BestHarmonyChart.TabIndex = 5;
             this.BestHarmonyChart.Text = "chart1";
@@ -89,9 +89,9 @@
             this.label10.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label10.Location = new System.Drawing.Point(546, 9);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(238, 31);
+            this.label10.Size = new System.Drawing.Size(222, 31);
             this.label10.TabIndex = 30;
-            this.label10.Text = "HARMONY SEARCH";
+            this.label10.Text = "HARMONY ARAMA";
             // 
             // BackButton
             // 
@@ -138,10 +138,10 @@
             this.numericsTab.Font = new System.Drawing.Font("Courier New", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.numericsTab.Location = new System.Drawing.Point(4, 27);
             this.numericsTab.Name = "numericsTab";
-            this.numericsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.numericsTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.numericsTab.Size = new System.Drawing.Size(1399, 605);
             this.numericsTab.TabIndex = 0;
-            this.numericsTab.Text = "Αριθμητικά Αποτελέσματα";
+            this.numericsTab.Text = "Sayısal sonuçlar";
             this.numericsTab.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -150,9 +150,9 @@
             this.label4.Font = new System.Drawing.Font("Courier New", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label4.Location = new System.Drawing.Point(13, 35);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(218, 23);
+            this.label4.Size = new System.Drawing.Size(166, 23);
             this.label4.TabIndex = 37;
-            this.label4.Text = "Βέλτιστη Αρμονία";
+            this.label4.Text = "Optimal Uyum";
             // 
             // averageButton
             // 
@@ -183,10 +183,10 @@
             this.aestheticsTab.Controls.Add(this.BestHarmonyChart);
             this.aestheticsTab.Location = new System.Drawing.Point(4, 27);
             this.aestheticsTab.Name = "aestheticsTab";
-            this.aestheticsTab.Padding = new System.Windows.Forms.Padding(3);
+            this.aestheticsTab.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
             this.aestheticsTab.Size = new System.Drawing.Size(1399, 605);
             this.aestheticsTab.TabIndex = 1;
-            this.aestheticsTab.Text = "Διαγράμματα Αντικειμενικής Συνάρτησης";
+            this.aestheticsTab.Text = "Nesne İşlev Çizelgeleri";
             this.aestheticsTab.UseVisualStyleBackColor = true;
             // 
             // label3
@@ -195,9 +195,9 @@
             this.label3.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label3.Location = new System.Drawing.Point(1114, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(197, 22);
+            this.label3.Size = new System.Drawing.Size(142, 22);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Χειρότερη Αρμονία";
+            this.label3.Text = "En Kötü Uyum";
             // 
             // label2
             // 
@@ -205,9 +205,9 @@
             this.label2.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label2.Location = new System.Drawing.Point(651, 69);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 22);
+            this.label2.Size = new System.Drawing.Size(109, 22);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Νέα Αρμονία";
+            this.label2.Text = "Yeni uyum";
             // 
             // label1
             // 
@@ -215,32 +215,32 @@
             this.label1.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
             this.label1.Location = new System.Drawing.Point(170, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 22);
+            this.label1.Size = new System.Drawing.Size(153, 22);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Καλύτερη Αρμονία";
+            this.label1.Text = "Daha iyi uyum";
             // 
             // WorstHarmonyChart
             // 
-            chartArea5.Name = "ChartArea1";
-            this.WorstHarmonyChart.ChartAreas.Add(chartArea5);
+            chartArea2.Name = "ChartArea1";
+            this.WorstHarmonyChart.ChartAreas.Add(chartArea2);
             this.WorstHarmonyChart.Location = new System.Drawing.Point(963, 94);
             this.WorstHarmonyChart.Name = "WorstHarmonyChart";
-            series5.ChartArea = "ChartArea1";
-            series5.Name = "Series1";
-            this.WorstHarmonyChart.Series.Add(series5);
+            series2.ChartArea = "ChartArea1";
+            series2.Name = "Series1";
+            this.WorstHarmonyChart.Series.Add(series2);
             this.WorstHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.WorstHarmonyChart.TabIndex = 7;
             this.WorstHarmonyChart.Text = "chart2";
             // 
             // NewHarmonyChart
             // 
-            chartArea6.Name = "ChartArea1";
-            this.NewHarmonyChart.ChartAreas.Add(chartArea6);
+            chartArea3.Name = "ChartArea1";
+            this.NewHarmonyChart.ChartAreas.Add(chartArea3);
             this.NewHarmonyChart.Location = new System.Drawing.Point(492, 94);
             this.NewHarmonyChart.Name = "NewHarmonyChart";
-            series6.ChartArea = "ChartArea1";
-            series6.Name = "Series1";
-            this.NewHarmonyChart.Series.Add(series6);
+            series3.ChartArea = "ChartArea1";
+            series3.Name = "Series1";
+            this.NewHarmonyChart.Series.Add(series3);
             this.NewHarmonyChart.Size = new System.Drawing.Size(421, 445);
             this.NewHarmonyChart.TabIndex = 6;
             this.NewHarmonyChart.Text = "chart1";
@@ -252,7 +252,7 @@
             this.notesTab.Name = "notesTab";
             this.notesTab.Size = new System.Drawing.Size(1399, 605);
             this.notesTab.TabIndex = 2;
-            this.notesTab.Text = "Διαγράμματα Μεταβλητών Απόφασης";
+            this.notesTab.Text = "Değişken Karar Tabloları";
             this.notesTab.UseVisualStyleBackColor = true;
             // 
             // GraphsForm

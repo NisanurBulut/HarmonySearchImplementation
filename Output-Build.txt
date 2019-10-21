@@ -1,0 +1,4 @@
+﻿1>------ Build started: Project: HarmonySearch, Configuration: Debug Any CPU ------
+1>C:\Users\nisanur.bulut\Documents\Görüntü İşleme Proje\Automatic-number-plate-recognition\antogian\HarmonySearch\HarmonySearch\ConfigurationForm.cs(194,29,194,30): warning CS0168: The variable 'e' is declared but never used
+1>  HarmonySearch -> C:\Users\nisanur.bulut\Documents\Görüntü İşleme Proje\Automatic-number-plate-recognition\antogian\HarmonySearch\HarmonySearch\bin\Debug\HarmonySearch.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
