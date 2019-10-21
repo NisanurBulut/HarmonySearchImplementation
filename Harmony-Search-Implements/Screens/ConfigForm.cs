@@ -41,9 +41,6 @@ namespace Harmony_Search_Implements
 
             HarmonyOptimalForm graphs = new HarmonyOptimalForm();
             graphs.classicHS = classicHS;
-            graphs.improvedHS = improvedHS;
-            graphs.globalHS = globalHS;
-            graphs.adaptiveHS = adaptiveHS;
             graphs.ShowAll = showAllCheckBox.Checked;
             graphs.activationFlag = true;
             graphs.Configuration = this;

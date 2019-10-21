@@ -154,7 +154,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HarmonyOptimalForm";
             this.Text = "HarmonyOptimalForm";
-            this.Load += new System.EventHandler(this.HarmonyOptimalForm_Load);
+            
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.numericsTab.ResumeLayout(false);
