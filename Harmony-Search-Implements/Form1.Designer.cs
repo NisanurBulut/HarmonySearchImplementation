@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -36,9 +37,18 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.MinAbsRadioBtn = new System.Windows.Forms.RadioButton();
+            this.MaxRadioBtn = new System.Windows.Forms.RadioButton();
+            this.MinRadioBtn = new System.Windows.Forms.RadioButton();
+            this.RunOptionsLabel = new System.Windows.Forms.Label();
+            this.showAllCheckBox = new System.Windows.Forms.CheckBox();
+            this.playButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -48,14 +58,15 @@
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.playButton, 0, 3);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -117,15 +128,18 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 115);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(794, 309);
+            this.tabControl1.Size = new System.Drawing.Size(794, 264);
             this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.showAllCheckBox);
+            this.tabPage1.Controls.Add(this.RunOptionsLabel);
+            this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(786, 283);
+            this.tabPage1.Size = new System.Drawing.Size(786, 238);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Problem Ayarları";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -140,6 +154,93 @@
             this.tabPage2.Text = "Karar Değişkenleri";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel2.AutoSize = true;
+            this.panel2.Controls.Add(this.MinAbsRadioBtn);
+            this.panel2.Controls.Add(this.MaxRadioBtn);
+            this.panel2.Controls.Add(this.MinRadioBtn);
+            this.panel2.Location = new System.Drawing.Point(233, 20);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(325, 101);
+            this.panel2.TabIndex = 103;
+            // 
+            // MinAbsRadioBtn
+            // 
+            this.MinAbsRadioBtn.AutoSize = true;
+            this.MinAbsRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MinAbsRadioBtn.Location = new System.Drawing.Point(19, 65);
+            this.MinAbsRadioBtn.Name = "MinAbsRadioBtn";
+            this.MinAbsRadioBtn.Size = new System.Drawing.Size(303, 25);
+            this.MinAbsRadioBtn.TabIndex = 121;
+            this.MinAbsRadioBtn.TabStop = true;
+            this.MinAbsRadioBtn.Text = "Mutlaka Değere İndirgemek\r\n";
+            this.MinAbsRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // MaxRadioBtn
+            // 
+            this.MaxRadioBtn.AutoSize = true;
+            this.MaxRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MaxRadioBtn.Location = new System.Drawing.Point(64, 3);
+            this.MaxRadioBtn.Name = "MaxRadioBtn";
+            this.MaxRadioBtn.Size = new System.Drawing.Size(193, 25);
+            this.MaxRadioBtn.TabIndex = 16;
+            this.MaxRadioBtn.Text = "MAX Değer Arama";
+            this.MaxRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // MinRadioBtn
+            // 
+            this.MinRadioBtn.AutoSize = true;
+            this.MinRadioBtn.Checked = true;
+            this.MinRadioBtn.Font = new System.Drawing.Font("Courier New", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.MinRadioBtn.Location = new System.Drawing.Point(64, 34);
+            this.MinRadioBtn.Name = "MinRadioBtn";
+            this.MinRadioBtn.Size = new System.Drawing.Size(248, 25);
+            this.MinRadioBtn.TabIndex = 17;
+            this.MinRadioBtn.TabStop = true;
+            this.MinRadioBtn.Text = "Min Değere İndirgeme";
+            this.MinRadioBtn.UseVisualStyleBackColor = true;
+            // 
+            // RunOptionsLabel
+            // 
+            this.RunOptionsLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.RunOptionsLabel.AutoSize = true;
+            this.RunOptionsLabel.Font = new System.Drawing.Font("Courier New", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.RunOptionsLabel.Location = new System.Drawing.Point(292, 142);
+            this.RunOptionsLabel.Name = "RunOptionsLabel";
+            this.RunOptionsLabel.Size = new System.Drawing.Size(198, 18);
+            this.RunOptionsLabel.TabIndex = 119;
+            this.RunOptionsLabel.Text = "Program Seçenekleri";
+            // 
+            // showAllCheckBox
+            // 
+            this.showAllCheckBox.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.showAllCheckBox.AutoSize = true;
+            this.showAllCheckBox.Checked = true;
+            this.showAllCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.showAllCheckBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.showAllCheckBox.Location = new System.Drawing.Point(191, 185);
+            this.showAllCheckBox.Name = "showAllCheckBox";
+            this.showAllCheckBox.Size = new System.Drawing.Size(427, 22);
+            this.showAllCheckBox.TabIndex = 120;
+            this.showAllCheckBox.Text = "Her nesilde aday çözümlerin gösterilmesi";
+            this.showAllCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // playButton
+            // 
+            this.playButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.playButton.BackColor = System.Drawing.Color.Transparent;
+            this.playButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.playButton.Font = new System.Drawing.Font("Courier New", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.playButton.Image = ((System.Drawing.Image)(resources.GetObject("playButton.Image")));
+            this.playButton.Location = new System.Drawing.Point(320, 392);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(160, 48);
+            this.playButton.TabIndex = 29;
+            this.playButton.UseVisualStyleBackColor = false;
+            this.playButton.Click += new System.EventHandler(this.PlayButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,12 +249,16 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Ayar Ekranı";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -168,6 +273,13 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.CheckBox showAllCheckBox;
+        private System.Windows.Forms.Label RunOptionsLabel;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.RadioButton MinAbsRadioBtn;
+        private System.Windows.Forms.RadioButton MaxRadioBtn;
+        private System.Windows.Forms.RadioButton MinRadioBtn;
+        private System.Windows.Forms.Button playButton;
     }
 }
 

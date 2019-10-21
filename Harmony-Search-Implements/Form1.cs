@@ -16,5 +16,10 @@ namespace Harmony_Search_Implements
         {
             InitializeComponent();
         }
+
+        private void PlayButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
