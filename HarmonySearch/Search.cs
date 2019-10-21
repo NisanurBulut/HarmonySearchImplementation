@@ -18,7 +18,6 @@ namespace HarmonySearch
     {
         Max, Min, MinAbs
     }
-
     public abstract class Search
     {
         public int NI { get; set; } //Number of Improvisations
