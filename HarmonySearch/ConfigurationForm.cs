@@ -179,8 +179,7 @@ namespace HarmonySearch
             //}
             if (totalNotesControls < 2)
             {
-                //ControlStyle.MessageBoxStyle("The algorithm requires at least 2 decision variables.");
-                ControlStyle.MessageBoxStyle("Ο αλγόριθμος απαιτεί τουλάχιστον 2 μεταβλητές απόφασης.");
+                ControlStyle.MessageBoxStyle("Algoritma 2 karakterli karar değişkeni almak zorundadır.");
                 return false;
             }
             try
@@ -193,8 +192,7 @@ namespace HarmonySearch
             }
             catch(Exception e)
             {
-                //ControlStyle.MessageBoxStyle("The objective function is not valid. Please try again.");
-                ControlStyle.MessageBoxStyle("Η αντικειμενική συνάρτηση δεν συντάχθηκε σωστά.");
+                ControlStyle.MessageBoxStyle("Amaç fonksiyonu anlamlı değildir. Lütfen yeniden deneyiniz.");
                 return false;
             }
 
@@ -204,35 +202,30 @@ namespace HarmonySearch
                 TextBox maxTextBox = (TextBox)this.Controls.Find("x" + (i + 1) + "MaxTextBox", true)[0];
                 if (!ConfigurationRules.areExtremeValuesValid(minTextBox.Text, maxTextBox.Text))
                 {
-                    //ControlStyle.MessageBoxStyle("Decision variable " + "X" + (i + 1) + " bounds are not valid.");
-                    ControlStyle.MessageBoxStyle("Τα όρια της μεταβλητής απόφασης " + "X" + (i + 1) + " δεν είναι σωστά.");
+                    ControlStyle.MessageBoxStyle("Karar değişkenleri " + "X" + (i + 1) + " doğru değildir.");
                     return false;
                 }
             }
             if (!ConfigurationRules.isNIValid(NITextBox.Text))
             {
-                //ControlStyle.MessageBoxStyle("NI(Number of Improvisations) field is not valid. Please try again.");
-                ControlStyle.MessageBoxStyle("Το πεδίο NI(Number of Improvisations) δεν είναι σωστό.");
+                ControlStyle.MessageBoxStyle("NI (Döngü Sayısı) alanı geçersiz. Lütfen tekrar deneyiniz.");
                 return false;
             }
             if (!ConfigurationRules.isHMSValid(HMSTextBox.Text))
             {
-                //ControlStyle.MessageBoxStyle("HMS(Harmony Memory Size) field is not valid. Please try again.");
-                ControlStyle.MessageBoxStyle("Το πεδίο HMS(Harmony Memory Size) δεν είναι σωστό.");
+                ControlStyle.MessageBoxStyle("Το πεδίο HMS(Harmony Memory Size) geçerli değil. Lütfen tekrar deneyiniz.");
                 return false;
             }
             if (!ConfigurationRules.isHMCRValid(HMCRTextBox.Text))
             {
-                //ControlStyle.MessageBoxStyle("HMCR(Harmony Memory Consideration Rate) field is not valid. Please try again.");
-                ControlStyle.MessageBoxStyle("Το πεδίο HMCR(Harmony Memory Consideration Rate) δεν είναι σωστό.");
+                ControlStyle.MessageBoxStyle("HMCR (Harmony Memory Consideration Rate) alanı geçersiz. Lütfen tekrar deneyiniz.");
                 return false;
             }
             if (!currentVariant.Equals(HarmonySearchVariant.Improved))
             {
                 if (!ConfigurationRules.isPARValid(PARTextBox.Text))
                 {
-                    //ControlStyle.MessageBoxStyle("PAR(Pitch Adjustment Rate) field is not valid.");
-                    ControlStyle.MessageBoxStyle("Το πεδίο PAR(Pitch Adjustment Rate) δεν είναι σωστό.");
+                    ControlStyle.MessageBoxStyle("PAR(Pitch Adjustment Rate) alanı geçerli değildir.");
                     return false;
                 }
                 if(currentVariant.Equals(HarmonySearchVariant.Classic))
@@ -545,5 +538,7 @@ namespace HarmonySearch
 
             ControlStyle.MessageBoxSuccessStyle("Οι παράμετροι του αλγορίθμου αποθηκεύτηκαν επιτυχώς σε αρχείο.");
         }
+
+        
     }
 }
