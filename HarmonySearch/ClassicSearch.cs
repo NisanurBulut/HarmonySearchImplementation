@@ -66,6 +66,7 @@ namespace HarmonySearch
             {
                 Harmony newHarmony = new Harmony();
                 newHarmony.notes = new double[TotalNotes];
+                //Adım 2
                 for (int currentNote = 0; currentNote < TotalNotes; currentNote++)
                 {
                     float randomFloat = Randomizer.getRandomFloat(0.0f, 1.0f);
@@ -81,6 +82,7 @@ namespace HarmonySearch
                         newHarmony.notes[currentNote] = Randomizer.getRandomDouble(MinimumValues[currentNote], MaximumValues[currentNote]);
                     }
                 }
+                //Adım3
                 base.updateMemory(newHarmony, currentImprovisation);
                 //if (currentImprovisation == diversityIteration)
                 //{
