@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Harmony_Search_Implements
 {
-    public partial class Form1 : Form
+    public partial class ConfigForm : Form
     {
-        public Form1()
+        public ConfigForm()
         {
             InitializeComponent();
         }
@@ -20,6 +20,11 @@ namespace Harmony_Search_Implements
         private void PlayButton_Click(object sender, EventArgs e)
         {
 
+        }
+        private Boolean isInputOk()
+        {
+          
+            return true;
         }
     }
 }
