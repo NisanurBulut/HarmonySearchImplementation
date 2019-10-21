@@ -297,6 +297,7 @@ namespace HarmonySearch
             if (classicHS != null)
             {
                 classicHS.ShowAll = ShowAll;
+                //Adım 1
                 classicHS.initializeMemory();
                 SearchProgress.Minimum = 0;
                 SearchProgress.Maximum = classicHS.NI;

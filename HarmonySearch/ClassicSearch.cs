@@ -111,7 +111,7 @@ namespace HarmonySearch
                 //Progress Bar Text
                 progressBar.Value = currentImprovisation;
                 int percent = (int)(((double)(progressBar.Value - progressBar.Minimum) / (double)(progressBar.Maximum - progressBar.Minimum)) * 100);
-                string progressMessage = "Please wait... Harmony Search in progress. " + percent.ToString() + "%" + " completed.";
+                string progressMessage = "Lütfen bekleyin... Harmony arama süreci " + percent.ToString() + "%" + " tamamlandı.";
                 ControlStyle.SetProgressBarText(progressBar, progressMessage, ControlStyle.ProgressBarTextLocation.Centered, Color.Black, new Font("Arial", 16));
             }
         }
