@@ -106,11 +106,11 @@ namespace HarmonySearch
                     base.writeResults(currentImprovisation);
 
                     //Console.WriteLine(Results);
-                    //Console.WriteLine("Press any key to continue...");
+                    //Console.WriteLine("Devam etmek için bir tuşa basın...");
                     //Console.ReadKey();
                 }
 
-                //Progress Bar Text
+                //Progress Bar 
                 progressBar.Value = currentImprovisation;
                 int percent = (int)(((double)(progressBar.Value - progressBar.Minimum) / (double)(progressBar.Maximum - progressBar.Minimum)) * 100);
                 string progressMessage = "Lütfen bekleyin... Harmony arama süreci " + percent.ToString() + "%" + " tamamlandı.";
