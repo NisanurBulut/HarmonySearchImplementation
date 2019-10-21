@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Harmony_Search_Implements.Enums;
 using Harmony_Search_Implements.Helpers;
+using Harmony_Search_Implements.Screens;
 using Harmony_Search_Implements.SearchingProcess;
 using Harmony_Search_Implements.Styling;
 using NCalc;
@@ -37,6 +38,18 @@ namespace Harmony_Search_Implements
                 setHarmonySearch();
             else
                 return;
+
+            HarmonyOptimalForm graphs = new HarmonyOptimalForm();
+            graphs.classicHS = classicHS;
+            graphs.improvedHS = improvedHS;
+            graphs.globalHS = globalHS;
+            graphs.adaptiveHS = adaptiveHS;
+            graphs.ShowAll = showAllCheckBox.Checked;
+            graphs.activationFlag = true;
+            graphs.Configuration = this;
+
+            this.Hide();
+            graphs.Show();
         }
         private Boolean isInputOk()
         {
