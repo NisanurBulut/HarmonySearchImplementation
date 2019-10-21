@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HarmonySearch", "HarmonySearch\HarmonySearch.csproj", "{B41089E4-292A-49B3-A9B6-6024DC5D0997}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Harmony-Search-Implements", "Harmony-Search-Implements\Harmony-Search-Implements.csproj", "{C01383BE-B17B-4D47-93F9-A5BC821A8665}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,12 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B41089E4-292A-49B3-A9B6-6024DC5D0997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B41089E4-292A-49B3-A9B6-6024DC5D0997}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B41089E4-292A-49B3-A9B6-6024DC5D0997}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B41089E4-292A-49B3-A9B6-6024DC5D0997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C01383BE-B17B-4D47-93F9-A5BC821A8665}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C01383BE-B17B-4D47-93F9-A5BC821A8665}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C01383BE-B17B-4D47-93F9-A5BC821A8665}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C01383BE-B17B-4D47-93F9-A5BC821A8665}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {917D7A7A-4345-4087-957B-C3CAE73AB5AC}
 	EndGlobalSection
 EndGlobal
