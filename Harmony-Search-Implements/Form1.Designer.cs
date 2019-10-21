@@ -33,7 +33,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
-            this.lbl_AmacFonksiyonu = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -44,6 +43,7 @@
             this.RunOptionsLabel = new System.Windows.Forms.Label();
             this.showAllCheckBox = new System.Windows.Forms.CheckBox();
             this.playButton = new System.Windows.Forms.Button();
+            this.ObjectiveRichTextBox = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tabControl1.SuspendLayout();
@@ -86,8 +86,8 @@
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.ObjectiveRichTextBox, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.lbl_AmacFonksiyonu, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 48);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -108,17 +108,6 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Amaç Fonksiyonu\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl_AmacFonksiyonu
-            // 
-            this.lbl_AmacFonksiyonu.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lbl_AmacFonksiyonu.AutoSize = true;
-            this.lbl_AmacFonksiyonu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lbl_AmacFonksiyonu.Location = new System.Drawing.Point(171, 34);
-            this.lbl_AmacFonksiyonu.Name = "lbl_AmacFonksiyonu";
-            this.lbl_AmacFonksiyonu.Size = new System.Drawing.Size(452, 16);
-            this.lbl_AmacFonksiyonu.TabIndex = 2;
-            this.lbl_AmacFonksiyonu.Text = "10*2 + Pow(x1, 2) - 10*Cos(2*3.14159*x1) + Pow(x2, 2) - 10*Cos(2*3.14159*x2)";
             // 
             // tabControl1
             // 
@@ -241,6 +230,20 @@
             this.playButton.UseVisualStyleBackColor = false;
             this.playButton.Click += new System.EventHandler(this.PlayButton_Click);
             // 
+            // ObjectiveRichTextBox
+            // 
+            this.ObjectiveRichTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ObjectiveRichTextBox.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.ObjectiveRichTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ObjectiveRichTextBox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
+            this.ObjectiveRichTextBox.Location = new System.Drawing.Point(3, 27);
+            this.ObjectiveRichTextBox.Name = "ObjectiveRichTextBox";
+            this.ObjectiveRichTextBox.Size = new System.Drawing.Size(788, 31);
+            this.ObjectiveRichTextBox.TabIndex = 121;
+            this.ObjectiveRichTextBox.Text = "10*2 + Pow(x1, 2) - 10*Cos(2*3.14159*x1) + Pow(x2, 2) - 10*Cos(2*3.14159*x2)";
+            this.ObjectiveRichTextBox.WordWrap = false;
+            // 
             // ConfigForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -270,7 +273,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_AmacFonksiyonu;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -281,6 +283,7 @@
         private System.Windows.Forms.RadioButton MaxRadioBtn;
         private System.Windows.Forms.RadioButton MinRadioBtn;
         private System.Windows.Forms.Button playButton;
+        private System.Windows.Forms.RichTextBox ObjectiveRichTextBox;
     }
 }
 
