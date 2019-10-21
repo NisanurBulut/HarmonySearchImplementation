@@ -38,6 +38,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BackButton = new System.Windows.Forms.Button();
             this.RerunButton = new System.Windows.Forms.Button();
+            this.SearchProgress = new System.Windows.Forms.ProgressBar();
             this.tableLayoutPanel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.numericsTab.SuspendLayout();
@@ -48,14 +49,16 @@
             // 
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.SearchProgress, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
@@ -66,10 +69,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.numericsTab);
             this.tabControl1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(161)));
-            this.tabControl1.Location = new System.Drawing.Point(3, 93);
+            this.tabControl1.Location = new System.Drawing.Point(3, 70);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(794, 354);
+            this.tabControl1.Size = new System.Drawing.Size(794, 331);
             this.tabControl1.TabIndex = 39;
             // 
             // numericsTab
@@ -82,7 +85,7 @@
             this.numericsTab.Location = new System.Drawing.Point(4, 27);
             this.numericsTab.Name = "numericsTab";
             this.numericsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.numericsTab.Size = new System.Drawing.Size(786, 323);
+            this.numericsTab.Size = new System.Drawing.Size(786, 300);
             this.numericsTab.TabIndex = 0;
             this.numericsTab.Text = "Sayısal Sonuçlar";
             this.numericsTab.UseVisualStyleBackColor = true;
@@ -122,7 +125,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(794, 84);
+            this.panel1.Size = new System.Drawing.Size(794, 61);
             this.panel1.TabIndex = 0;
             // 
             // BackButton
@@ -144,6 +147,16 @@
             this.RerunButton.TabIndex = 33;
             this.RerunButton.UseVisualStyleBackColor = true;
             // 
+            // SearchProgress
+            // 
+            this.SearchProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SearchProgress.Location = new System.Drawing.Point(3, 407);
+            this.SearchProgress.Name = "SearchProgress";
+            this.SearchProgress.Size = new System.Drawing.Size(794, 40);
+            this.SearchProgress.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.SearchProgress.TabIndex = 40;
+            // 
             // HarmonyOptimalForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -154,7 +167,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "HarmonyOptimalForm";
             this.Text = "HarmonyOptimalForm";
-            
+            this.Activated += new System.EventHandler(this.HarmonyOptimalForm_Activated);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.numericsTab.ResumeLayout(false);
@@ -175,5 +188,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BackButton;
         private System.Windows.Forms.Button RerunButton;
+        private System.Windows.Forms.ProgressBar SearchProgress;
     }
 }

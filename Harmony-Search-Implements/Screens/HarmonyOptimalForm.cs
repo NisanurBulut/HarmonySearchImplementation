@@ -30,6 +30,17 @@ namespace Harmony_Search_Implements.Screens
             InitializeComponent();
         }
 
-       
+        private void HarmonyOptimalForm_Activated(object sender, EventArgs e)
+        {
+            if (activationFlag == false)
+                return;
+            SearchProgress.Show();
+            this.Enabled = false;
+           // performHarmonySearch();
+            //plotChart();
+            SearchProgress.Hide();
+            this.Enabled = true;
+            activationFlag = false;
+        }
     }
 }
